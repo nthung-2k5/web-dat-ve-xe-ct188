@@ -9,38 +9,44 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="./fontawesome-free-6.7.2-web/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="trangchustyle.css">
+  <link rel="stylesheet" href="./styles/trangchustyle.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
+<!-- đã fix lỗi -->
 <body class="page" >
   <header class="page__header"> 
-      <nav class="navbar navbar-expand-md">
-        <div class="container-fluid px-0">
-          <a class="navbar-brand" href="trangchu.html">
-            <img src="./images/logo.png" alt="Route3Go logo">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-between align-items-center" id="nav">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="trangchu.html">
+            <img src="./logo.png" alt="Route3Go logo">
+        </a>
+        <!-- Toggle button khi màn hình nhỏ -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-              <div class="navbar-left">
-                <ul class="header-navbar__list">   
-                  <li class="header-navbar__item"><a class="header-navbar__link header-navbar__link--active" href="trangchu.html">TRANG CHỦ</a></li>    
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../lienhe/lienhe.html">LIÊN HỆ</a></li>
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../timchuyen/timchuyen.html">TÌM CHUYẾN</a></li>
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../gioithieu/gioithieu.html">VỀ CHÚNG TÔI</a></li>
-                </ul>
-              </div>
-              <div class="navbar-right">
-                <ul class="header-navbar__list">   
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../vexe/vexe.html"><i class="fa-solid fa-ticket"></i></a></li>
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../dangnhap/dangnhap.html">ĐĂNG NHẬP</a></li>
-                  <li class="header-navbar__item"><a class="header-navbar__link" href="../dangky/dangky.html">ĐĂNG KÝ</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-      </nav>
+        <!-- Nội dung bên trong navbar -->
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+          <!-- Menu bên trái -->
+          <ul class="navbar-nav">
+            <li class="nav-item "><a class="nav-link active " href="trangchu.html">TRANG CHỦ</a></li>    
+            <li class="nav-item"><a class="nav-link" href="../lienhe/lienhe.html">LIÊN HỆ</a></li>
+            <li class="nav-item""><a class="nav-link" href="../timchuyen/timchuyen.html">TÌM CHUYẾN</a></li>
+            <li class="nav-item"><a class="nav-link" href="../gioithieu/gioithieu.html">VỀ CHÚNG TÔI</a></li>
+          </ul>
+
+          <!-- Menu bên phải -->
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../vexe/vexe.html"><i class="bi bi-ticket-detailed"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="../dangnhap/dangnhap.html">ĐĂNG NHẬP</a></li>
+            <li class="nav-item"><a class="nav-link" href="../dangky/dangky.html">ĐĂNG KÝ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header> 
   <main class="main">
     <article class="main-arcticle">
@@ -53,7 +59,7 @@
          ngập tràn với Route3Go. Việc đặt vé xe khách chưa bao giờ đơn giản hơn thế!</p>
         <div class="section-div__voucher">
           <a href="./timchuyen/timchuyen.html" class="promo-voucher text-white d-flex align-items-center px-5 py-4" style="text-decoration: none;">
-            <img src="./images/voucher2.png" class="me-4" alt="Đặc sản 1" />
+            <img src="./images/voucher.png" class="me-4" alt="Voucher" />
             <div class="section-div__voucher--text">
               <h2 class="fw-bold">TUYỂN MỚI RA MẮT!</h2>
               <p class="fs-4">GIẢM 50% TẤT CẢ VÉ</p>
