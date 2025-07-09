@@ -1,3 +1,4 @@
+/* đã fix */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,74 +36,41 @@ img {
 } 
 
 /* HEADER*/
-.header{
-    grid-area: header-cell;
-    box-shadow: 0.1px 0.05px 0.05px rgba(0,0,0,0.1);
-    border-radius: 50px;       
-    max-height:100%;
-    background-image: url(./images/logo.png);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.navbar{
+    padding-left: 60px;
+    padding-right: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
-.header-navbar{
-    display: flex;
-    justify-content: space-around;
-    text-wrap: wrap;
-    width: 100%;
+.navbar-brand img {
+    width: 6rem; 
+    height: auto; 
 }
-.navbar-expand-md {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 1.2rem !important;
-}
-.header-navbar__list {
-  list-style: none;     /* bỏ dấu chấm */
-  margin: 0;            /* xóa margin */
-  padding: 0;           /* xóa padding */
-  display: flex;        /* hiển thị ngang */
-  gap: 1rem;            /* khoảng cách giữa các item */
-}
-.header-navbar__item, .header-navbar__link{
+.nav-link {
     color: #333;
-    display: inline-block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin: 0 8px;
-    text-decoration: none;
-    
 }
-.header-navbar__link:hover, .header-navbar__link--active {  
+.nav-item, .nav-link{
+    font-size: 1.1rem;
+    margin: 0 8px;
+}
+.nav-link:hover, .nav-item:hover {  
     color: #0055d4;
-    font-weight: 700px;
     text-decoration: underline;
-    text-underline-offset: 0.65rem;    /* cách dòng chữ 4px */
+    text-underline-offset: 0.5rem;    /* cách dòng chữ 4px */
     text-decoration-thickness: 0.15rem; /* độ dày của line */
     text-decoration-color: #9bb5f9; /* đổi màu line */
     transition: color 0.3s ease;
 }
-.header-navbar__login--link i {
-  font-size: 20px;
-  color: orange;
-}
-.navbar {
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 1rem 2rem;
-}
-.navbar .nav-link {
-  color: #302b2983;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.navbar .nav-link.active{
+    color: #0055d4;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;    /* cách dòng chữ 4px */
+    text-decoration-thickness: 0.15rem; /* độ dày của line */
+    text-decoration-color: #6c96ff; /* đổi màu line */
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-  color: #0d6efd;
-  text-decoration: underline;
-}
-.navbar-brand img {
-  height: 50px;
-}
+/* main */
 .main-arcticle{
     grid-area: article-cell;
     display: grid;
