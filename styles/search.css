@@ -1,0 +1,83 @@
+/* Main Styles for Bus365 Search Page */
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-dark: #0a58ca;
+    --primary-light: #cfe2ff;
+    --accent-color: #0dcaf0;
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.9)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    color: white;
+}
+
+.search-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.btn-search {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-search:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-book-now {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-book-now:hover {
+    background-color: var(--primary-dark);
+}
+
+.route-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s;
+    padding: 1rem;
+}
+
+.route-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.bus-type-checkbox {
+    margin-right: 5px;
+}
+
+.bus-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    color: #ffc107;
+}

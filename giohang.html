@@ -1,259 +1,272 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Route3Go - Đặt Vé Xe</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background-color: #e9f1fb;
-      min-height: 100vh;
-    }
-    .navbar-custom {
-      background: linear-gradient(90deg, #0d6efd, #6610f2);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .navbar-custom .nav-link,
-    .navbar-custom .navbar-brand {
-      color: white !important;
-    }
-    .navbar-custom .nav-link:hover {
-      color: #ffc107 !important;
-    }
-    .card {
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
-    }
-    .card-title {
-      font-weight: 700;
-      color: #0d6efd;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .seat {
-      width: 45px;
-      height: 45px;
-      margin: 6px;
-      background-color: #e3f2fd;
-      border: 2px solid #0d6efd;
-      border-radius: 10px;
-      text-align: center;
-      line-height: 45px;
-      font-weight: bold;
-      font-family: monospace;
-      color: #0d6efd;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .seat:hover:not(.occupied):not(.selected) {
-      transform: scale(1.1);
-      background-color: #ccefff;
-    }
-    .seat.selected {
-      background-color: #673ab7;
-      color: white;
-    }
-    .seat.occupied {
-      background-color: #adb5bd;
-      color: white;
-      cursor: not-allowed;
-    }
-    .legend-box {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: 1px solid #ccc;
-    }
-    #ticketInfo.centered {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      width: 100%;
-      max-width: 500px;
-    }
-    @media (min-width: 992px) {
-    #rightSection {
-      position: sticky;
-      top: 20px;
-      z-index: 10;
-    }
-}
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
-<div class="container">
-<a class="navbar-brand d-flex align-items-center gap-2" href="#">
-<img alt="Route3Go Logo" height="32" src="images\logo.png"/>
-<span class="fw-bold text-white">Route3Go</span>
-</a>
-<button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-<span class="navbar-toggler-icon bg-light rounded"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Giới thiệu</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Đăng nhập / Đăng ký</a></li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="container my-5">
-<div class="row">
-<div class="col-lg-8 mb-4" id="leftSection">
-<div class="card">
-<div class="card-body">
-<h4 class="card-title mb-3 text-center">🪑 Chọn ghế</h4>
-<div class="mb-3 text-center">
-<span class="legend-box" style="background-color:#e3f2fd; border: 1px solid #0d6efd;"></span> Còn trống
-            <span class="legend-box ms-3" style="background-color:#673ab7;"></span> Đang chọn
-            <span class="legend-box ms-3" style="background-color:#adb5bd;"></span> Đã bán
+    <meta charset="UTF-8">
+    <meta name="author" content="Hồ Thị Dứa">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Đặt vé xe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
 
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #e9f1fb;
+            min-height: 100vh;
+        }
 
-          </div>
-<div class="d-flex justify-content-center flex-wrap" id="seatContainer">
-<div class="d-flex flex-column align-items-center me-3" id="leftCol"></div>
-<div class="d-flex flex-column align-items-center mx-3" id="middleCol"></div>
-<div class="d-flex flex-column align-items-center ms-3" id="rightCol"></div>
-</div>
-</div>
-</div>
-<div class="card mt-4"><div class="card-body"><h5 class="card-title text-center">📌 Điều khoản &amp; Lưu ý</h5><p class="mb-2">(*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ xe khởi hành, mang theo thông báo đã thanh toán vé thành công có chứa mã vé được gửi từ hệ thống Route3Go. Vui lòng liên hệ Trung tâm tổng đài 1900 2030 để được hỗ trợ.</p><p>(*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển 1900 4841 trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.</p><div class="form-check mt-3"><input class="form-check-input" id="acceptTerms" type="checkbox"/><label class="form-check-label" for="acceptTerms">Chấp nhận điều khoản</strong></span> đặt vé &amp; chính sách bảo mật thông tin của Route3Go</label></div></div></div></div>
-<div class="col-lg-4" id="rightSection">
-<div class="card mb-4">
-<div class="card-body">
-<h5 class="card-title text-center">👤 Thông tin khách hàng</h5>
-<label class="form-label fw-bold" for="customerName">🪪 Họ và tên:</label>
-<input class="form-control mb-2" id="customerName" placeholder="Họ và tên" type="text"/>
-<label class="form-label fw-bold" for="customerPhone">📞 Số điện thoại:</label>
-<input class="form-control mb-2" id="customerPhone" placeholder="Số điện thoại" type="tel"/>
-<label class="form-label fw-bold" for="customerAddress">📧 Email:</label>
-<textarea class="form-control" id="customerAddress" placeholder="Email" rows="2"></textarea>
+        .navbar-custom {
+            background: linear-gradient(90deg, #0d6efd, #6610f2);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
-</div>
-</div>
-<div class="card mb-4" id="orderInfo">
-<div class="card-body">
-<h5 class="card-title text-center">🚌 Thông tin vé</h5>
-<p><strong>🛣️Tuyến xe:</strong> Cần Thơ - Hồng Ngự</p>
-<p><strong>⏰Thời gian xuất phát:</strong> 08:00 - 15/08/2025</p>
-<p><strong>💺Số lượng ghế:</strong> 1 Ghế</p>
-<p><strong>🔢Số ghế:</strong> 09</p>
-<p><strong>📍Điểm đón khách:</strong> BX Cần Thơ</p>
-<p><strong>📍Điểm trả khách:</strong> BX Hồng Ngự</p>
-<p><strong>💰Tổng tiền:</strong> 145.000đ</p>
-<div class="d-flex justify-content-between">
-<button class="btn btn-outline-danger" id="clearBtn">🔄Đặt lại</button>
-<button class="btn btn-primary" id="checkoutBtn">💳 Thanh toán</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
-  const leftColSeats = ["01", "03", "06", "09", "12", "15"];
-  const middleColSeats = ["04", "07", "10", "13", "16", "17"];
-  const rightColSeats = ["02", "05", "08", "11", "14", "18"];
-  const occupiedSeats = ["03", "04", "07", "09"];
-  const selectedSeats = [];
+        .navbar-custom .nav-link,
+        .navbar-custom .navbar-brand {
+            color: white !important;
+        }
 
-  function renderSeats(containerId, seatList) {
-    const container = document.getElementById(containerId);
-    seatList.forEach(code => {
-      const seat = document.createElement("div");
-      seat.classList.add("seat");
-      seat.innerText = code;
+        .navbar-custom .nav-link:hover {
+            color: #ffc107 !important;
+        }
 
-      if (occupiedSeats.includes(code)) {
-        seat.classList.add("occupied");
-      } else {
-        seat.addEventListener("click", () => {
-          if (seat.classList.contains("selected")) {
-            seat.classList.remove("selected");
-            selectedSeats.splice(selectedSeats.indexOf(code), 1);
-          } else {
-            if (selectedSeats.length >= 5) {
-              alert("Bạn đã chọn đủ 5 ghế.");
-              return;
+        .card {
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #0d6efd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .seat {
+            width: 45px;
+            height: 45px;
+            margin: 6px;
+            background-color: #e3f2fd;
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 45px;
+            font-weight: bold;
+            font-family: monospace;
+            color: #0d6efd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .seat:hover:not(.occupied):not(.selected) {
+            transform: scale(1.1);
+            background-color: #ccefff;
+        }
+
+        .seat.selected {
+            background-color: #673ab7;
+            color: white;
+        }
+
+        .seat.occupied {
+            background-color: #adb5bd;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .legend-box {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        #ticketInfo.centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        @media (min-width: 992px) {
+            #rightSection {
+                position: sticky;
+                top: 20px;
+                z-index: 10;
             }
-            seat.classList.add("selected");
-            selectedSeats.push(code);
-          }
-          updateCart();
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mb-4" id="leftSection">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 text-center">🪑 Chọn ghế</h4>
+                        <div class="mb-3 text-center">
+                            <span class="legend-box"
+                                style="background-color:#e3f2fd; border: 1px solid #0d6efd;"></span> Còn trống
+                            <span class="legend-box ms-3" style="background-color:#673ab7;"></span> Đang chọn
+                            <span class="legend-box ms-3" style="background-color:#adb5bd;"></span> Đã bán
+
+
+                        </div>
+                        <div class="d-flex justify-content-center flex-wrap" id="seatContainer">
+                            <div class="d-flex flex-column align-items-center me-3" id="leftCol"></div>
+                            <div class="d-flex flex-column align-items-center mx-3" id="middleCol"></div>
+                            <div class="d-flex flex-column align-items-center ms-3" id="rightCol"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">📌 Điều khoản &amp; Lưu ý</h5>
+                        <p class="mb-2">(*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ
+                            xe khởi hành, mang theo thông báo đã thanh toán vé thành công có chứa mã vé được gửi từ hệ
+                            thống Route3Go. Vui lòng liên hệ Trung tâm tổng đài 1900 2030 để được hỗ trợ.</p>
+                        <p>(*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển 1900 4841
+                            trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể
+                            tới được.</p>
+                        <div class="form-check mt-3"><input class="form-check-input" id="acceptTerms"
+                                type="checkbox" /><label class="form-check-label" for="acceptTerms">Chấp nhận điều
+                                khoản</strong></span> đặt vé &amp; chính sách bảo mật thông tin của Route3Go</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" id="rightSection">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">👤 Thông tin khách hàng</h5>
+                        <label class="form-label fw-bold" for="customerName">🪪 Họ và tên:</label>
+                        <input class="form-control mb-2" id="customerName" placeholder="Họ và tên" type="text" />
+                        <label class="form-label fw-bold" for="customerPhone">📞 Số điện thoại:</label>
+                        <input class="form-control mb-2" id="customerPhone" placeholder="Số điện thoại" type="tel" />
+                        <label class="form-label fw-bold" for="customerAddress">📧 Email:</label>
+                        <textarea class="form-control" id="customerAddress" placeholder="Email" rows="2"></textarea>
+
+                    </div>
+                </div>
+                <div class="card mb-4" id="orderInfo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">🚌 Thông tin vé</h5>
+                        <p><strong>🛣️Tuyến xe:</strong> Cần Thơ - Hồng Ngự</p>
+                        <p><strong>⏰Thời gian xuất phát:</strong> 08:00 - 15/08/2025</p>
+                        <p><strong>💺Số lượng ghế:</strong> 1 Ghế</p>
+                        <p><strong>🔢Số ghế:</strong> 09</p>
+                        <p><strong>📍Điểm đón khách:</strong> BX Cần Thơ</p>
+                        <p><strong>📍Điểm trả khách:</strong> BX Hồng Ngự</p>
+                        <p><strong>💰Tổng tiền:</strong> 145.000đ</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-danger" id="clearBtn">🔄Đặt lại</button>
+                            <button class="btn btn-primary" id="checkoutBtn">💳 Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const leftColSeats = ["01", "03", "06", "09", "12", "15"];
+        const middleColSeats = ["04", "07", "10", "13", "16", "17"];
+        const rightColSeats = ["02", "05", "08", "11", "14", "18"];
+        const occupiedSeats = ["03", "04", "07", "09"];
+        const selectedSeats = [];
+
+        function renderSeats(containerId, seatList) {
+            const container = document.getElementById(containerId);
+            seatList.forEach(code => {
+                const seat = document.createElement("div");
+                seat.classList.add("seat");
+                seat.innerText = code;
+
+                if (occupiedSeats.includes(code)) {
+                    seat.classList.add("occupied");
+                } else {
+                    seat.addEventListener("click", () => {
+                        if (seat.classList.contains("selected")) {
+                            seat.classList.remove("selected");
+                            selectedSeats.splice(selectedSeats.indexOf(code), 1);
+                        } else {
+                            if (selectedSeats.length >= 5) {
+                                alert("Bạn đã chọn đủ 5 ghế.");
+                                return;
+                            }
+                            seat.classList.add("selected");
+                            selectedSeats.push(code);
+                        }
+                        updateCart();
+                    });
+                }
+                container.appendChild(seat);
+            });
+        }
+
+        renderSeats("leftCol", leftColSeats);
+        renderSeats("middleCol", middleColSeats);
+        renderSeats("rightCol", rightColSeats);
+
+        function updateCart() {
+            document.querySelector("#orderInfo p:nth-child(4)").innerHTML = `<strong>Số lượng ghế:</strong> ${selectedSeats.length} Ghế`;
+            document.querySelector("#orderInfo p:nth-child(5)").innerHTML = `<strong>Số ghế:</strong> ${selectedSeats.join(", ") || "Chưa chọn"}`;
+            const total = selectedSeats.length * 145000;
+            document.querySelector("#orderInfo p:nth-child(7)").innerHTML = `<strong>Tổng tiền:</strong> ${total.toLocaleString("vi-VN")}đ`;
+        }
+
+        document.getElementById("clearBtn").addEventListener("click", () => {
+            selectedSeats.length = 0;
+            document.querySelectorAll(".seat.selected").forEach(s => s.classList.remove("selected"));
+            updateCart();
         });
-      }
-      container.appendChild(seat);
-    });
-  }
 
-  renderSeats("leftCol", leftColSeats);
-  renderSeats("middleCol", middleColSeats);
-  renderSeats("rightCol", rightColSeats);
+        document.getElementById("checkoutBtn").addEventListener("click", () => {
 
-  function updateCart() {
-    document.querySelector("#orderInfo p:nth-child(4)").innerHTML = `<strong>Số lượng ghế:</strong> ${selectedSeats.length} Ghế`;
-    document.querySelector("#orderInfo p:nth-child(5)").innerHTML = `<strong>Số ghế:</strong> ${selectedSeats.join(", ") || "Chưa chọn"}`;
-    const total = selectedSeats.length * 145000;
-    document.querySelector("#orderInfo p:nth-child(7)").innerHTML = `<strong>Tổng tiền:</strong> ${total.toLocaleString("vi-VN")}đ`;
-  }
+            const name = document.getElementById("customerName").value.trim();
+            const phone = document.getElementById("customerPhone").value.trim();
+            const termsAccepted = document.getElementById("acceptTerms").checked;
 
-  document.getElementById("clearBtn").addEventListener("click", () => {
-    selectedSeats.length = 0;
-    document.querySelectorAll(".seat.selected").forEach(s => s.classList.remove("selected"));
-    updateCart();
-  });
+            if (!name || !phone) {
+                alert("Vui lòng nhập đầy đủ Họ và tên và Số điện thoại.");
+                return;
+            }
+            if (!termsAccepted) {
+                alert("Vui lòng chấp nhận điều khoản trước khi thanh toán.");
+                return;
+            }
 
-  document.getElementById("checkoutBtn").addEventListener("click", () => {
+            if (selectedSeats.length === 0) {
+                alert("Vui lòng chọn ghế trước khi thanh toán.");
+                return;
+            }
 
-    const name = document.getElementById("customerName").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    const termsAccepted = document.getElementById("acceptTerms").checked;
+            window.location.href = "datvethanhcong.html";
 
-    if (!name || !phone) {
-      alert("Vui lòng nhập đầy đủ Họ và tên và Số điện thoại.");
-      return;
-    }
-    if (!termsAccepted) {
-      alert("Vui lòng chấp nhận điều khoản trước khi thanh toán.");
-      return;
-    }
+            document.getElementById("orderInfo").style.display = "none";
+            document.querySelector("#seatContainer").closest(".col-lg-8").style.display = "none";
+            document.querySelector("#orderInfo").closest(".col-lg-4").querySelector(".card").style.display = "none";
 
-    if (selectedSeats.length === 0) {
-      alert("Vui lòng chọn ghế trước khi thanh toán.");
-      return;
-    }
+            const ticketBox = document.getElementById("ticketInfo");
+            ticketBox.classList.add("centered");
 
-    window.location.href = "datvethanhcong.html";
+            document.getElementById("ticketName").innerText = document.getElementById("customerName").value;
+            document.getElementById("ticketPhone").innerText = document.getElementById("customerPhone").value;
 
-    document.getElementById("orderInfo").style.display = "none";
-    document.querySelector("#seatContainer").closest(".col-lg-8").style.display = "none";
-    document.querySelector("#orderInfo").closest(".col-lg-4").querySelector(".card").style.display = "none";
+            ticketBox.style.display = "block";
 
-    const ticketBox = document.getElementById("ticketInfo");
-    ticketBox.classList.add("centered");
-    
-    document.getElementById("ticketName").innerText = document.getElementById("customerName").value;
-    document.getElementById("ticketPhone").innerText = document.getElementById("customerPhone").value;
+            document.getElementById("ticketSeats").innerText = selectedSeats.join(", ");
+            document.getElementById("ticketTotal").innerText = selectedSeats.length * 145000;
 
-    ticketBox.style.display = "block";
-
-    document.getElementById("ticketSeats").innerText = selectedSeats.join(", ");
-    document.getElementById("ticketTotal").innerText = selectedSeats.length * 145000;
-      
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

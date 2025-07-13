@@ -1,97 +1,122 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Huynh Quang Vi">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Route3Go - Đăng ký</title>
-  <link rel="stylesheet" href="/styles/DangKyDangNhap.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Huỳnh Quang Vĩ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script defer src="/scripts/web-layout.js"></script>
+    <script type="module" src="/scripts/password-reveal.js"></script>
+    <style type="text/tailwindcss">
+        .input-field {
+            > label {
+                @apply block mb-1 font-semibold;
+                
+                &::after {
+                    content: ' *';
+                    @apply text-red-500;
+                }
+            }
+
+            > div {
+                @apply relative;
+
+                > ion-icon:first-child {
+                    @apply absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500;
+                }
+
+                > input {
+                    @apply w-full pl-10 py-2 border border-gray-300 rounded;
+                }
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header__logo-container">
-      <img src="images/logo.png" alt="Route3Go Logo" class="header__logo">
-    </div>
-    <nav class="header__nav">
-      <div class="header__hamburger" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-      <ul class="header__nav-links">
-        <li><a href="#">Trang chủ</a></li>
-        <li><a href="#">Giới thiệu</a></li>
-        <li><a href="#">Liên hệ</a></li>
-        <li><a href="#">Sản phẩm</a></li>
-        <li><a href="#">Giỏ hàng</a></li>
-        <li><a href="/DangKy.html">Đăng ký</a></li>
-        <li><a href="/DangNhap.html">Đăng nhập</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- MAIN -->
-  <main class="main">
-    <div class="main__col main__col--left"></div>
-    <div class="main__col main__col--center">
-      <h2 class="main__title">Đăng ký</h2>
-      <form class="form">
-        <div class="form__groupDK">
-          <label for="name" class="form__label">Họ và tên</label>
-          <div class="form__input-wrapper">
-            <i class="fas fa-user form__icon"></i>
-            <input type="text" name="name" class="form__input" placeholder="Nhập họ và tên" required>
-          </div>
+<body class="bg-cover bg-center bg-no-repeat bg-[url('/images/background-dangky.jpg')]">
+    <main class="flex justify-center items-center md:min-h-[calc(100vh-4rem)]">
+        <div class="bg-white bg-opacity-90 p-8 md:rounded-lg md:shadow-lg w-full md:max-w-2xl">
+            <h2 class="text-center text-2xl font-bold mb-6 text-gray-800">Đăng ký</h2>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                <!-- User Information -->
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-lg font-semibold text-blue-700 mb-2">Thông tin cá nhân</h3>
+                    <div class="input-field">
+                        <label for="name">Họ và tên</label>
+                        <div class="relative">
+                            <ion-icon name="person"></ion-icon>
+                            <input type="text" id="name" placeholder="Nhập họ và tên" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="address">Địa chỉ</label>
+                        <div class="relative">
+                            <ion-icon name="location"></ion-icon>
+                            <input type="text" id="address" placeholder="Nhập địa chỉ" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="phone">Số điện thoại</label>
+                        <div class="relative">
+                            <ion-icon name="call"></ion-icon>
+                            <input type="tel" id="phone" placeholder="Nhập số điện thoại" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                </div>
+                <!-- Account Information -->
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-lg font-semibold text-blue-700 mb-2">Thông tin tài khoản</h3>
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <div class="relative">
+                            <ion-icon name="mail"></ion-icon>
+                            <input type="email" id="email" placeholder="Nhập email" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="password">Mật khẩu</label>
+                        <div class="relative">
+                            <ion-icon name="lock-closed"></ion-icon>
+                            <input type="password" name="password" placeholder="Nhập mật khẩu" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                            <ion-icon name="eye"
+                                class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                onclick="revealPassword(this)"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="repassword">Nhập lại mật khẩu</label>
+                        <div class="relative">
+                            <ion-icon name="lock-closed"></ion-icon>
+                            <input type="password" name="repassword" placeholder="Nhập lại mật khẩu" required
+                                class="w-full pl-10 py-2 border border-gray-300 rounded">
+                            <ion-icon name="eye"
+                                class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                onclick="revealPassword(this)"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2 flex flex-col gap-4">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="remember-me" class="size-4">
+                        <label for="remember-me" class="text-sm">Chấp nhận điều khoản dịch vụ</label>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Đăng ký</button>
+                </div>
+            </form>
         </div>
-
-        <div class="form__groupDK">
-          <label for="email" class="form__label">Email</label>
-          <div class="form__input-wrapper">
-            <i class="fas fa-envelope form__icon"></i>
-            <input name="email" class="form__input" placeholder="Nhập email" required>
-          </div>
-        </div>
-
-        <div class="form__groupDK">
-          <label for="phone" class="form__label">Số điện thoại</label>
-          <div class="form__input-wrapper">
-            <i class="fas fa-phone form__icon"></i>
-            <input type="tel" name="phone" class="form__input" placeholder="Nhập số điện thoại" required>
-          </div>
-        </div>
-
-        <div class="form__groupDK">
-          <label for="password" class="form__label">Mật khẩu</label>
-          <div class="form__input-wrapper">
-            <i class="fas fa-lock form__icon"></i>
-            <input type="password" name="password" class="form__input" placeholder="Nhập mật khẩu" required>
-            <i class="fas fa-eye-slash form__toggle-password" onclick="togglePasswordVisibility(this)"></i>
-          </div>
-        </div>
-
-        <div class="form__groupDK">
-          <label for="repassword" class="form__label">Nhập lại mật khẩu</label>
-          <div class="form__input-wrapper">
-            <i class="fas fa-lock form__icon"></i>
-            <input type="password" name="repassword" class="form__input" placeholder="Nhập lại mật khẩu" required>
-            <i class="fas fa-eye-slash form__toggle-password" onclick="togglePasswordVisibility(this)"></i>
-          </div>
-        </div>
-
-        <button type="submit" class="form__submit-btn">Đăng ký</button>
-      </form>
-    </div>
-    <div class="main__col main__col--right"></div>
-    <script src="/scripts/DangKyDangNhap.js"></script>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer__text">&copy; 2025 Route3Go. Mọi quyền được bảo lưu.</p>
-  </footer>
+    </main>
 </body>
 
 </html>

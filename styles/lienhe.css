@@ -1,182 +1,155 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
-body {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  background: #B0E0E6;
-  color: #222;
-  margin: 0;
-  padding: 0;
-}
-.bg-wide {
-  min-height: 100vh;
-  background: #B0E0E6;
-  padding: 0;
-}
-/* Contact Section */
-.contact-section {
-  max-width: 1600px;
-  width: 90%;
-  margin: 48px auto 0;
-  padding: 40px 32px;
-  background: #f4fdff;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(70,130,180,0.07);
-}
-.contact-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
-  justify-content: space-between;
-}
-.contact-left {
-  flex: 5.8; 
-  max-width: calc(58% - 24px); /* trừ nửa gap */
-  min-width: 300px;
-}
-.contact-right {
-  flex: 4.2;
-  max-width: calc(42% - 24px); /* trừ nửa gap */
-  min-width: 260px;
-}
-.contact-right b {
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-.contact-right p {
-  font-size: 17px;
-  
-  margin-bottom: 12px;
-}
-.contact-left h2, .contact-right h2 {
-  color: #42b5a6;
-  margin: 0 0 18px;
-  padding:  0 24px;
-  font-size: 28px;
-}
-.info-content{
- padding-top: 18px;
-}
-.contact-left p {
-  font-size: 1.12rem;
-  color: #555;
-  margin-bottom: 18px;
-}
-.contact-note {
-  display: block;
-  color: #00BFFF;
-  font-size: 0.98rem;
-  margin-top: 8px;
+@import 'common.css';
+
+main {
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fafafa;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template:
+        "contact-form contact-info"
+        "contact-map contact-map" / 3fr 2fr;
+    gap: 2rem;
 }
 
-.contact-left form input,
-.contact-left form textarea,
-.contact-left form select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  box-sizing: border-box;
-  border: 1px solid #B0E0E6;
-  border-radius: 8px;
-  background: #eaf6fb;
-  font-size: 1rem;
-  resize: none;
-  color: #222;
-}
-.contact-left form textarea {
-  min-height: 90px;
-}
-.contact-left form input:focus,
-.contact-left form textarea:focus,
-.contact-left form select:focus {
-  outline: 2px solid #00BFFF;
-  background: #fff;
-}
-.contact-left .btn-main {
-  width: 100%;
-  background: #00BFFF;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 12px 0;
-  margin-top: 8px;
-  transition: background 0.2s;
-  cursor: pointer;
-}
-.contact-left .btn-main:hover {
-  background: #42b5a6;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-color);
 }
 
-.contact-social {
-  margin-top: 18px;
-  font-size: 1.1rem;
-  color: #555;
-}
-.contact-social span {
-  margin-right: 10px;
-}
-.contact-social a {
-  color: #00BFFF;
-  margin-right: 10px;
-  font-size: 1.3rem;
-  transition: color 0.2s;
-}
-.contact-social a:hover {
-  color: #42b5a6;
+#contact-form p {
+    margin-bottom: 1rem;
 }
 
-.info-block {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 32px;
-  color: #222;
-  font-size: 1rem;
-}
-.info-block i {
-  font-size: 1.5rem;
-  color: #00BFFF;
-  background: #eaf6fb;
-  border-radius: 8px;
-  padding: 10px;
-  min-width: 38px;
-  text-align: center;
-}
-.info-block .infor-c p {
-  margin: 4px 0 0 0;       /* loại bỏ khoảng cách phía trên */
-  line-height: 1.5;        /* thu hẹp độ cao giữa các dòng */
-  font-size: 1rem;      /* tùy chọn: giảm nhẹ cỡ chữ nếu bạn muốn tinh tế hơn */
-}
-.info-block .infor-c b {
-  display: block;           /* đảm bảo nằm riêng trên một dòng */
-  margin-bottom: 1px; 
+#contact-form {
+    grid-area: contact-form;
 }
 
-.map-card {
-  margin-top: 32px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(66,181,166,0.10);
+#contact-info {
+    grid-area: contact-info;
 }
-.map-card iframe {
-  width: 100%;
-  height: 560px;
-  border: none;
-  display: block;
+
+#contact-map {
+    grid-area: contact-map;
 }
-/* Responsive */
-@media (max-width: 600px) {
-  .header {
+
+.hotline {
+    font-size: 1.25rem;
+    color: var(--heading-color);
+}
+
+.info-note {
+    color: #0ea5e9;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-note ion-icon {
+    width: 1.25rem;
+    font-size: 1.25rem;
+}
+
+#contact-form form {
+    color: #1e293b;
+    display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 12px 2vw;
-  }
+    gap: 0.75rem;
+}
 
-  .contact-section {
-    padding: 16px 2vw;
-  }
+.input-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #bae6fd;
+    border-radius: 0.5rem;
+}
 
-  .map-card iframe {
-    height: 220px;
-  }
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--heading-color);
+}
+
+#connect {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#connect span {
+    font-size: 1.125rem;
+    color: var(--alternative-text-color);
+}
+
+.social-icons {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin: auto 0;
+    height: 100%;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.social-icons ion-icon {
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.social-icons ion-icon:hover {
+    color: var(--heading-color);
+}
+
+.info-grid {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem 1rem;
+}
+
+.info-grid ion-icon {
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 2.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#map-container {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+    main {
+        padding: 1rem;
+        grid-template:
+            "contact-form"
+            "contact-map";
+    }
+
+    #contact-info {
+        display: none;
+    }
 }

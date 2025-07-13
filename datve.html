@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hồ Thị Dứa">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Đặt vé xe</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/svg.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/select.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/label.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/card.css,npm/daisyui@5/theme/light.css"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script defer src="/scripts/web-layout.js"></script>
+    <script type="module" src="/scripts/datve.js"></script>
+    <style type="text/tailwindcss">
+        .seat {
+            width: 45px;
+            height: 45px;
+            margin: 6px;
+            background-color: #e3f2fd;
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 45px;
+            font-weight: bold;
+            font-family: monospace;
+            color: #0d6efd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .seat:hover:not(.occupied):not(.selected) {
+            transform: scale(1.1);
+            background-color: #ccefff;
+        }
+
+        .seat.selected {
+            background-color: #673ab7;
+            color: white;
+        }
+
+        .seat.occupied {
+            background-color: #adb5bd;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .legend {
+            @apply flex items-center mb-2;
+        }
+
+        .legend-box {
+            @apply inline-block w-4 h-4 mr-2 rounded;
+        }
+
+        #ticketInfo.centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container my-5 grid grid-cols-[2fr_1fr] gap-4 mx-auto">
+        <div class="card bg-white">
+            <div class="card-body items-center">
+                <h3 class="card-title">🪑 Chọn ghế</h3>
+                <div class="flex justify-center gap-4">
+                    <span class="legend"><div class="legend-box border border-blue-700 bg-blue-50"></div> Còn trống</span>
+                    <span class="legend"><div class="legend-box bg-purple-800"></div> Đang chọn</span>
+                    <span class="legend"><div class="legend-box bg-gray-500"></div> Đã bán</span>
+                </div>
+                <div class="flex justify-center flex-wrap gap-6" id="seatContainer">
+                    <div class="flex flex-col items-center" id="leftCol"></div>
+                    <div class="flex flex-col items-center" id="middleCol"></div>
+                    <div class="flex flex-col items-center" id="rightCol"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row-span-2 lg:sticky lg:top-0 flex flex-col gap-4">
+            <div class="card bg-white">
+                <div class="card-body items-center">
+                    <h3 class="card-title">👤 Thông tin khách hàng</h3>
+                    <div class="grid grid-cols-1 gap-2 w-full">
+                        <label class="floating-label">
+                            <span>🪪 Họ và tên</span>
+                            <input name="customerName" placeholder="🪪 Họ và tên" type="text" class="input input-md min-w-full">
+                        </label>
+                        <label class="floating-label">
+                            <span>📞 Số điện thoại</span>
+                            <input name="customerPhone" placeholder="📞 Số điện thoại" type="tel" class="input input-md min-w-full">
+                        </label>
+                        <label class="floating-label">
+                            <span>📧 Email</span>
+                            <input name="customerAddress" placeholder="📧 Email" type="email" class="input input-md min-w-full">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white" id="orderInfo">
+                <div class="card-body items-center">
+                    <h3 class="card-title">🚌 Thông tin vé</h3>
+                    <div class="w-full text-base grid grid-cols-1 gap-2">
+                        <p><strong>🛣️Tuyến xe:</strong> Cần Thơ - Hồng Ngự</p>
+                        <p><strong>⏰Thời gian xuất phát:</strong> 08:00 - 15/08/2025</p>
+                        <p><strong>💺Số lượng ghế:</strong> 1 Ghế</p>
+                        <p><strong>🔢Số ghế:</strong> 09</p>
+                        <p><strong>📍Điểm đón khách:</strong> BX Cần Thơ</p>
+                        <p><strong>📍Điểm trả khách:</strong> BX Hồng Ngự</p>
+                        <p><strong>💰Tổng tiền:</strong> 145.000đ</p>
+                        <div class="flex justify-between mt-4">
+                            <button class="btn btn-outline btn-error" id="clearBtn">🔄Đặt lại</button>
+                            <button class="btn btn-info" id="checkoutBtn">💳 Thanh toán</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card bg-white">
+            <div class="card-body items-center">
+                <h3 class="card-title">📌 Điều khoản &amp; Lưu ý</h3>
+                <div class="w-full">
+                    <p class="mb-2">(*) Quý khách vui lòng có mặt tại bến xuất phát của xe trước ít nhất 30 phút giờ
+                        xe khởi hành, mang theo thông báo đã thanh toán vé thành công có chứa mã vé được gửi từ hệ
+                        thống Route3Go. Vui lòng liên hệ Trung tâm tổng đài 1900 2030 để được hỗ trợ.</p>
+                    <p>(*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển 1900 4841
+                        trước khi đặt vé. Chúng tôi không đón/trung chuyển tại những điểm xe trung chuyển không thể
+                        tới được.</p>
+                    <div class="mt-3">
+                        <label class="label">
+                            <input id="acceptTerms" type="checkbox" class="checkbox">
+                            <strong>Chấp nhận điều khoản</strong> đặt vé &amp; chính sách bảo mật thông tin của Route3Go
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

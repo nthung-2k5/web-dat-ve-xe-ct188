@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".slider-wrapper img");
+    const images = document.querySelectorAll("#slider-wrapper img");
     const dots = document.querySelectorAll(".dot");
     let index = 0;
     const imgNumber = images.length;

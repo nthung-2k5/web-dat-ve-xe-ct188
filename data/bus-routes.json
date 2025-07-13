@@ -1,0 +1,402 @@
+[
+    {
+        "id": 1,
+        "company": "Thăng Long",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Nước Ngầm",
+            "time": "2025-07-15T23:55:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Bắc Vĩnh",
+            "time": "2025-07-16T05:15:00.000Z"
+        },
+        "price": 200000,
+        "rating": 4.5,
+        "reviews": 400,
+        "availableSeats": 37,
+        "image": "https://picsum.photos/150/150?random=1"
+    },
+    {
+        "id": 2,
+        "company": "Hoàng Long",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Đông",
+            "time": "2025-07-15T08:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Đà Lạt",
+            "time": "2025-07-15T14:00:00.000Z"
+        },
+        "price": 350000,
+        "rating": 4.8,
+        "reviews": 256,
+        "availableSeats": 12,
+        "image": "https://picsum.photos/150/150?random=2"
+    },
+    {
+        "id": 3,
+        "company": "Phương Trang",
+        "seatType": "Ghế ngồi",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe An Sương",
+            "time": "2025-07-15T15:45:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Đà Lạt",
+            "time": "2025-07-15T21:30:00.000Z"
+        },
+        "price": 180000,
+        "rating": 4.2,
+        "reviews": 189,
+        "availableSeats": 23,
+        "image": "https://picsum.photos/150/150?random=3"
+    },
+    {
+        "id": 4,
+        "company": "Mai Linh Express",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Đông",
+            "time": "2025-07-15T22:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Đà Lạt",
+            "time": "2025-07-16T04:30:00.000Z"
+        },
+        "price": 220000,
+        "rating": 4.3,
+        "reviews": 312,
+        "availableSeats": 18,
+        "image": "https://picsum.photos/150/150?random=4"
+    },
+    {
+        "id": 5,
+        "company": "Sinh Tourist",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Văn phòng quận 1",
+            "time": "2025-07-15T07:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Trung tâm Đà Lạt",
+            "time": "2025-07-15T12:45:00.000Z"
+        },
+        "price": 280000,
+        "rating": 4.6,
+        "reviews": 145,
+        "availableSeats": 8,
+        "image": "https://picsum.photos/150/150?random=5"
+    },
+    {
+        "id": 6,
+        "company": "Kumho Samco",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Tây",
+            "time": "2025-07-15T20:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Đà Lạt",
+            "time": "2025-07-16T03:00:00.000Z"
+        },
+        "price": 195000,
+        "rating": 4.1,
+        "reviews": 278,
+        "availableSeats": 28,
+        "image": "https://picsum.photos/150/150?random=6"
+    },
+    {
+        "id": 7,
+        "company": "Thăng Long",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Bắc Vĩnh",
+            "time": "2025-07-16T07:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Nước Ngầm",
+            "time": "2025-07-16T12:50:00.000Z"
+        },
+        "price": 200000,
+        "rating": 4.5,
+        "reviews": 400,
+        "availableSeats": 32,
+        "image": "https://picsum.photos/150/150?random=7"
+    },
+    {
+        "id": 8,
+        "company": "Hoàng Long",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Đà Lạt",
+            "location": "Bến xe Đà Lạt",
+            "time": "2025-07-16T14:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Đông",
+            "time": "2025-07-16T19:30:00.000Z"
+        },
+        "price": 350000,
+        "rating": 4.8,
+        "reviews": 256,
+        "availableSeats": 15,
+        "image": "https://picsum.photos/150/150?random=8"
+    },
+    {
+        "id": 9,
+        "company": "Phương Trang",
+        "seatType": "Ghế ngồi",
+        "departure": {
+            "city": "Hà Nội",
+            "location": "Bến xe Hà Nội",
+            "time": "2025-07-15T06:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Hải Phòng",
+            "location": "Bến xe Hải Phòng",
+            "time": "2025-07-15T12:30:00.000Z"
+        },
+        "price": 150000,
+        "rating": 4.2,
+        "reviews": 189,
+        "availableSeats": 30,
+        "image": "https://picsum.photos/150/150?random=9"
+    },
+    {
+        "id": 10,
+        "company": "Mai Linh Express",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Cần Thơ",
+            "location": "Bến xe Cần Thơ",
+            "time": "2025-07-15T22:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Tây",
+            "time": "2025-07-16T06:00:00.000Z"
+        },
+        "price": 180000,
+        "rating": 4.3,
+        "reviews": 312,
+        "availableSeats": 25,
+        "image": "https://picsum.photos/150/150?random=10"
+    },
+    {
+        "id": 11,
+        "company": "Sinh Tourist",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Nha Trang",
+            "location": "Trung tâm Nha Trang",
+            "time": "2025-07-15T07:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Đà Lạt",
+            "location": "Trung tâm Đà Lạt",
+            "time": "2025-07-15T12:45:00.000Z"
+        },
+        "price": 280000,
+        "rating": 4.6,
+        "reviews": 145,
+        "availableSeats": 12,
+        "image": "https://picsum.photos/150/150?random=11"
+    },
+    {
+        "id": 12,
+        "company": "Thành Bưởi",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Hà Nội",
+            "location": "Bến xe Mỹ Đình",
+            "time": "2025-07-15T21:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Vinh",
+            "location": "Bến xe Vinh",
+            "time": "2025-07-16T05:00:00.000Z"
+        },
+        "price": 240000,
+        "rating": 4.4,
+        "reviews": 220,
+        "availableSeats": 20,
+        "image": "https://picsum.photos/150/150?random=12"
+    },
+    {
+        "id": 13,
+        "company": "Đông Hà",
+        "seatType": "Ghế ngồi",
+        "departure": {
+            "city": "Đà Nẵng",
+            "location": "Bến xe Đà Nẵng",
+            "time": "2025-07-15T08:15:00.000Z"
+        },
+        "arrival": {
+            "city": "Huế",
+            "location": "Bến xe Huế",
+            "time": "2025-07-15T15:30:00.000Z"
+        },
+        "price": 120000,
+        "rating": 4.0,
+        "reviews": 156,
+        "availableSeats": 35,
+        "image": "https://picsum.photos/150/150?random=13"
+    },
+    {
+        "id": 14,
+        "company": "Phú Quốc Express",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Rạch Giá",
+            "location": "Cảng Rạch Giá",
+            "time": "2025-07-15T09:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Phú Quốc",
+            "location": "Cảng An Thới",
+            "time": "2025-07-15T11:30:00.000Z"
+        },
+        "price": 300000,
+        "rating": 4.7,
+        "reviews": 89,
+        "availableSeats": 10,
+        "image": "https://picsum.photos/150/150?random=14"
+    },
+    {
+        "id": 15,
+        "company": "Sao Việt",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Quy Nhon",
+            "location": "Bến xe Quy Nhon",
+            "time": "2025-07-15T19:45:00.000Z"
+        },
+        "arrival": {
+            "city": "Nha Trang",
+            "location": "Bến xe Nha Trang",
+            "time": "2025-07-16T04:15:00.000Z"
+        },
+        "price": 190000,
+        "rating": 4.1,
+        "reviews": 167,
+        "availableSeats": 22,
+        "image": "https://picsum.photos/150/150?random=15"
+    },
+    {
+        "id": 16,
+        "company": "Minh Châu",
+        "seatType": "Ghế ngồi",
+        "departure": {
+            "city": "Vũng Tàu",
+            "location": "Bến xe Vũng Tàu",
+            "time": "2025-07-15T05:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Đông",
+            "time": "2025-07-15T08:00:00.000Z"
+        },
+        "price": 80000,
+        "rating": 3.9,
+        "reviews": 98,
+        "availableSeats": 42,
+        "image": "https://picsum.photos/150/150?random=16"
+    },
+    {
+        "id": 17,
+        "company": "Hải Âu",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Phan Thiết",
+            "location": "Trung tâm Phan Thiết",
+            "time": "2025-07-15T13:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Đông",
+            "time": "2025-07-15T17:30:00.000Z"
+        },
+        "price": 160000,
+        "rating": 4.5,
+        "reviews": 134,
+        "availableSeats": 16,
+        "image": "https://picsum.photos/150/150?random=17"
+    },
+    {
+        "id": 18,
+        "company": "Quỳnh Anh",
+        "seatType": "Giường nằm",
+        "departure": {
+            "city": "Pleiku",
+            "location": "Bến xe Pleiku",
+            "time": "2025-07-15T20:00:00.000Z"
+        },
+        "arrival": {
+            "city": "Nha Trang",
+            "location": "Bến xe Nha Trang",
+            "time": "2025-07-16T06:30:00.000Z"
+        },
+        "price": 260000,
+        "rating": 4.2,
+        "reviews": 201,
+        "availableSeats": 14,
+        "image": "https://picsum.photos/150/150?random=18"
+    },
+    {
+        "id": 19,
+        "company": "Long An Express",
+        "seatType": "Ghế ngồi",
+        "departure": {
+            "city": "Tân An",
+            "location": "Bến xe Tân An",
+            "time": "2025-07-15T11:30:00.000Z"
+        },
+        "arrival": {
+            "city": "Hồ Chí Minh",
+            "location": "Bến xe Miền Tây",
+            "time": "2025-07-15T13:15:00.000Z"
+        },
+        "price": 50000,
+        "rating": 3.8,
+        "reviews": 76,
+        "availableSeats": 38,
+        "image": "https://picsum.photos/150/150?random=19"
+    },
+    {
+        "id": 20,
+        "company": "Phong Phú",
+        "seatType": "Limousine",
+        "departure": {
+            "city": "Cà Mau",
+            "location": "Bến xe Cà Mau",
+            "time": "2025-07-15T16:15:00.000Z"
+        },
+        "arrival": {
+            "city": "Cần Thơ",
+            "location": "Bến xe Cần Thơ",
+            "time": "2025-07-15T21:45:00.000Z"
+        },
+        "price": 140000,
+        "rating": 4.0,
+        "reviews": 112,
+        "availableSeats": 18,
+        "image": "https://picsum.photos/150/150?random=20"
+    }
+]
