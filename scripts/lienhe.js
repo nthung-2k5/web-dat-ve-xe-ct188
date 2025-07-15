@@ -1,9 +1,10 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
+import { nameRegex } from './validation.js';
 
-const tryGetValue = (formData, key, errorMessage) => {
+const tryGetValue = async (formData, key, errorMessage) => {
     const value = formData.get(key).toString().trim();
     if (!value) {
-        Swal.fire({
+        await Swal.fire({
             icon: 'error',
             title: 'Thông tin không đầy đủ',
             text: errorMessage
@@ -19,22 +20,14 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 
     const formData = new FormData(e.target);
 
-    const name = tryGetValue(formData, 'name', 'Vui lòng nhập tên của bạn.');
-    if (!name) return;
-
-    const phone = tryGetValue(formData, 'phone', 'Vui lòng nhập số điện thoại của bạn.');
-    if (!phone) return;
-
-    const email = tryGetValue(formData, 'email', 'Vui lòng nhập địa chỉ email của bạn.');
-    if (!email) return;
-
-    const topic = tryGetValue(formData, 'topic', 'Vui lòng chọn chủ đề cần liên hệ.');
-    if (!topic) return;
+    const name = await tryGetValue(formData, 'name', 'Vui lòng nhập tên của bạn.'); if (!name) return;
+    const phone = await tryGetValue(formData, 'phone', 'Vui lòng nhập số điện thoại của bạn.'); if (!phone) return;
+    const email = await tryGetValue(formData, 'email', 'Vui lòng nhập địa chỉ email của bạn.'); if (!email) return;
+    const topic = await tryGetValue(formData, 'topic', 'Vui lòng chọn chủ đề cần liên hệ.'); if (!topic) return;
     
-    const message = formData.get('message').toString().trim();
+    // const message = formData.get('message').toString().trim();
 
     // Kiểm tra tên
-    const nameRegex = /^[a-zA-ZÀ-ỹ\s]+$/u;
     if (!nameRegex.test(name)) {
         await Swal.fire({
             icon: 'error',

@@ -4,16 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Lê Minh">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <title>Giới thiệu</title>
-    <link rel="shortcut icon" href="/images/logorouuuteeee.png" type="/images/vnd.microsoft.icon" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="/styles/gioithieu.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <script defer src="/scripts/web-layout.js"></script>
-    <script defer src="/scripts/gioithieu.js"></script>
+    <script type="module">
+        import { Splide } from 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/+esm';
+        new Splide('#image-carousel').mount();
+    </script>
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    
     <style type="text/tailwindcss">
+        .splide__slide img {
+            width: 100%;
+            object-fit: cover;
+            height: 600px;
+        }
+
         section {
             @apply container mx-auto p-8 bg-white rounded-xl shadow-lg;
         }
@@ -82,17 +96,19 @@
 
 <body>
     <main class="grid grid-cols-1 gap-8">
-        <!-- Slider đầu trang -->
-        <div class="w-full relative">
-            <div id="slider-wrapper" class="w-100% h-[600px] overflow-hidden">
-                <img src="/images/hinh1.jpg" alt="Xe khách hiện đại" />
-                <img src="/images/hinh2.jpg" alt="Hành khách vui vẻ" />
-                <img src="/images/hinh3.jpg" alt="Đặt vé online tiện lợi" />
-            </div>
-            <div class="dot-container">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+        <div id="image-carousel" class="splide" data-splide='{"type":"loop", "autoplay": true, "interval": 4000, "speed": 1000}'>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <img src="/images/hinh1.jpg" alt="">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/hinh2.jpg" alt="">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/hinh3.jpg" alt="">
+                    </li>
+                </ul>
             </div>
         </div>
 

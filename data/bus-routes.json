@@ -17,6 +17,7 @@
         "rating": 4.5,
         "reviews": 400,
         "availableSeats": 37,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=1"
     },
     {
@@ -37,6 +38,7 @@
         "rating": 4.8,
         "reviews": 256,
         "availableSeats": 12,
+        "totalSeats": 28,
         "image": "https://picsum.photos/150/150?random=2"
     },
     {
@@ -57,6 +59,7 @@
         "rating": 4.2,
         "reviews": 189,
         "availableSeats": 23,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=3"
     },
     {
@@ -77,6 +80,7 @@
         "rating": 4.3,
         "reviews": 312,
         "availableSeats": 18,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=4"
     },
     {
@@ -97,6 +101,7 @@
         "rating": 4.6,
         "reviews": 145,
         "availableSeats": 8,
+        "totalSeats": 15,
         "image": "https://picsum.photos/150/150?random=5"
     },
     {
@@ -117,6 +122,7 @@
         "rating": 4.1,
         "reviews": 278,
         "availableSeats": 28,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=6"
     },
     {
@@ -137,6 +143,7 @@
         "rating": 4.5,
         "reviews": 400,
         "availableSeats": 32,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=7"
     },
     {
@@ -157,6 +164,7 @@
         "rating": 4.8,
         "reviews": 256,
         "availableSeats": 15,
+        "totalSeats": 28,
         "image": "https://picsum.photos/150/150?random=8"
     },
     {
@@ -177,6 +185,7 @@
         "rating": 4.2,
         "reviews": 189,
         "availableSeats": 30,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=9"
     },
     {
@@ -197,6 +206,7 @@
         "rating": 4.3,
         "reviews": 312,
         "availableSeats": 25,
+        "totalSeats": 28,
         "image": "https://picsum.photos/150/150?random=10"
     },
     {
@@ -217,6 +227,7 @@
         "rating": 4.6,
         "reviews": 145,
         "availableSeats": 12,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=11"
     },
     {
@@ -237,6 +248,7 @@
         "rating": 4.4,
         "reviews": 220,
         "availableSeats": 20,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=12"
     },
     {
@@ -257,6 +269,7 @@
         "rating": 4.0,
         "reviews": 156,
         "availableSeats": 35,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=13"
     },
     {
@@ -277,6 +290,7 @@
         "rating": 4.7,
         "reviews": 89,
         "availableSeats": 10,
+        "totalSeats": 15,
         "image": "https://picsum.photos/150/150?random=14"
     },
     {
@@ -297,6 +311,7 @@
         "rating": 4.1,
         "reviews": 167,
         "availableSeats": 22,
+        "totalSeats": 28,
         "image": "https://picsum.photos/150/150?random=15"
     },
     {
@@ -317,6 +332,7 @@
         "rating": 3.9,
         "reviews": 98,
         "availableSeats": 42,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=16"
     },
     {
@@ -337,6 +353,7 @@
         "rating": 4.5,
         "reviews": 134,
         "availableSeats": 16,
+        "totalSeats": 28,
         "image": "https://picsum.photos/150/150?random=17"
     },
     {
@@ -357,6 +374,7 @@
         "rating": 4.2,
         "reviews": 201,
         "availableSeats": 14,
+        "totalSeats": 15,
         "image": "https://picsum.photos/150/150?random=18"
     },
     {
@@ -377,6 +395,7 @@
         "rating": 3.8,
         "reviews": 76,
         "availableSeats": 38,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=19"
     },
     {
@@ -397,6 +416,7 @@
         "rating": 4.0,
         "reviews": 112,
         "availableSeats": 18,
+        "totalSeats": 45,
         "image": "https://picsum.photos/150/150?random=20"
     }
 ]

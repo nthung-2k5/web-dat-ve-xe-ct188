@@ -4,46 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Hồ Thị Dứa">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <title>Đặt vé xe</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script defer src="/scripts/web-layout.js"></script>
+    <script type="module" src="/scripts/datve.js"></script>
+    <script type="module">
+        import { createSeatMap, renderSeatMap } from '/scripts/datve/seats.js';
+        renderSeatMap(document.getElementById('seatContainer'), 45, 16);
+    </script>
     <link
         href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/svg.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/select.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/label.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/card.css,npm/daisyui@5/theme/light.css"
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <script defer src="/scripts/web-layout.js"></script>
-    <script type="module" src="/scripts/datve.js"></script>
+
     <style type="text/tailwindcss">
         .seat {
-            width: 45px;
-            height: 45px;
-            margin: 6px;
-            background-color: #e3f2fd;
-            border: 2px solid #0d6efd;
-            border-radius: 10px;
-            text-align: center;
-            line-height: 45px;
-            font-weight: bold;
-            font-family: monospace;
-            color: #0d6efd;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            @apply relative transition cursor-pointer size-[40px];
+
+            > span {
+                @apply absolute inset-0 flex items-center justify-center text-sm font-semibold text-sky-950;
+            }
+
+            &.selected {
+                background-color: #673ab7;
+                color: white;
+            }
+
+            &.occupied {
+                cursor: not-allowed;
+            }
+
+            &:hover:not(.occupied):not(.selected) {
+                @apply scale-110;
+            }
         }
 
-        .seat:hover:not(.occupied):not(.selected) {
-            transform: scale(1.1);
-            background-color: #ccefff;
-        }
-
-        .seat.selected {
-            background-color: #673ab7;
-            color: white;
-        }
-
-        .seat.occupied {
-            background-color: #adb5bd;
-            color: white;
-            cursor: not-allowed;
+        .seat-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @apply gap-2;
         }
 
         .legend {
@@ -52,16 +56,6 @@
 
         .legend-box {
             @apply inline-block w-4 h-4 mr-2 rounded;
-        }
-
-        #ticketInfo.centered {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            width: 100%;
-            max-width: 500px;
         }
     </style>
 </head>
@@ -76,10 +70,7 @@
                     <span class="legend"><div class="legend-box bg-purple-800"></div> Đang chọn</span>
                     <span class="legend"><div class="legend-box bg-gray-500"></div> Đã bán</span>
                 </div>
-                <div class="flex justify-center flex-wrap gap-6" id="seatContainer">
-                    <div class="flex flex-col items-center" id="leftCol"></div>
-                    <div class="flex flex-col items-center" id="middleCol"></div>
-                    <div class="flex flex-col items-center" id="rightCol"></div>
+                <div class="flex flex-col gap-2" id="seatContainer">
                 </div>
             </div>
         </div>

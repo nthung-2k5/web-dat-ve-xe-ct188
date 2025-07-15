@@ -5,14 +5,27 @@
     <meta charset="UTF-8">
     <meta name="author" content="Huỳnh Quang Vĩ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <title>Đăng ký</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="/styles/main.css">
+
     <script defer src="/scripts/web-layout.js"></script>
+    <script type="module" src="/scripts/dangky.js"></script>
     <script type="module" src="/scripts/password-reveal.js"></script>
+    <script>
+        // Nếu người dùng đã đăng nhập, chuyển hướng về trang chủ
+        const user = JSON.parse(sessionStorage.getItem('currentUser') ?? localStorage.getItem('currentUser'));
+        if (user) {
+            window.location.href = '/';
+        }
+    </script>
+
+    <link rel="stylesheet" href="/styles/main.css">
+
     <style type="text/tailwindcss">
         .input-field {
             > label {
@@ -33,7 +46,15 @@
 
                 > input {
                     @apply w-full pl-10 py-2 border border-gray-300 rounded;
+
+                    &.error {
+                        @apply border-[red];
+                    }
                 }
+            }
+
+            > span {
+                @apply text-sm text-red-500 mt-1;
             }
         }
     </style>
@@ -51,25 +72,28 @@
                         <label for="name">Họ và tên</label>
                         <div class="relative">
                             <ion-icon name="person"></ion-icon>
-                            <input type="text" id="name" placeholder="Nhập họ và tên" required
+                            <input id="name" name="name" placeholder="Nhập họ và tên"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                         </div>
+                        <span id="name-error"></span>
                     </div>
                     <div class="input-field">
                         <label for="address">Địa chỉ</label>
                         <div class="relative">
                             <ion-icon name="location"></ion-icon>
-                            <input type="text" id="address" placeholder="Nhập địa chỉ" required
+                            <input id="address" name="address" placeholder="Nhập địa chỉ"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                         </div>
+                        <span id="address-error"></span>
                     </div>
                     <div class="input-field">
                         <label for="phone">Số điện thoại</label>
                         <div class="relative">
                             <ion-icon name="call"></ion-icon>
-                            <input type="tel" id="phone" placeholder="Nhập số điện thoại" required
+                            <input id="phone" name="phone" placeholder="Nhập số điện thoại"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                         </div>
+                        <span id="phone-error"></span>
                     </div>
                 </div>
                 <!-- Account Information -->
@@ -79,37 +103,40 @@
                         <label for="email">Email</label>
                         <div class="relative">
                             <ion-icon name="mail"></ion-icon>
-                            <input type="email" id="email" placeholder="Nhập email" required
+                            <input id="email" name="email" placeholder="Nhập email"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                         </div>
+                        <span id="email-error"></span>
                     </div>
                     <div class="input-field">
                         <label for="password">Mật khẩu</label>
                         <div class="relative">
                             <ion-icon name="lock-closed"></ion-icon>
-                            <input type="password" name="password" placeholder="Nhập mật khẩu" required
+                            <input id="password" type="password" name="password" placeholder="Nhập mật khẩu"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                             <ion-icon name="eye"
                                 class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 cursor-pointer"
                                 onclick="revealPassword(this)"></ion-icon>
                         </div>
+                        <span id="password-error"></span>
                     </div>
                     <div class="input-field">
-                        <label for="repassword">Nhập lại mật khẩu</label>
+                        <label for="confirm-password">Nhập lại mật khẩu</label>
                         <div class="relative">
                             <ion-icon name="lock-closed"></ion-icon>
-                            <input type="password" name="repassword" placeholder="Nhập lại mật khẩu" required
+                            <input id="confirm-password" type="password" name="confirm-password" placeholder="Nhập lại mật khẩu"
                                 class="w-full pl-10 py-2 border border-gray-300 rounded">
                             <ion-icon name="eye"
                                 class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 cursor-pointer"
                                 onclick="revealPassword(this)"></ion-icon>
                         </div>
+                        <span id="confirm-password-error"></span>
                     </div>
                 </div>
                 <div class="md:col-span-2 flex flex-col gap-4">
                     <div class="flex items-center gap-2">
-                        <input type="checkbox" id="remember-me" class="size-4">
-                        <label for="remember-me" class="text-sm">Chấp nhận điều khoản dịch vụ</label>
+                        <input type="checkbox" id="toc" name="toc" class="size-4">
+                        <label for="toc" class="text-sm">Chấp nhận điều khoản dịch vụ</label>
                     </div>
                     <button type="submit"
                         class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Đăng ký</button>

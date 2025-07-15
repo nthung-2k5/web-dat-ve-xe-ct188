@@ -6,10 +6,17 @@ const ioniconsNoModuleScript = document.createElement('script');
 ioniconsNoModuleScript.noModule = true;
 ioniconsNoModuleScript.src = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js';
 
+const logOutScript = document.createElement('script');
+logOutScript.textContent = `
+window.logout = () => {
+    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
+    window.location.reload();
+}`;
+
 /**
  * Template phần header để dễ gắn vào các trang HTML khác
  */
-
 class WebHeader extends HTMLElement {
     constructor() {
         super();
@@ -18,6 +25,9 @@ class WebHeader extends HTMLElement {
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
         const script = document.createElement('script');
+
+        const user = JSON.parse(sessionStorage.getItem('currentUser') ?? localStorage.getItem('currentUser') ?? 'null');
+
         script.textContent = `
 const root = document.getElementsByTagName('web-header')[0].shadowRoot;
 root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a => a.classList.add('active'));
@@ -29,7 +39,7 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
     <nav>
         <div id="desktop-nav" class="container">
             <div class="left">
-                <a class="shrink-0" href="/">
+                <a href="/">
                     <img src="/images/logo.png" alt="Route3Go logo" height="48px">
                 </a>
                 <div class="desktop-menu">
@@ -40,8 +50,13 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
                 </div>
             </div>
             <div class="desktop-menu">
-                <a href="/dangnhap.html">Đăng nhập</a>
-                <a href="/dangky.html">Đăng ký</a>
+                ${user ? `
+                    <span class="welcome">Chào mừng, ${user.name}!</span>
+                    <a href="#" class="logout" onclick="logout()">Đăng xuất</a>
+                ` : `
+                    <a href="/dangnhap.html">Đăng nhập</a>
+                    <a href="/dangky.html">Đăng ký</a>
+                `}
             </div>
             <div id="mobile-button">
                 <!-- Mobile menu button -->
@@ -58,8 +73,13 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
                 <a href="/lienhe.html">Liên hệ</a>
                 <a href="/search.html">Đặt vé</a>
                 <a href="/gioithieu.html">Về chúng tôi</a>
-                <a href="/dangnhap.html">Đăng nhập</a>
-                <a href="/dangky.html">Đăng ký</a>
+                ${user ? `
+                    <span class="welcome">Chào mừng, ${user.name}!</span>
+                    <a href="#" class="logout" onclick="logout()">Đăng xuất</a>
+                ` : `
+                    <a href="/dangnhap.html">Đăng nhập</a>
+                    <a href="/dangky.html">Đăng ký</a>
+                `}
             </div>
         </div>
     </nav>
@@ -67,6 +87,7 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
         this.shadowRoot.appendChild(script);
         this.shadowRoot.appendChild(ioniconsScript);
         this.shadowRoot.appendChild(ioniconsNoModuleScript);
+        this.shadowRoot.appendChild(logOutScript);
     }
 };
 

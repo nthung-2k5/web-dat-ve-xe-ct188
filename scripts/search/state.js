@@ -50,7 +50,7 @@ const SearchState = {
 };
 
 // Giả lập việc lấy dữ liệu từ backend
-const response = await fetch('data/bus-routes.json');
+const response = await fetch('/data/bus-routes.json');
 SearchState.routesData = (await response.json()).map(route => {
     route.departure.time = new Date(route.departure.time);
     route.arrival.time = new Date(route.arrival.time);

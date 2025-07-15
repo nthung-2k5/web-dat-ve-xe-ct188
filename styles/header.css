@@ -9,11 +9,6 @@ nav {
     text-transform: uppercase;
 }
 
-#desktop-nav > .left {
-    display: flex;
-    align-items: center;
-}
-
 #desktop-nav {
     margin-left: auto;
     margin-right: auto;
@@ -21,6 +16,11 @@ nav {
     height: 4rem;
     align-items: center;
     justify-content: space-between;
+
+    >.left {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .desktop-menu {
@@ -28,16 +28,15 @@ nav {
     color: #333;
     margin-left: 2.5rem;
     gap: 1.5rem;
-}
 
-@media (min-width: 1024px) {
-    .desktop-menu {
+    @media (min-width: 1024px) {
         display: flex;
     }
 }
 
-a {
-    font-family: 'K2D', sans-serif; 
+a,
+.welcome {
+    font-family: 'K2D', sans-serif;
     transition: color 0.2s;
     font-size: 1.125rem;
     font-weight: 700;
@@ -47,59 +46,46 @@ a:hover:not(.active) {
     color: #0284c7;
 }
 
-a.active {
+a.active,
+.welcome {
     color: #0369a1;
 }
 
 #mobile-button {
-    margin-right: -0.5rem; /* -mr-2 */
+    margin-right: -0.5rem;
+    /* -mr-2 */
     display: flex;
-}
 
-@media (min-width: 1024px) {
-    #mobile-button {
+    @media (min-width: 1024px) {
         display: none;
     }
+
+    button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.375rem;
+        padding: 0.5rem;
+        color: #1f2937;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #2563eb;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
 }
 
-#mobile-button button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    color: #1f2937;
-    transition: color 0.2s;
-}
-
-#mobile-button button:hover {
-    color: #2563eb;
-}
-
-#mobile-button button:focus {
-    outline: none;
-}
-
-#mobile-menu > div {
+#mobile-menu>div {
     display: flex;
     flex-direction: column;
     color: #4b5563;
-    margin-left: 2.5rem;
     gap: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.75rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-
-@media (min-width: 640px) {
-    #mobile-menu > div {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-    }
-}
-
-#mobile-menu.hidden {
-    display: none;
+    padding: 0.5rem 2rem;
 }

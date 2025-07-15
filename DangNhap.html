@@ -5,14 +5,27 @@
     <meta charset="UTF-8">
     <meta name="author" content="Huỳnh Quang Vĩ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <title>Đăng nhập</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="/styles/main.css">
+    
     <script defer src="/scripts/web-layout.js"></script>
     <script type="module" src="/scripts/password-reveal.js"></script>
+    <script type="module" src="/scripts/dangnhap.js"></script>
+    <script>
+        // Nếu người dùng đã đăng nhập, chuyển hướng về trang chủ
+        const user = JSON.parse(sessionStorage.getItem('currentUser') ?? localStorage.getItem('currentUser'));
+        if (user) {
+            window.location.href = '/';
+        }
+    </script>
+
+    <link rel="stylesheet" href="/styles/main.css">
+
     <style type="text/tailwindcss">
         .input-field {
             > label {
@@ -28,7 +41,15 @@
 
                 > input {
                     @apply w-full pl-10 py-2 border border-gray-300 rounded;
+
+                    &.error {
+                        @apply border-[red];
+                    }
                 }
+            }
+
+            > span {
+                @apply text-sm text-red-500 mt-1;
             }
         }
     </style>
@@ -43,23 +64,25 @@
                     <label for="email">Email</label>
                     <div>
                         <ion-icon name="mail"></ion-icon>
-                        <input type="tel" id="email" placeholder="Nhập email" required>
+                        <input id="email" name="email" placeholder="Nhập email">
                     </div>
+                    <span id="email-error"></span>
                 </div>
 
                 <div class="input-field">
                     <label for="password">Mật khẩu</label>
                     <div>
                         <ion-icon name="lock-closed"></ion-icon>
-                        <input type="password" name="password" placeholder="Nhập mật khẩu" required>
+                        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
                         <ion-icon name="eye"
                             class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 cursor-pointer"
                             onclick="revealPassword(this)"></ion-icon>
                     </div>
+                    <span id="password-error"></span>
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="remember-me" class="size-4">
+                    <input type="checkbox" id="remember-me" name="remember-me" class="size-4">
                     <label for="remember-me" class="text-sm">Nhớ mật khẩu</label>
                 </div>
 
