@@ -1,5 +1,6 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
-import { getOrShowError, resetFormErrors } from './form.js';
+// Đường dẫn này đúng vì form.js cùng cấp với dangnhap.js
+import { getOrShowError, resetFormErrors } from './form.js'; 
 
 const getAccounts = () => {
     return [{
@@ -15,16 +16,16 @@ document.forms[0].addEventListener('submit', async (e) => {
     resetFormErrors(form);
 
     const formData = new FormData(form);
-
+    
     const email = await getOrShowError(form, formData, 'email', 'Vui lòng nhập email');
     const password = await getOrShowError(form, formData, 'password', 'Vui lòng nhập mật khẩu');
 
     if (!email || !password) {
-        return; // Nếu có trường nào rỗng, dừng xử lý
+        return;
     }
 
     const rememberMe = formData.get('remember-me') === 'on';
-
+    
     const accounts = getAccounts();
     const account = accounts.find(acc => acc.email === email && acc.password === password);
 
@@ -34,16 +35,28 @@ document.forms[0].addEventListener('submit', async (e) => {
             title: 'Đăng nhập thành công',
             text: `Chào mừng ${account.name}!`
         });
+        
 
+        // Lưu thông tin người dùng như cũ
         (rememberMe ? localStorage : sessionStorage).setItem('currentUser', JSON.stringify(account));
-        window.location.href = '/';
+        
+        // --- PHẦN CHUYỂN HƯỚNG THÔNG MINH ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.get('redirectUrl');
+
+        if (redirectUrl) {
+            // Nếu có redirectUrl (từ trang đặt vé gửi qua), thì quay về trang đó
+            window.location.href = redirectUrl;
+        } else {
+            // Nếu không, về trang chủ như mặc định
+            window.location.href = '/'; 
+        }
+
     } else {
         await Swal.fire({
             icon: 'error',
             title: 'Đăng nhập thất bại',
-            text: 'Email hoặc mật khẩu không đúng. Vui lòng thử lại.'
+            text: 'Sai email hoặc mật khẩu.'
         });
-
-        e.target.reset();
     }
 });

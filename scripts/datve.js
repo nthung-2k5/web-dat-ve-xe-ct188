@@ -6,6 +6,11 @@ const rightColSeats = ["02", "05", "08", "11", "14", "18"];
 const occupiedSeats = ["03", "04", "07", "09"];
 const selectedSeats = [];
 
+const currentUser = sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser');
+if (!currentUser) {
+    window.location.href = `/DangNhap.html?redirectUrl=${encodeURIComponent(window.location.pathname)}`;
+}
+
 function renderSeats(containerId, seatList) {
     const container = document.getElementById(containerId);
     seatList.forEach(code => {
@@ -65,6 +70,7 @@ document.getElementById("clearBtn").addEventListener("click", () => {
     document.querySelectorAll(".seat.selected").forEach(s => s.classList.remove("selected"));
     updateCart();
 });
+
 
 document.getElementById("checkoutBtn").addEventListener("click", () => {
 
