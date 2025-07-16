@@ -2,7 +2,14 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
 import { nameRegex, phoneRegex, emailRegex } from './validation.js';
 import { resetFormErrors, showError, getOrShowError } from './form.js';
 
-
+function processRegistration(name, email, password) {
+    // Logic đăng ký thực tế ở đây
+    // Ví dụ: return fetch('/api/register', { method: 'POST', body: ... })
+    if (name && email && password) {
+        return true; // Giả sử đăng ký thành công
+    }
+    return false;
+}
 document.forms[0].addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -82,4 +89,27 @@ document.forms[0].addEventListener('submit', async (e) => {
 
     localStorage.setItem('accounts', JSON.stringify(accounts));
     localStorage.setItem('currentUser', JSON.stringify(accounts[accounts.length - 1]));
+    // --- PHẦN XỬ LÝ SAU KHI ĐĂNG KÝ THÀNH CÔNG ---
+    const newAccount = { name, email, password };
+    accounts.push(newAccount);
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+    
+    // Tự động đăng nhập cho người dùng mới
+    sessionStorage.setItem('currentUser', JSON.stringify(newAccount));
+
+    await Swal.fire({
+        icon: 'success',
+        title: 'Đăng ký thành công',
+        text: 'Bạn đã được tự động đăng nhập.'
+    });
+
+    // --- PHẦN CHUYỂN HƯỚNG THÔNG MINH (Tương tự trang đăng nhập) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectUrl = urlParams.get('redirectUrl');
+
+    if (redirectUrl) {
+        window.location.href = redirectUrl;
+    } else {
+        window.location.href = '/';
+    }
 });
