@@ -11,10 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <script defer src="/scripts/web-layout.js"></script>
-    <script type="module" src="/scripts/datve.js"></script>
     <script type="module">
         import { createSeatMap, renderSeatMap } from '/scripts/datve/seats.js';
-        renderSeatMap(document.getElementById('seatContainer'), 45, 16);
+        renderSeatMap(document.getElementById('seatContainer'), 15, 3);
     </script>
     <link
         href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/svg.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/select.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/label.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/card.css,npm/daisyui@5/theme/light.css"
@@ -26,16 +25,20 @@
             @apply relative transition cursor-pointer size-[40px];
 
             > span {
-                @apply absolute inset-0 flex items-center justify-center text-sm font-semibold text-sky-950;
+                @apply absolute inset-0 flex items-center justify-center text-sm font-semibold;
             }
 
             &.selected {
-                background-color: #673ab7;
-                color: white;
+                @apply text-purple-900;
+            }
+
+            &.available {
+                @apply text-sky-900;
             }
 
             &.occupied {
                 cursor: not-allowed;
+                @apply text-gray-900;
             }
 
             &:hover:not(.occupied):not(.selected) {
@@ -51,24 +54,24 @@
         }
 
         .legend {
-            @apply flex items-center mb-2;
+            @apply flex items-center;
         }
 
         .legend-box {
-            @apply inline-block w-4 h-4 mr-2 rounded;
+            @apply inline-block w-4 h-4 mr-2 rounded border-2;
         }
     </style>
 </head>
 
 <body>
-    <main class="container my-5 grid grid-cols-[2fr_1fr] gap-4 mx-auto">
+    <main class="container my-5 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mx-auto">
         <div class="card bg-white">
             <div class="card-body items-center">
                 <h3 class="card-title">🪑 Chọn ghế</h3>
-                <div class="flex justify-center gap-4">
-                    <span class="legend"><div class="legend-box border border-blue-700 bg-blue-50"></div> Còn trống</span>
-                    <span class="legend"><div class="legend-box bg-purple-800"></div> Đang chọn</span>
-                    <span class="legend"><div class="legend-box bg-gray-500"></div> Đã bán</span>
+                <div class="flex justify-center gap-6 mb-2">
+                    <span class="legend"><div class="legend-box border-[#96C5E7] bg-[#DEF3FF]"></div> Còn trống</span>
+                    <span class="legend"><div class="legend-box border-[#B795E0] bg-[#F1E5FF]"></div> Đang chọn</span>
+                    <span class="legend"><div class="legend-box border-[#C0C6CC] bg-[#D5D9DD]"></div> Đã bán</span>
                 </div>
                 <div class="flex flex-col gap-2" id="seatContainer">
                 </div>

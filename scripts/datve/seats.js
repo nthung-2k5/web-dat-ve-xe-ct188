@@ -66,22 +66,44 @@ export const createSeatMap = (totalSeats, availableSeats) => {
 export const renderSeatMap = (seatContainer, totalSeats, availableSeats) => {
     const seatMap = createSeatMap(totalSeats, availableSeats);
     let index = 1;
-    seatContainer.innerHTML = seatMap.reduce((rowHtml, row) => rowHtml +
-        `<div class="seat-row">
-            ${row.reduce((colHtml, seat) => {
-                if (seat === null) {
-                    colHtml += '<div class="seat empty"></div>';
-                }
-                else {
-                    colHtml +=
-                        `<div class="seat ${seat ? 'occupied' : 'available'}">
-                            <img src="/images/seat-${seat ? 'occupied' : 'available'}.svg" alt="Ghế" width="40" height="40">
-                            <span>${String(index).padStart(2, '0')}</span>
-                        </div>`;
-                    index++;
+
+    seatContainer.append(...seatMap.map((row) => {
+        const rowElement = document.createElement('div');
+        rowElement.className = 'seat-row';
+        rowElement.append(...row.map(seat => {
+            const seatElement = document.createElement('div');
+            seatElement.className = 'seat';
+
+            if (seat === null) {
+                seatElement.classList.add('empty');
+            }
+            else {
+                const seatClass = seat ? 'available' : 'occupied';
+                seatElement.classList.add(seatClass);
+
+                const img = document.createElement('img');
+                img.src = `/images/seat-${seatClass}.svg`;
+                img.alt = 'Ghế';
+                img.width = 40;
+                img.height = 40;
+
+                if (seat) {
+                    seatElement.addEventListener('click', () => {
+                        const selecting = !seatElement.classList.contains('selecting');
+                        const className = selecting ? 'selecting' : 'available';
+                        seatElement.className = `seat ${className}`;
+
+                        img.src = `/images/seat-${className}.svg`;
+                    });
                 }
 
-                return colHtml;
-            }, '')}
-        </div>`, '');
+                seatElement.appendChild(img);
+                seatElement.appendChild(document.createElement('span')).textContent = String(index++).padStart(2, '0');
+            }
+
+            return seatElement;
+        }));
+
+        return rowElement;
+    }));
 };
