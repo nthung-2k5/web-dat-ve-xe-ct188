@@ -41,11 +41,24 @@ renderSeats("middleCol", middleColSeats);
 renderSeats("rightCol", rightColSeats);
 
 function updateCart() {
-    document.querySelector("#orderInfo p:nth-child(4)").innerHTML = `<strong>Số lượng ghế:</strong> ${selectedSeats.length} Ghế`;
-    document.querySelector("#orderInfo p:nth-child(5)").innerHTML = `<strong>Số ghế:</strong> ${selectedSeats.join(", ") || "Chưa chọn"}`;
-    const total = selectedSeats.length * 145000;
-    document.querySelector("#orderInfo p:nth-child(7)").innerHTML = `<strong>Tổng tiền:</strong> ${total.toLocaleString("vi-VN")}đ`;
+    // Lấy giá mỗi vé từ data attribute (do datve-init.js thiết lập)
+    const orderInfoDiv = document.getElementById('orderInfo');
+    const pricePerSeat = parseFloat(orderInfoDiv.dataset.pricePerSeat) || 0;
+
+    // Cập nhật số lượng ghế và số ghế đã chọn bằng ID
+    document.getElementById("seat-count-display").textContent = `${selectedSeats.length} Ghế`;
+    document.getElementById("seat-numbers-display").textContent = selectedSeats.join(", ") || "Chưa chọn";
+
+    // Tính tổng tiền
+    const total = selectedSeats.length * pricePerSeat;
+
+    // Cập nhật tổng tiền vào span tương ứng
+    document.getElementById("total-price-display").textContent = `${total.toLocaleString("vi-VN")}đ`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCart();
+});
 
 document.getElementById("clearBtn").addEventListener("click", () => {
     selectedSeats.length = 0;

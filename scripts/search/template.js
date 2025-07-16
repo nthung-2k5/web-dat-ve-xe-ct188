@@ -51,7 +51,7 @@ const htmlTemplate = `<div class="bg-white rounded-lg p-4 border border-gray-200
         <button
             class="bg-sky-500 hover:bg-sky-600 transition-all text-white font-semibold py-2 px-4 rounded w-full xl:w-32 max-xl:col-span-2 mt-auto"
             id="book-button"
-            onclick="window.location.href='booking.html?routeId={{ id }}'">
+            onclick="window.location.href='datve.html?routeId={{ id }}'">
             Đặt vé
         </button>
     </div>

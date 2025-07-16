@@ -92,7 +92,7 @@ export const renderSeatMap = (seatContainer, totalSeats, availableSeats) => {
                         const selecting = !seatElement.classList.contains('selecting');
                         const className = selecting ? 'selecting' : 'available';
                         seatElement.className = `seat ${className}`;
-
+                        updateOrderInfo();
                         img.src = `/images/seat-${className}.svg`;
                     });
                 }
@@ -106,4 +106,22 @@ export const renderSeatMap = (seatContainer, totalSeats, availableSeats) => {
 
         return rowElement;
     }));
+    
+};
+/**
+ * Cập nhật thông tin đơn hàng (ghế, số lượng, giá)
+ */
+const updateOrderInfo = () => {
+    const selectedSeats = document.querySelectorAll('.seat.selecting');
+    const seatNumbers = Array.from(selectedSeats).map(seat => {
+        const span = seat.querySelector('span');
+        return span ? parseInt(span.textContent) : null;
+    }).filter(n => n !== null);
+
+    const total = selectedSeats.length*1000;
+
+    // Cập nhật vào giao diện
+    document.getElementById('seat-count-display').textContent = `${seatNumbers.length} Ghế`;
+    document.getElementById('seat-numbers-display').textContent = seatNumbers.length ? seatNumbers.join(', ') : 'Chưa chọn';
+    document.getElementById('total-price-display').textContent = total.toLocaleString('vi-VN') + 'đ';
 };

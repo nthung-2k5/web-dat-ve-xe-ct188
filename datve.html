@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <script defer src="/scripts/web-layout.js"></script>
+    <script type="module" src="/scripts/datve-init.js"></script>
+    <script type="module" src="/scripts/datve.js"></script>
     <script type="module">
         import { createSeatMap, renderSeatMap } from '/scripts/datve/seats.js';
         renderSeatMap(document.getElementById('seatContainer'), 15, 3);
@@ -101,13 +103,13 @@
                 <div class="card-body items-center">
                     <h3 class="card-title">🚌 Thông tin vé</h3>
                     <div class="w-full text-base grid grid-cols-1 gap-2">
-                        <p><strong>🛣️Tuyến xe:</strong> Cần Thơ - Hồng Ngự</p>
-                        <p><strong>⏰Thời gian xuất phát:</strong> 08:00 - 15/08/2025</p>
-                        <p><strong>💺Số lượng ghế:</strong> 1 Ghế</p>
-                        <p><strong>🔢Số ghế:</strong> 09</p>
-                        <p><strong>📍Điểm đón khách:</strong> BX Cần Thơ</p>
-                        <p><strong>📍Điểm trả khách:</strong> BX Hồng Ngự</p>
-                        <p><strong>💰Tổng tiền:</strong> 145.000đ</p>
+                        <p><strong>🛣️Tuyến xe:</strong> <span id="route-display"></span></p>
+                        <p><strong>⏰Thời gian xuất phát:</strong> <span id="departure-time-display"></span></p>
+                        <p><strong>💺Số lượng ghế:</strong> <span id="seat-count-display">0 Ghế</span></p>
+                        <p><strong>🔢Số ghế:</strong> <span id="seat-numbers-display">Chưa chọn</span></p>
+                        <p><strong>📍Điểm đón khách:</strong> <span id="pickup-location-display"></span></p>
+                        <p><strong>📍Điểm trả khách:</strong> <span id="arrival-location-display"></span></p>
+                        <p><strong>💰Tổng tiền:</strong> <span id="total-price-display">0đ</span></p>
                         <div class="flex justify-between mt-4">
                             <button class="btn btn-outline btn-error" id="clearBtn">🔄Đặt lại</button>
                             <button class="btn btn-info" id="checkoutBtn">💳 Thanh toán</button>
