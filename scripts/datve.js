@@ -7,44 +7,6 @@ document.getElementById("clearBtn").addEventListener("click", () => {
 });
 
 
-document.getElementById("checkoutBtn").addEventListener("click", () => {
-
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    const termsAccepted = document.getElementById("acceptTerms").checked;
-
-    if (!name || !phone) {
-        alert("Vui lòng nhập đầy đủ Họ và tên và Số điện thoại.");
-        return;
-    }
-    if (!termsAccepted) {
-        alert("Vui lòng chấp nhận điều khoản trước khi thanh toán.");
-        return;
-    }
-
-    if (selectedSeats.length === 0) {
-        alert("Vui lòng chọn ghế trước khi thanh toán.");
-        return;
-    }
-
-    window.location.href = "datvethanhcong.html";
-
-    document.getElementById("orderInfo").style.display = "none";
-    document.querySelector("#seatContainer").closest(".col-lg-8").style.display = "none";
-    document.querySelector("#orderInfo").closest(".col-lg-4").querySelector(".card").style.display = "none";
-
-    const ticketBox = document.getElementById("ticketInfo");
-    ticketBox.classList.add("centered");
-
-    document.getElementById("ticketName").innerText = document.getElementById("name").value;
-    document.getElementById("ticketPhone").innerText = document.getElementById("customerPhone").value;
-
-    ticketBox.style.display = "block";
-
-    document.getElementById("ticketSeats").innerText = selectedSeats.join(", ");
-    document.getElementById("ticketTotal").innerText = selectedSeats.length * 145000;
-
-});
 
 const customerNameInput = document.getElementById("name");
 const customerPhoneInput = document.getElementById("customerPhone");
@@ -123,6 +85,35 @@ document.getElementById("checkoutBtn").addEventListener("click", async (e) => {
         });
         return;
     }
+  
+        const tuyen = document.getElementById('route-display')?.textContent.trim();
+        const time = document.getElementById('departure-time-display')?.textContent.trim();
+        const don = document.getElementById('pickup-location-display')?.textContent.trim();
+        const tra = document.getElementById('arrival-location-display')?.textContent.trim();
+        const totalPriceText = document.getElementById('total-price-display')?.textContent || '0đ';
 
+        if (!tuyen || !time || !don || !tra) {
+            alert("Thiếu thông tin tuyến, thời gian hoặc điểm đón/trả.");
+            return;
+        }
+
+        const gia = parseInt(totalPriceText.replace(/[^\d]/g, ''));
+        const maVe = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+        const ticket = {
+            name,
+            phone,
+            email,
+            route: tuyen,
+            time,
+            pickup: don,
+            arrival: tra,
+            total: gia,
+            seats: Array.from(selectedSeats),
+            maVe
+        };
+
+        sessionStorage.setItem("ticketData", JSON.stringify(ticket));
+       
     window.location.href = "datvethanhcong.html";
 });
