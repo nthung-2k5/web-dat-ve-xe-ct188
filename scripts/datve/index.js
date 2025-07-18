@@ -1,88 +1,119 @@
-import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
+import { nameRegex, phoneRegex, emailRegex } from './validation.js';
 
-const form = document.forms[0];
-
-form.addEventListener('reset', () => {
-    document.querySelectorAll('.seat.selecting').forEach(s => s.dispatchEvent(new Event('click')));
+document.getElementById("clearBtn").addEventListener("click", () => {
+    selectedSeats.length = 0;
+    document.querySelectorAll(".seat.selected").forEach(s => s.classList.remove("selected"));
+    updateCart();
 });
 
-/**
- * @type {HTMLInputElement}
- */
-const nameInput = form['name'];
+
+
+const customerNameInput = document.getElementById("name");
+const customerPhoneInput = document.getElementById("customerPhone");
+const customerEmailInput = document.getElementById("customerEmail");
 
 /**
- * @type {HTMLInputElement}
+ * 
+ * @param {HTMLInputElement} inputElement 
+ * @param {RegExp} regexTest 
  */
-const phoneInput = form['phone'];
+function validateInput(inputElement, regexTest) {
+    if (regexTest.test(inputElement.value)) {
+        inputElement.classList.remove("is-invalid");
+        inputElement.classList.add("is-valid");
+    }
+    else {
+        inputElement.classList.remove("is-valid");
+        inputElement.classList.add("is-invalid");
+    }
+}
 
-/**
- * @type {HTMLInputElement}
- */
-const emailInput = form['email'];
+customerNameInput.addEventListener("input", () => validateInput(customerNameInput, nameRegex));
+customerPhoneInput.addEventListener("input", () => validateInput(customerPhoneInput, phoneRegex));
+customerEmailInput.addEventListener("input", () => validateInput(customerEmailInput, emailRegex));
 
-document.forms[0].addEventListener('submit', async (e) => {
+document.getElementById("checkoutBtn").addEventListener("click", async (e) => {
     e.preventDefault();
 
-    if (!nameInput.checkValidity()) {
+    validateInput(customerNameInput);
+    validateInput(customerPhoneInput);
+    validateInput(customerEmailInput);
+
+    const termsAccepted = document.getElementById("acceptTerms").checked;
+
+    if (!nameRegex.test(customerNameInput)) {
         await Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Vui lòng điền đầy đủ và chính xác họ và tên.'
+            icon: "error",
+            title: "Lỗi!",
+            text: "Vui lòng điền đầy đủ và chính xác họ và tên."
         });
         return;
     }
 
-    if (!phoneInput.checkValidity()) {
+    if (!phoneRegex.test(customerPhoneInput)) {
         await Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Vui lòng điền đầy đủ và chính xác số điện thoại.'
+            icon: "error",
+            title: "Lỗi!",
+            text: "Vui lòng điền đầy đủ và chính xác số điện thoại."
         });
         return;
     }
 
-    if (!emailInput.checkValidity()) {
+    if (!emailRegex.test(customerEmailInput)) {
         await Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Vui lòng điền đầy đủ và chính xác email.'
+            icon: "error",
+            title: "Lỗi!",
+            text: "Vui lòng điền đầy đủ và chính xác email."
         });
         return;
     }
 
-    if (!form['acceptTerms'].checked) {
+    if (!termsAccepted) {
         await Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Vui lòng chấp nhận điều khoản trước khi thanh toán.'
+            icon: "error",
+            title: "Lỗi!",
+            text: "Vui lòng chấp nhận điều khoản trước khi thanh toán."
         });
         return;
     }
 
-    const selectedSeats = document.querySelectorAll('.seat.selecting');
     if (selectedSeats.length === 0) {
         await Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Vui lòng chọn ít nhất 1 ghế trước khi thanh toán.'
+            icon: "error",
+            title: "Lỗi!",
+            text: "Vui lòng chọn ít nhất 1 ghế trước khi thanh toán."
         });
         return;
     }
+  
+        const tuyen = document.getElementById('route-display')?.textContent.trim();
+        const time = document.getElementById('departure-time-display')?.textContent.trim();
+        const don = document.getElementById('pickup-location-display')?.textContent.trim();
+        const tra = document.getElementById('arrival-location-display')?.textContent.trim();
+        const totalPriceText = document.getElementById('total-price-display')?.textContent || '0đ';
 
-    window.location.href = 'datvethanhcong.html';
+        if (!tuyen || !time || !don || !tra) {
+            alert("Thiếu thông tin tuyến, thời gian hoặc điểm đón/trả.");
+            return;
+        }
+
+        const gia = parseInt(totalPriceText.replace(/[^\d]/g, ''));
+        const maVe = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+        const ticket = {
+            name,
+            phone,
+            email,
+            route: tuyen,
+            time,
+            pickup: don,
+            arrival: tra,
+            total: gia,
+            seats: Array.from(selectedSeats),
+            maVe
+        };
+
+        sessionStorage.setItem("ticketData", JSON.stringify(ticket));
+       
+    window.location.href = "datvethanhcong.html";
 });
-
-const customerInfo = document.getElementById('customerInfo');
-const orderInfo = document.getElementById('orderInfo');
-const rightCol = document.getElementById('rightCol');
-
-const rearrangeElements = () => {
-    const destElement = window.matchMedia('(min-width: 64rem)').matches ? rightCol : form;
-
-    destElement.appendChild(customerInfo);
-    destElement.appendChild(orderInfo);
-};
-
-window.addEventListener('resize', rearrangeElements, false);
-rearrangeElements();
