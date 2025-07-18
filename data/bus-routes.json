@@ -6,12 +6,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Nước Ngầm",
-            "time": "2025-07-15T23:55:00.000Z"
+            "time": "2025-07-31T23:55:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Bến xe Bắc Vĩnh",
-            "time": "2025-07-16T05:15:00.000Z"
+            "time": "2025-08-01T05:15:00.000Z"
         },
         "price": 200000,
         "rating": 4.5,
@@ -27,12 +27,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Đông",
-            "time": "2025-07-15T08:30:00.000Z"
+            "time": "2025-07-31T08:30:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Bến xe Đà Lạt",
-            "time": "2025-07-15T14:00:00.000Z"
+            "time": "2025-07-31T14:00:00.000Z"
         },
         "price": 350000,
         "rating": 4.8,
@@ -48,12 +48,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe An Sương",
-            "time": "2025-07-15T15:45:00.000Z"
+            "time": "2025-07-31T15:45:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Bến xe Đà Lạt",
-            "time": "2025-07-15T21:30:00.000Z"
+            "time": "2025-07-31T21:30:00.000Z"
         },
         "price": 180000,
         "rating": 4.2,
@@ -69,12 +69,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Đông",
-            "time": "2025-07-15T22:00:00.000Z"
+            "time": "2025-07-31T22:00:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Bến xe Đà Lạt",
-            "time": "2025-07-16T04:30:00.000Z"
+            "time": "2025-08-01T04:30:00.000Z"
         },
         "price": 220000,
         "rating": 4.3,
@@ -90,12 +90,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Văn phòng quận 1",
-            "time": "2025-07-15T07:00:00.000Z"
+            "time": "2025-07-31T07:00:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Trung tâm Đà Lạt",
-            "time": "2025-07-15T12:45:00.000Z"
+            "time": "2025-07-31T12:45:00.000Z"
         },
         "price": 280000,
         "rating": 4.6,
@@ -111,12 +111,12 @@
         "departure": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Tây",
-            "time": "2025-07-15T20:30:00.000Z"
+            "time": "2025-07-31T20:30:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Bến xe Đà Lạt",
-            "time": "2025-07-16T03:00:00.000Z"
+            "time": "2025-08-01T03:00:00.000Z"
         },
         "price": 195000,
         "rating": 4.1,
@@ -132,12 +132,12 @@
         "departure": {
             "city": "Đà Lạt",
             "location": "Bến xe Bắc Vĩnh",
-            "time": "2025-07-16T07:30:00.000Z"
+            "time": "2025-08-01T07:30:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Nước Ngầm",
-            "time": "2025-07-16T12:50:00.000Z"
+            "time": "2025-08-01T12:50:00.000Z"
         },
         "price": 200000,
         "rating": 4.5,
@@ -153,12 +153,12 @@
         "departure": {
             "city": "Đà Lạt",
             "location": "Bến xe Đà Lạt",
-            "time": "2025-07-16T14:00:00.000Z"
+            "time": "2025-08-01T14:00:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Đông",
-            "time": "2025-07-16T19:30:00.000Z"
+            "time": "2025-08-01T19:30:00.000Z"
         },
         "price": 350000,
         "rating": 4.8,
@@ -174,12 +174,12 @@
         "departure": {
             "city": "Hà Nội",
             "location": "Bến xe Hà Nội",
-            "time": "2025-07-15T06:00:00.000Z"
+            "time": "2025-07-31T06:00:00.000Z"
         },
         "arrival": {
             "city": "Hải Phòng",
             "location": "Bến xe Hải Phòng",
-            "time": "2025-07-15T12:30:00.000Z"
+            "time": "2025-07-31T12:30:00.000Z"
         },
         "price": 150000,
         "rating": 4.2,
@@ -195,12 +195,12 @@
         "departure": {
             "city": "Cần Thơ",
             "location": "Bến xe Cần Thơ",
-            "time": "2025-07-15T22:00:00.000Z"
+            "time": "2025-07-31T22:00:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Tây",
-            "time": "2025-07-16T06:00:00.000Z"
+            "time": "2025-08-01T06:00:00.000Z"
         },
         "price": 180000,
         "rating": 4.3,
@@ -216,12 +216,12 @@
         "departure": {
             "city": "Nha Trang",
             "location": "Trung tâm Nha Trang",
-            "time": "2025-07-15T07:00:00.000Z"
+            "time": "2025-07-31T07:00:00.000Z"
         },
         "arrival": {
             "city": "Đà Lạt",
             "location": "Trung tâm Đà Lạt",
-            "time": "2025-07-15T12:45:00.000Z"
+            "time": "2025-07-31T12:45:00.000Z"
         },
         "price": 280000,
         "rating": 4.6,
@@ -237,12 +237,12 @@
         "departure": {
             "city": "Hà Nội",
             "location": "Bến xe Mỹ Đình",
-            "time": "2025-07-15T21:30:00.000Z"
+            "time": "2025-07-31T21:30:00.000Z"
         },
         "arrival": {
             "city": "Vinh",
             "location": "Bến xe Vinh",
-            "time": "2025-07-16T05:00:00.000Z"
+            "time": "2025-08-01T05:00:00.000Z"
         },
         "price": 240000,
         "rating": 4.4,
@@ -258,12 +258,12 @@
         "departure": {
             "city": "Đà Nẵng",
             "location": "Bến xe Đà Nẵng",
-            "time": "2025-07-15T08:15:00.000Z"
+            "time": "2025-07-31T08:15:00.000Z"
         },
         "arrival": {
             "city": "Huế",
             "location": "Bến xe Huế",
-            "time": "2025-07-15T15:30:00.000Z"
+            "time": "2025-07-31T15:30:00.000Z"
         },
         "price": 120000,
         "rating": 4.0,
@@ -279,12 +279,12 @@
         "departure": {
             "city": "Rạch Giá",
             "location": "Cảng Rạch Giá",
-            "time": "2025-07-15T09:00:00.000Z"
+            "time": "2025-07-31T09:00:00.000Z"
         },
         "arrival": {
             "city": "Phú Quốc",
             "location": "Cảng An Thới",
-            "time": "2025-07-15T11:30:00.000Z"
+            "time": "2025-07-31T11:30:00.000Z"
         },
         "price": 300000,
         "rating": 4.7,
@@ -300,12 +300,12 @@
         "departure": {
             "city": "Quy Nhon",
             "location": "Bến xe Quy Nhon",
-            "time": "2025-07-15T19:45:00.000Z"
+            "time": "2025-07-31T19:45:00.000Z"
         },
         "arrival": {
             "city": "Nha Trang",
             "location": "Bến xe Nha Trang",
-            "time": "2025-07-16T04:15:00.000Z"
+            "time": "2025-08-01T04:15:00.000Z"
         },
         "price": 190000,
         "rating": 4.1,
@@ -321,12 +321,12 @@
         "departure": {
             "city": "Vũng Tàu",
             "location": "Bến xe Vũng Tàu",
-            "time": "2025-07-15T05:30:00.000Z"
+            "time": "2025-07-31T05:30:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Đông",
-            "time": "2025-07-15T08:00:00.000Z"
+            "time": "2025-07-31T08:00:00.000Z"
         },
         "price": 80000,
         "rating": 3.9,
@@ -342,12 +342,12 @@
         "departure": {
             "city": "Phan Thiết",
             "location": "Trung tâm Phan Thiết",
-            "time": "2025-07-15T13:00:00.000Z"
+            "time": "2025-07-31T13:00:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Đông",
-            "time": "2025-07-15T17:30:00.000Z"
+            "time": "2025-07-31T17:30:00.000Z"
         },
         "price": 160000,
         "rating": 4.5,
@@ -363,12 +363,12 @@
         "departure": {
             "city": "Pleiku",
             "location": "Bến xe Pleiku",
-            "time": "2025-07-15T20:00:00.000Z"
+            "time": "2025-07-31T20:00:00.000Z"
         },
         "arrival": {
             "city": "Nha Trang",
             "location": "Bến xe Nha Trang",
-            "time": "2025-07-16T06:30:00.000Z"
+            "time": "2025-08-01T06:30:00.000Z"
         },
         "price": 260000,
         "rating": 4.2,
@@ -384,12 +384,12 @@
         "departure": {
             "city": "Tân An",
             "location": "Bến xe Tân An",
-            "time": "2025-07-15T11:30:00.000Z"
+            "time": "2025-07-31T11:30:00.000Z"
         },
         "arrival": {
             "city": "Hồ Chí Minh",
             "location": "Bến xe Miền Tây",
-            "time": "2025-07-15T13:15:00.000Z"
+            "time": "2025-07-31T13:15:00.000Z"
         },
         "price": 50000,
         "rating": 3.8,
@@ -405,12 +405,12 @@
         "departure": {
             "city": "Cà Mau",
             "location": "Bến xe Cà Mau",
-            "time": "2025-07-15T16:15:00.000Z"
+            "time": "2025-07-31T16:15:00.000Z"
         },
         "arrival": {
             "city": "Cần Thơ",
             "location": "Bến xe Cần Thơ",
-            "time": "2025-07-15T21:45:00.000Z"
+            "time": "2025-07-31T21:45:00.000Z"
         },
         "price": 140000,
         "rating": 4.0,

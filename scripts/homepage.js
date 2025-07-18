@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const heading = document.querySelector('.promo-voucher h2');
     const paragraph = document.querySelector('.promo-voucher p');
     const originalHeadingText = heading.textContent;

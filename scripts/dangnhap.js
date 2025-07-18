@@ -1,6 +1,5 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
-// Đường dẫn này đúng vì form.js cùng cấp với dangnhap.js
-import { getOrShowError, resetFormErrors } from './form.js'; 
+import { getOrShowError, resetFormErrors } from './form.js';
 
 const getAccounts = () => {
     return [{
@@ -16,7 +15,7 @@ document.forms[0].addEventListener('submit', async (e) => {
     resetFormErrors(form);
 
     const formData = new FormData(form);
-    
+
     const email = await getOrShowError(form, formData, 'email', 'Vui lòng nhập email');
     const password = await getOrShowError(form, formData, 'password', 'Vui lòng nhập mật khẩu');
 
@@ -25,7 +24,7 @@ document.forms[0].addEventListener('submit', async (e) => {
     }
 
     const rememberMe = formData.get('remember-me') === 'on';
-    
+
     const accounts = getAccounts();
     const account = accounts.find(acc => acc.email === email && acc.password === password);
 
@@ -35,11 +34,11 @@ document.forms[0].addEventListener('submit', async (e) => {
             title: 'Đăng nhập thành công',
             text: `Chào mừng ${account.name}!`
         });
-        
 
-        // Lưu thông tin người dùng như cũ
+
+        // Lưu thông tin người dùng
         (rememberMe ? localStorage : sessionStorage).setItem('currentUser', JSON.stringify(account));
-        
+
         // --- PHẦN CHUYỂN HƯỚNG THÔNG MINH ---
         const urlParams = new URLSearchParams(window.location.search);
         const redirectUrl = urlParams.get('redirectUrl');
@@ -49,7 +48,7 @@ document.forms[0].addEventListener('submit', async (e) => {
             window.location.href = redirectUrl;
         } else {
             // Nếu không, về trang chủ như mặc định
-            window.location.href = '/'; 
+            window.location.href = '/';
         }
 
     } else {

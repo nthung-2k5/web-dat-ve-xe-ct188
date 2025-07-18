@@ -215,8 +215,11 @@ const searchRoutes = (form) => {
  */
 const filterRoutes = () => {
     if (utils.isAdvancedFilter()) {
-        const selectedRoute = utils.isAdvancedFilter() ? document.getElementById('selected-route').getAttribute('data-selected-route') : 'departure';
+        const selectedRoute = document.getElementById('selected-route').getAttribute('data-selected-route');
         SearchState.filteredRoutes = applyFilters(selectedRoute === 'return' ? SearchState.searchedRoutes.return : SearchState.searchedRoutes.departure);
+    }
+    else {
+        SearchState.filteredRoutes = SearchState.searchedRoutes.departure;
     }
     sortRoutes();
 };

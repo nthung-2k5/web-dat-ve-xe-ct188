@@ -1,11 +1,11 @@
 /**
  * Kiểm tra xem thiết bị có hỗ trợ sử dụng bộ lọc hay không
  * 
- * Bộ lọc chỉ xuất hiện khi kích thước màn hình >= 768px
+ * Bộ lọc chỉ xuất hiện khi kích thước màn hình >= 48rem (768px)
  * @returns 
  */
 export const isAdvancedFilter = () => {
-    return window.matchMedia('(min-width: 768px)').matches;
+    return window.matchMedia('(min-width: 48rem)').matches;
 }
 
 /**

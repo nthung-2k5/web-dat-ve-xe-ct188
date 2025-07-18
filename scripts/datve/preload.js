@@ -1,5 +1,5 @@
-// File: /scripts/datve-init.js
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
+import { renderSeatMap } from './seats.js';
 
 await (async () => {
     // 1. Lấy routeId từ tham số trên URL
@@ -26,7 +26,7 @@ await (async () => {
         }
 
         /**
-         * @type {import('./search/state').Route[]}
+         * @type {import('../search/state').Route[]}
          */
         const allRoutes = await response.json();
 
@@ -50,6 +50,7 @@ await (async () => {
         const pickupLocationDisplay = document.getElementById('pickup-location-display');
         const arrivalLocationDisplay = document.getElementById('arrival-location-display');
         const orderInfoDiv = document.getElementById('orderInfo');
+        const seatContainer = document.getElementById('seatContainer');
 
         // Định dạng lại ngày giờ cho dễ đọc
         const departureDateTime = new Date(selectedRoute.departure.time);
@@ -63,8 +64,10 @@ await (async () => {
         arrivalLocationDisplay.textContent = selectedRoute.arrival.location;
 
         // 6. Lưu giá vé vào một data attribute để file datve.js có thể sử dụng
-        orderInfoDiv.dataset.pricePerSeat = selectedRoute.price;
+        orderInfoDiv.setAttribute('data-price', selectedRoute.price);
 
+        // 7. Hiển thị sơ đồ ghế ngồi
+        renderSeatMap(seatContainer, selectedRoute.totalSeats, selectedRoute.availableSeats, selectedRoute.availableSeats);
     }
     catch (error) {
         console.error('Lỗi khi khởi tạo thông tin vé:', error);

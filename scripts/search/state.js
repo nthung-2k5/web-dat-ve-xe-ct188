@@ -15,6 +15,7 @@
  * @property {string} seatType - Loại ghế (ví dụ: ghế ngồi, giường nằm)
  * @property {number} price - Giá vé của tuyến đường (tính bằng VNĐ)
  * @property {number} availableSeats - Số ghế còn trống
+ * @property {number} totalSeats - Tổng số ghế trên xe
  * @property {RoutePoint} departure - Thông tin về điểm khởi hành
  * @property {RoutePoint} arrival - Thông tin về điểm đến
  */

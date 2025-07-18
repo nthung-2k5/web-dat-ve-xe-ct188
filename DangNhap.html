@@ -18,8 +18,8 @@
     <script type="module" src="/scripts/dangnhap.js"></script>
     <script>
         // Nếu người dùng đã đăng nhập, chuyển hướng về trang chủ
-        const user = JSON.parse(sessionStorage.getItem('currentUser') ?? localStorage.getItem('currentUser'));
-        if (user) {
+        const currentUser = sessionStorage.getItem('currentUser') ?? localStorage.getItem('currentUser');
+        if (currentUser) {
             window.location.href = '/';
         }
     </script>
@@ -88,6 +88,8 @@
 
                 <button type="submit"
                     class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Đăng nhập</button>
+
+                <span>Bạn chưa có tài khoản? <a href="/dangky.html" class="text-blue-500 hover:underline">Đăng ký</a></span>
             </form>
         </div>
     </main>
