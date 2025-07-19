@@ -100,7 +100,9 @@
 
 <body>
     <main class="container my-5 mx-auto">
-        <form class="grid grid-cols-1 columns-2 lg:grid-cols-[2fr_1fr] gap-4" novalidate>
+        <form class="grid grid-cols-1 columns-2 lg:grid-cols-[2fr_1fr] gap-4" novalidate method="GET" action="/datvethanhcong.html">
+            <input type="hidden" name="routeId">
+            <input type="hidden" name="seats">
             <div class="card bg-white max-lg:order-1">
                 <div class="card-body items-center">
                     <h3 class="card-title">🪑 Chọn ghế</h3>
