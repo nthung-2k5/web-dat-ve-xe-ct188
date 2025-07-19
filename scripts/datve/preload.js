@@ -66,8 +66,11 @@ await (async () => {
         // 6. Lưu giá vé vào một data attribute để file datve.js có thể sử dụng
         orderInfoDiv.setAttribute('data-price', selectedRoute.price);
 
+        // Xe 16 chỗ chỉ có 15 ghế, xe 29 chỗ chỉ có 28 ghế, xe 45 chỗ có đủ 45 ghế
+        let totalSeats = selectedRoute.totalSeats !== 45 ? selectedRoute.totalSeats - 1 : selectedRoute.totalSeats;
+
         // 7. Hiển thị sơ đồ ghế ngồi
-        renderSeatMap(seatContainer, selectedRoute.totalSeats, selectedRoute.availableSeats, selectedRoute.availableSeats);
+        renderSeatMap(seatContainer, totalSeats, selectedRoute.availableSeats, selectedRoute.availableSeats);
     }
     catch (error) {
         console.error('Lỗi khi khởi tạo thông tin vé:', error);

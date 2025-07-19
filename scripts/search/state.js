@@ -12,7 +12,6 @@
  * @property {string} image - Đường dẫn đến hình ảnh của xe
  * @property {number} rating - Đánh giá của tuyến đường (từ 1 đến 5)
  * @property {number} reviews - Số lượng đánh giá
- * @property {string} seatType - Loại ghế (ví dụ: ghế ngồi, giường nằm)
  * @property {number} price - Giá vé của tuyến đường (tính bằng VNĐ)
  * @property {number} availableSeats - Số ghế còn trống
  * @property {number} totalSeats - Tổng số ghế trên xe

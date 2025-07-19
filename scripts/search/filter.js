@@ -12,7 +12,7 @@ const getSelectedOptions = (div) => {
 /**
  * @typedef {Object} FilterParams
  * @property {string[]} priceRange - Khoảng giá được chọn
- * @property {string[]} seatType - Loại ghế được chọn
+ * @property {string[]} totalSeats - Số lượng ghế trên xe được chọn
  * @property {string[]} timeRange - Khung giờ khởi hành được chọn
  * @property {string[]} rating - Đánh giá được chọn
  */
@@ -24,7 +24,7 @@ const getSelectedOptions = (div) => {
 const getFilterParams = () => {
     return {
         priceRange: getSelectedOptions(document.getElementById('price-filter-content')),
-        seatType: getSelectedOptions(document.getElementById('seat-type-filter-content')),
+        totalSeats: getSelectedOptions(document.getElementById('total-seats-filter-content')),
         timeRange: getSelectedOptions(document.getElementById('time-filter-content')),
         rating: getSelectedOptions(document.getElementById('rating-filter-content'))
     };
@@ -66,16 +66,7 @@ export const applyFilters = (routes) => {
         }
     });
 
-    routes = applyFilter(routes, filters.seatType, (route, seat) => {
-        switch (seat) {
-            case 'bed':
-                return route.seatType === 'Giường nằm';
-            case 'seat':
-                return route.seatType === 'Ghế ngồi';
-            case 'limousine':
-                return route.seatType === 'Limousine';
-        }
-    });
+    routes = applyFilter(routes, filters.totalSeats, (route, totalSeats) => route.totalSeats === parseInt(totalSeats));
 
     routes = applyFilter(routes, filters.timeRange, (route, timeSlot) => {
         const departureHour = route.departure.time.getHours();
@@ -115,25 +106,26 @@ export const applySorting = (routes) => {
      * @type {string}
      */
     const sortOrder = document.getElementById('sort-select').value;
+    const tempRoutes = [...routes]; // Tạo bản sao để không làm thay đổi mảng gốc
 
     switch (sortOrder) {
         case 'price-low':
-            return routes.sort((a, b) => a.price - b.price);
+            return tempRoutes.sort((a, b) => a.price - b.price);
         case 'price-high':
-            return routes.sort((a, b) => b.price - a.price);
+            return tempRoutes.sort((a, b) => b.price - a.price);
         case 'departure-early':
-            return routes.sort((a, b) => a.departure.time.getTime() - b.departure.time.getTime());
+            return tempRoutes.sort((a, b) => a.departure.time.getTime() - b.departure.time.getTime());
         case 'departure-late':
-            return routes.sort((a, b) => b.departure.time.getTime() - a.departure.time.getTime());
+            return tempRoutes.sort((a, b) => b.departure.time.getTime() - a.departure.time.getTime());
         case 'rating':
-            return routes.sort((a, b) => b.rating - a.rating);
+            return tempRoutes.sort((a, b) => b.rating - a.rating);
         case 'duration':
-            return routes.sort((a, b) => {
+            return tempRoutes.sort((a, b) => {
                 const durationA = utils.calculateDuration(a.departure.time, a.arrival.time);
                 const durationB = utils.calculateDuration(b.departure.time, b.arrival.time);
                 return durationA - durationB;
             });
         default:
-            return routes;
+            return tempRoutes;
     }
 }

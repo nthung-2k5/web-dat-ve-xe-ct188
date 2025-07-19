@@ -8,7 +8,6 @@
     <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <title>Tìm vé xe khách</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
@@ -19,52 +18,41 @@
 </head>
 
 <body>
-    <section class="bg-white py-8 relative">
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80'); filter: brightness(0.85);">
-        </div>
-
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/90"></div>
-
-        <div class="container mx-auto px-4 relative">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Đặt vé xe khách online</h1>
-                <p class="text-white/80">Đơn giản • Nhanh chóng • An toàn</p>
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title">
+                <h1>Đặt vé xe khách online</h1>
+                <p>Đơn giản • Nhanh chóng • An toàn</p>
             </div>
 
             <!-- Search Form -->
-            <div class="bg-white/95 backdrop-blur rounded-lg shadow-lg p-4">
-                <form id="search-form" class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4">
-                    <div
-                        class="grid grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr] py-1 rounded-lg bg-gray-50 border border-gray-200 relative">
+            <div class="container search-form-container">
+                <form id="search-form">
+                    <div class="search-grid">
                         <!-- From -->
-                        <div class="px-4 pr-6 border-b lg:border-b-0 border-r border-gray-200 flex items-center gap-2">
-                            <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"
-                                class="text-2xl lg:text-3xl text-blue-500"></ion-icon>
-                            <div class="w-full">
-                                <label class="text-xs text-gray-500" for="departure">Nơi xuất phát</label>
-                                <select
-                                    class="w-full bg-transparent outline-none border-none text-gray-800 font-medium appearance-none"
-                                    name="departure" id="departure-select" required>
+                        <div class="form-field">
+                            <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"></ion-icon>
+                            <div class="field-content">
+                                <label for="departure">Nơi xuất phát</label>
+                                <select name="departure" id="departure-select" required>
                                     <option value="">Chọn điểm xuất phát</option>
                                 </select>
                             </div>
                         </div>
 
                         <!-- Swap Button -->
-                        <button type="button" id="swap-button"
-                            class="absolute bg-gray-200 hover:bg-gray-300 rounded-full size-8 lg:size-10 grid place-items-center left-[calc(50%-1rem)] top-[calc(25%-1rem)] lg:left-[calc(25%-1.25rem)] lg:top-[calc(50%-1.25rem)]">
-                            <ion-icon name="swap-horizontal-outline" class="text-lg lg:text-xl"></ion-icon>
+                        <button type="button" id="swap-button" class="swap-button">
+                            <ion-icon name="swap-horizontal-outline"></ion-icon>
                         </button>
 
                         <!-- To -->
-                        <div class="px-6 pr-4 border-b lg:border-b-0 border-r border-gray-200 flex items-center gap-2">
-                            <ion-icon name="location" class="text-3xl lg:text-4xl text-red-500"></ion-icon>
-                            <div class="w-full">
-                                <label class="text-xs text-gray-500" for="arrival">Nơi đến</label>
-                                <select
-                                    class="w-full bg-transparent outline-none border-none text-gray-800 font-medium appearance-none"
-                                    name="arrival" id="arrival-select" required>
+                        <div class="form-field">
+                            <ion-icon name="location"></ion-icon>
+                            <div class="field-content">
+                                <label for="arrival">Nơi đến</label>
+                                <select name="arrival" id="arrival-select" required>
                                     <option value="">Chọn điểm đến</option>
                                     <!-- Options will be populated by JavaScript -->
                                 </select>
@@ -72,45 +60,37 @@
                         </div>
 
                         <!-- Date -->
-                        <div class="px-4 border-r border-gray-200 flex items-center gap-2 max-md:col-span-2">
-                            <ion-icon name="calendar-outline" class="text-2xl text-blue-500"></ion-icon>
-                            <div class="w-full">
-                                <label class="text-xs text-gray-500" for="depart-date">Ngày đi</label>
-                                <input type="date" id="depart-date"
-                                    class="w-full bg-transparent outline-none border-none text-gray-800 font-medium"
-                                    name="depart-date" required>
+                        <div class="form-field">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <div class="field-content">
+                                <label for="depart-date">Ngày đi</label>
+                                <input type="date" id="depart-date" name="depart-date" required>
                             </div>
                         </div>
 
                         <!-- Add Return -->
-                        <div class="max-md:hidden group px-4 border-gray-200 grid place-content-[center_start]"
-                            id="return-input">
-                            <button type="button"
-                                class="flex items-center gap-x-2 text-blue-500 hover:text-blue-700 group-data-[return-input]:hidden"
+                        <div class="form-field return-field" id="return-input">
+                            <button type="button" class="add-return-btn"
                                 onclick="document.getElementById('return-input').setAttribute('data-return-input', '')">
-                                <ion-icon name="add-circle-outline" class="text-xl"></ion-icon>
-                                <span class="font-medium">Thêm ngày về</span>
+                                <ion-icon name="add-circle-outline"></ion-icon>
+                                <span>Thêm ngày về</span>
                             </button>
-                            <div class="hidden items-center gap-x-2 relative group-data-[return-input]:flex">
-                                <button type="button"
-                                    class="absolute top-0.5 -right-2 bg-gray-300 rounded-full size-5 grid place-items-center hover:bg-gray-400"
+                            <div class="return-content">
+                                <button type="button" class="close-btn"
                                     onclick="document.getElementById('return-input').removeAttribute('data-return-input')">
                                     <ion-icon name="close-outline"></ion-icon>
                                 </button>
-                                <ion-icon name="calendar-outline" class="text-2xl text-blue-500"></ion-icon>
-                                <div class="w-full">
-                                    <label class="text-xs text-gray-500">Ngày về</label>
-                                    <input type="date" id="return-date"
-                                        class="w-full bg-transparent outline-none border-none text-gray-800 font-medium"
-                                        name="return-date" required>
+                                <ion-icon name="calendar-outline"></ion-icon>
+                                <div class="field-content">
+                                    <label>Ngày về</label>
+                                    <input type="date" id="return-date" name="return-date" required>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Search Button -->
-                    <button type="submit"
-                        class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 lg:py-0 px-3 rounded-lg transition">
+                    <button type="submit" class="search-button">
                         Tìm kiếm
                     </button>
                 </form>
@@ -119,33 +99,27 @@
     </section>
 
     <!-- Search Results Section -->
-    <section class="mx-auto container my-5 px-2">
-        <div id="selected-route" data-selected-route="departure" data-depart-only
-            class="mb-5 grid grid-cols-[1fr_auto_1fr] data-[depart-only]:grid-cols-1 group gap-0 max-md:hidden">
-            <div
-                class="border-4 bg-gray-100 border-r-0 rounded-lg rounded-r-none border-transparent group-data-[depart-only]:border-r-4 group-data-[depart-only]:rounded-r-lg group-data-[selected-route='departure']:border-blue-600 px-4 py-2">
-                <h4 class="text-sm text-gray-600">Chuyến đi</h4>
-                <h3 class="text-xl font-semibold" id="departure-route-display">Chọn tuyến đường</h3>
-                <p class="text-lg" id="departure-date-display">Chọn ngày</p>
+    <section class="main-content container">
+        <div id="selected-route" data-selected-route="departure" data-depart-only class="route-selector">
+            <div class="route-option">
+                <h4>Chuyến đi</h4>
+                <h3 id="departure-route-display">Chọn tuyến đường</h3>
+                <p id="departure-date-display">Chọn ngày</p>
             </div>
-            <div class="border-l-4 border-blue-600 group-data-[depart-only]:hidden"></div>
-            <div
-                class="border-4 bg-gray-100 border-l-0 rounded-lg rounded-l-none border-transparent group-data-[depart-only]:hidden group-data-[selected-route='return']:border-blue-600 px-4 py-2">
-                <h4 class="text-sm text-gray-600">Chuyến về</h4>
-                <h3 class="text-xl font-semibold" id="return-route-display">Chọn tuyến đường</h3>
-                <p class="text-lg" id="return-date-display">Chọn ngày</p>
+            <div class="route-divider"></div>
+            <div class="route-option">
+                <h4>Chuyến về</h4>
+                <h3 id="return-route-display">Chọn tuyến đường</h3>
+                <p id="return-date-display">Chọn ngày</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] xl:grid-cols-[1fr_3fr] gap-4">
+        <div class="content-grid">
             <!-- Filters Column -->
-            <div class="bg-white rounded-lg border border-gray-200 p-6 h-fit sticky top-4 max-md:hidden"
-                id="filters-panel">
-
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-lg font-semibold text-gray-800">Bộ lọc</h3>
-                    <button class="text-blue-600 hover:text-blue-800 text-sm font-medium" id="reset-button">Đặt
-                        lại</button>
+            <div class="filters-panel" id="filters-panel">
+                <div class="filters-header">
+                    <h3>Bộ lọc</h3>
+                    <button class="reset-button" id="reset-button">Đặt lại</button>
                 </div>
 
                 <!-- Price Filter -->
@@ -154,7 +128,7 @@
                         <h4>Khoảng giá</h4>
                         <ion-icon name="chevron-down-outline" id="price-filter-icon"></ion-icon>
                     </button>
-                    <div class="px-4 pb-4 space-y-3" id="price-filter-content">
+                    <div class="filter-content space-y-3" id="price-filter-content">
                         <label class="filter-checkbox">
                             <input type="checkbox" name="low">
                             <span>Dưới 500.000đ</span>
@@ -172,25 +146,22 @@
 
                 <!-- Bus Type Filter -->
                 <div class="filter-section">
-                    <button data-toggle-filter="seat-type-filter">
+                    <button data-toggle-filter="total-seats-filter">
                         <h4>Loại xe</h4>
-                        <ion-icon name="chevron-down-outline" id="seat-type-filter-icon"></ion-icon>
+                        <ion-icon name="chevron-down-outline" id="total-seats-filter-icon"></ion-icon>
                     </button>
-                    <div class="px-4 pb-4 space-y-3" id="seat-type-filter-content">
+                    <div class="filter-content space-y-3" id="total-seats-filter-content">
                         <label class="filter-checkbox">
-                            <input type="checkbox" name="bed">
+                            <input type="checkbox" name="16">
                             <span>16 chỗ</span>
-                            <!-- <span class="ml-auto text-xs text-gray-400">(12)</span> -->
                         </label>
                         <label class="filter-checkbox">
-                            <input type="checkbox" name="seat">
+                            <input type="checkbox" name="29">
                             <span>29 chỗ</span>
-                            <!-- <span class="ml-auto text-xs text-gray-400">(8)</span> -->
                         </label>
                         <label class="filter-checkbox">
-                            <input type="checkbox" name="limousine">
+                            <input type="checkbox" name="45">
                             <span>45 chỗ</span>
-                            <!-- <span class="ml-auto text-xs text-gray-400">(5)</span> -->
                         </label>
                     </div>
                 </div>
@@ -201,42 +172,38 @@
                         <h4>Giờ khởi hành</h4>
                         <ion-icon name="chevron-down-outline" id="time-filter-icon"></ion-icon>
                     </button>
-                    <div class="px-4 pb-4" id="time-filter-content">
-                        <div class="grid grid-cols-2 gap-2">
-                            <label
-                                class="flex items-center justify-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="day" class="sr-only peer">
-                                <div class="text-center peer-checked:text-blue-600">
-                                    <ion-icon name="sunny-outline" class="text-lg mb-1"></ion-icon>
-                                    <div class="text-xs font-medium">Sáng</div>
-                                    <div class="text-xs text-gray-500">6:00-12:00</div>
+                    <div class="filter-content" id="time-filter-content">
+                        <div class="time-grid">
+                            <label class="time-option">
+                                <input type="checkbox" name="day">
+                                <div class="time-content">
+                                    <ion-icon name="sunny-outline"></ion-icon>
+                                    <div class="time-label">Sáng</div>
+                                    <div class="time-range">6:00-12:00</div>
                                 </div>
                             </label>
-                            <label
-                                class="flex items-center justify-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="afternoon" class="sr-only peer">
-                                <div class="text-center peer-checked:text-blue-600">
-                                    <ion-icon name="partly-sunny-outline" class="text-lg mb-1"></ion-icon>
-                                    <div class="text-xs font-medium">Chiều</div>
-                                    <div class="text-xs text-gray-500">12:00-18:00</div>
+                            <label class="time-option">
+                                <input type="checkbox" name="afternoon">
+                                <div class="time-content">
+                                    <ion-icon name="partly-sunny-outline"></ion-icon>
+                                    <div class="time-label">Chiều</div>
+                                    <div class="time-range">12:00-18:00</div>
                                 </div>
                             </label>
-                            <label
-                                class="flex items-center justify-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="evening" class="sr-only peer">
-                                <div class="text-center peer-checked:text-blue-600">
-                                    <ion-icon name="moon-outline" class="text-lg mb-1"></ion-icon>
-                                    <div class="text-xs font-medium">Tối</div>
-                                    <div class="text-xs text-gray-500">18:00-24:00</div>
+                            <label class="time-option">
+                                <input type="checkbox" name="evening">
+                                <div class="time-content">
+                                    <ion-icon name="moon-outline"></ion-icon>
+                                    <div class="time-label">Tối</div>
+                                    <div class="time-range">18:00-24:00</div>
                                 </div>
                             </label>
-                            <label
-                                class="flex items-center justify-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="night" class="sr-only peer">
-                                <div class="text-center peer-checked:text-blue-600">
-                                    <ion-icon name="moon" class="text-lg mb-1"></ion-icon>
-                                    <div class="text-xs font-medium">Đêm</div>
-                                    <div class="text-xs text-gray-500">0:00-6:00</div>
+                            <label class="time-option">
+                                <input type="checkbox" name="night">
+                                <div class="time-content">
+                                    <ion-icon name="moon"></ion-icon>
+                                    <div class="time-label">Đêm</div>
+                                    <div class="time-range">0:00-6:00</div>
                                 </div>
                             </label>
                         </div>
@@ -249,37 +216,37 @@
                         <h4>Đánh giá</h4>
                         <ion-icon name="chevron-down-outline" id="rating-filter-icon"></ion-icon>
                     </button>
-                    <div class="px-4 pb-4 space-y-2" id="rating-filter-content">
+                    <div class="filter-content space-y-2" id="rating-filter-content">
                         <label class="filter-checkbox">
                             <input type="checkbox" name="5">
-                            <div class="flex items-center text-yellow-400">
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
+                            <div class="rating-stars">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
                             </div>
                             <span>5 sao</span>
                         </label>
                         <label class="filter-checkbox">
                             <input type="checkbox" name="4+">
-                            <div class="flex items-center text-yellow-400">
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star-outline" class="size-4"></ion-icon>
+                            <div class="rating-stars">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
                             </div>
                             <span>4+ sao</span>
                         </label>
                         <label class="filter-checkbox">
                             <input type="checkbox" name="3+">
-                            <div class="flex items-center text-yellow-400">
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star" class="size-4"></ion-icon>
-                                <ion-icon name="star-outline" class="size-4"></ion-icon>
-                                <ion-icon name="star-outline" class="size-4"></ion-icon>
+                            <div class="rating-stars">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
                             </div>
                             <span>3+ sao</span>
                         </label>
@@ -287,13 +254,12 @@
                 </div>
             </div>
             <!-- Results Column -->
-            <div>
-                <div class="flex flex-row justify-between items-center mb-3 gap-2">
-                    <span id="results-count" class="text-xl font-semibold">Đang tìm kiếm...</span>
-                    <div class="flex gap-2">
+            <div class="results-section">
+                <div class="results-header">
+                    <span id="results-count" class="results-count">Đang tìm kiếm...</span>
+                    <div class="sort-controls">
                         <!-- Sort Dropdown -->
-                        <select id="sort-select"
-                            class="px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 bg-white focus:outline-none focus:border-blue-500">
+                        <select id="sort-select">
                             <option value="default">Mặc định</option>
                             <option value="price-low">Giá thấp đến cao</option>
                             <option value="price-high">Giá cao đến thấp</option>
@@ -306,22 +272,9 @@
                 </div>
 
                 <!-- Bus Results Container -->
-                <div id="routes-results" class="grid grid-cols-1 gap-4">
+                <div id="routes-results" class="results-grid">
                     <!-- Results will be populated here -->
                 </div>
-
-                <!-- Loading indicator -->
-                <!-- <div id="loading-indicator" class="hidden text-center py-8">
-                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                    <p class="mt-2 text-gray-600">Đang tìm kiếm chuyến xe...</p>
-                </div> -->
-
-                <!-- No results message -->
-                <!-- <div id="no-results" class="hidden text-center py-8">
-                    <ion-icon name="sad-outline" class="text-6xl text-gray-400 mb-4"></ion-icon>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Không tìm thấy chuyến xe nào</h3>
-                    <p class="text-gray-500">Vui lòng thử thay đổi điều kiện tìm kiếm</p>
-                </div> -->
             </div>
         </div>
     </section>

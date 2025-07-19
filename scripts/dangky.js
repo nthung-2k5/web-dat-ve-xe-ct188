@@ -2,14 +2,6 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
 import { nameRegex, phoneRegex, emailRegex } from './validation.js';
 import { resetFormErrors, showError, getOrShowError } from './form.js';
 
-function processRegistration(name, email, password) {
-    // Logic đăng ký thực tế ở đây
-    // Ví dụ: return fetch('/api/register', { method: 'POST', body: ... })
-    if (name && email && password) {
-        return true; // Giả sử đăng ký thành công
-    }
-    return false;
-}
 document.forms[0].addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;

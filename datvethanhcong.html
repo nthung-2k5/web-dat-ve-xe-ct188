@@ -6,96 +6,429 @@
     <meta name="author" content="Hồ Thị Dứa">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đặt Vé Thành Công</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
     <script defer src="/scripts/web-layout.js"></script>
-     <script type="module" src="/scripts/datvethanhcong.js"></script>
-    <style>
+    <script type="module" src="/scripts/datvethanhcong.js"></script>
+    <link rel="stylesheet" href="/styles/common.css" />
+
+    <style type="text/tailwindcss">
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #e9f1fb;
-            min-height: 100vh;
+            @apply bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen;
         }
 
-        .card {
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            max-width: 500px;
-            width: 100%;
+        .main-container {
+            @apply container mx-auto px-4 py-8;
         }
 
-        .card-title {
-            font-weight: 700;
-            color: #0d6efd;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .success-section {
+            @apply text-center mb-8;
+            
+            .success-icon {
+                @apply inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4 animate-pulse;
+                
+                i {
+                    @apply text-3xl text-green-500;
+                }
+            }
+            
+            h1 {
+                @apply text-3xl md:text-4xl font-bold text-gray-800 mb-2;
+            }
+            
+            p {
+                @apply text-gray-600 text-lg;
+            }
+        }
+
+        .ticket-card {
+            @apply max-w-4xl mx-auto;
+            
+            .card-container {
+                @apply bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200;
+            }
+            
+            .card-header {
+                @apply bg-gradient-to-r from-blue-500 to-indigo-600 p-6 text-white;
+                
+                .header-content {
+                    @apply flex items-center justify-between;
+                    
+                    h2 {
+                        @apply text-2xl font-bold mb-1;
+                    }
+                    
+                    p {
+                        @apply text-blue-100;
+                    }
+                }
+            }
+            
+            .card-body {
+                @apply p-6;
+                
+                .info-grid {
+                    @apply grid md:grid-cols-2 gap-6 mb-8;
+                    
+                    .info-section {
+                        @apply space-y-4;
+                        
+                        h3 {
+                            @apply text-lg font-semibold text-gray-800 mb-4 flex items-center;
+                            
+                            i {
+                                @apply mr-2;
+                            }
+                            
+                            &.customer-info i {
+                                @apply text-blue-500;
+                            }
+                            
+                            &.trip-info i {
+                                @apply text-green-500;
+                            }
+                        }
+                        
+                        .info-list {
+                            @apply space-y-3;
+                            
+                            .info-item {
+                                @apply flex items-start;
+                                
+                                .label {
+                                    @apply font-medium text-gray-700 w-32;
+                                }
+                                
+                                .value {
+                                    @apply text-gray-900 font-semibold;
+                                    
+                                    &.ticket-code {
+                                        @apply text-blue-600 font-bold text-lg;
+                                    }
+                                    
+                                    &.ticket-seats {
+                                        @apply text-indigo-600 font-bold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .location-section {
+                    @apply border-t border-gray-200 pt-6 mb-6;
+                    
+                    h3 {
+                        @apply text-lg font-semibold text-gray-800 mb-4 flex items-center;
+                        
+                        i {
+                            @apply text-red-500 mr-2;
+                        }
+                    }
+                    
+                    .location-grid {
+                        @apply grid md:grid-cols-2 gap-6;
+                        
+                        .location-card {
+                            @apply rounded-lg p-4;
+                            
+                            &.pickup {
+                                @apply bg-green-50 border border-green-200;
+                                
+                                .location-header span {
+                                    @apply font-semibold text-green-800;
+                                }
+                                
+                                .location-dot {
+                                    @apply w-3 h-3 bg-green-500 rounded-full mr-2;
+                                }
+                            }
+                            
+                            &.dropoff {
+                                @apply bg-red-50 border border-red-200;
+                                
+                                .location-header span {
+                                    @apply font-semibold text-red-800;
+                                }
+                                
+                                .location-dot {
+                                    @apply w-3 h-3 bg-red-500 rounded-full mr-2;
+                                }
+                            }
+                            
+                            .location-header {
+                                @apply flex items-center mb-2;
+                            }
+                            
+                            p {
+                                @apply text-gray-700 font-medium;
+                            }
+                        }
+                    }
+                }
+                
+                .price-section {
+                    @apply border-t border-gray-200 pt-6 mb-6;
+                    
+                    .price-card {
+                        @apply flex items-center justify-between bg-yellow-50 border border-yellow-200 rounded-lg p-4;
+                        
+                        .price-label {
+                            @apply flex items-center;
+                            
+                            i {
+                                @apply text-yellow-600 mr-3 text-xl;
+                            }
+                            
+                            span {
+                                @apply text-lg font-semibold text-gray-800;
+                            }
+                        }
+                        
+                        .price-value {
+                            @apply text-2xl font-bold text-yellow-600;
+                        }
+                    }
+                }
+                
+                .notice-section {
+                    @apply bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg;
+                    
+                    .notice-content {
+                        @apply flex items-start;
+                        
+                        i {
+                            @apply text-red-500 mr-3 mt-1;
+                        }
+                        
+                        h4 {
+                            @apply font-bold text-red-800 mb-2;
+                        }
+                        
+                        p {
+                            @apply text-red-700 mb-2;
+                            
+                            &.warning {
+                                @apply text-red-600 text-sm font-medium mb-0;
+                            }
+                            
+                            .early-time {
+                                @apply font-bold text-blue-600 text-lg;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .card-footer {
+                @apply bg-gray-50 px-6 py-4 border-t border-gray-200;
+                
+                .footer-content {
+                    @apply flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0;
+                    
+                    .action-buttons {
+                        @apply flex items-center space-x-4;
+                        
+                        .btn {
+                            @apply px-4 py-2 rounded-lg transition duration-300 flex items-center space-x-2;
+                            
+                            &.btn-print {
+                                @apply bg-blue-500 hover:bg-blue-600 text-white;
+                            }
+                            
+                            &.btn-new {
+                                @apply bg-green-500 hover:bg-green-600 text-white;
+                            }
+                        }
+                    }
+                    
+                    .hotline {
+                        @apply text-center text-sm text-gray-600;
+                        
+                        .phone-number {
+                            @apply font-semibold text-blue-600;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                font-size: 12px !important;
+            }
+
+            web-header,
+            web-footer,
+            .card-footer {
+                display: none !important;
+            }
+
+            .main-container {
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .ticket-card .card-container {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!DOCTYPE html>
-<html lang="en">
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Success Animation and Title -->
+        <div class="success-section">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1>Đặt vé thành công!</h1>
+            <p>Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi</p>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Hồ Thị Dứa">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đặt Vé Thành Công</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
-    <script defer src="/scripts/web-layout.js"></script>
-     <script type="module" src="/scripts/datvethanhcong.js"></script>
-    <style>
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #e9f1fb;
-            min-height: 100vh;
-        }
+        <!-- Ticket Information Card -->
+        <div class="ticket-card" id="ticketInfo">
+            <div class="card-container">
+                <!-- Card Header -->
+                <div class="card-header">
+                    <div class="header-content">
+                        <div>
+                            <h2>Thông tin vé xe</h2>
+                            <p>Vui lòng giữ thông tin này để check-in</p>
+                        </div>
+                    </div>
+                </div>
 
-        .card {
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            max-width: 500px;
-            width: 100%;
-        }
+                <!-- Card Body -->
+                <div class="card-body">
+                    <!-- Customer Information -->
+                    <div class="info-grid">
+                        <div class="info-section">
+                            <h3 class="customer-info">
+                                <i class="fas fa-user"></i>
+                                Thông tin khách hàng
+                            </h3>
+                            <div class="info-list">
+                                <div class="info-item">
+                                    <span class="label">Họ và tên:</span>
+                                    <span class="value" id="ticketName"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Số điện thoại:</span>
+                                    <span class="value" id="ticketPhone"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Mã đặt vé:</span>
+                                    <span class="value ticket-code" id="ticketCode"></span>
+                                </div>
+                            </div>
+                        </div>
 
-        .card-title {
-            font-weight: 700;
-            color: #0d6efd;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    </style>
-</head>
+                        <div class="info-section">
+                            <h3 class="trip-info">
+                                <i class="fas fa-route"></i>
+                                Thông tin chuyến xe
+                            </h3>
+                            <div class="info-list">
+                                <div class="info-item">
+                                    <span class="label">Tuyến xe:</span>
+                                    <span class="value" id="ticketRoute"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Thời gian:</span>
+                                    <span class="value" id="ticketTime"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Mã ghế:</span>
+                                    <span class="value ticket-seats" id="ticketSeats"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<body>
-    <div class="card shadow-sm" id="ticketInfo">
-        <div class="card-body text-center">
-            <h5 class="card-title text-center">
-                <span style="font-size: 2rem; color: #28a745;">✔</span> Đặt vé thành công
-            </h5>
-            <p class="text-start"><strong>Họ và tên:</strong> <span id="ticketName"></span></p>
-            <p class="text-start"><strong>Số điện thoại:</strong> <span id="ticketPhone"></span></p>
-            <p class="text-start"><strong>Mã đặt vé:</strong> <span id="ticketCode"></span></p>
-            <p class="text-start"><strong>Tuyến xe:</strong> <span id="ticketRoute"></span></p>
-            <p class="text-start"><strong>Thời gian xuất phát</strong> <span id="ticketTime"></span></p>
-            <p class="text-start"><strong>Mã ghế:</strong> <span id="ticketSeats"></span></p>
-            <p class="text-start"><strong>Điểm đón khách:</strong> <span id="ticketPickup"></span></p>
-            <p class="text-start"><strong>Điểm trả khách:</strong> <span id="ticketDropoff"></span></p>
-            <p class="text-start"><strong>Giá vé:</strong> <span id="ticketPrice"></span></p>
-            
-            <p class="text-start text-danger fw-bold">
-                Quý khách vui lòng có mặt tại Bến xe/Văn phòng Cần Thơ
-                <strong style="color: rgb(0, 0, 255); font-weight:bolder; font-size: 20px;">TRƯỚC <span id="ticketTime_early"></span> </strong> <span id="ticketTime"></span>
-                để được trung chuyển hoặc kiểm tra thông tin trước khi lên xe.
-            </p>
-            
+                    <!-- Location Information -->
+                    <div class="location-section">
+                        <h3>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Thông tin điểm đón/trả
+                        </h3>
+                        <div class="location-grid">
+                            <div class="location-card pickup">
+                                <div class="location-header">
+                                    <div class="location-dot"></div>
+                                    <span>Điểm đón khách</span>
+                                </div>
+                                <p id="ticketPickup"></p>
+                            </div>
+                            <div class="location-card dropoff">
+                                <div class="location-header">
+                                    <div class="location-dot"></div>
+                                    <span>Điểm trả khách</span>
+                                </div>
+                                <p id="ticketDropoff"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Information -->
+                    <div class="price-section">
+                        <div class="price-card">
+                            <div class="price-label">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Tổng tiền:</span>
+                            </div>
+                            <span class="price-value" id="ticketPrice"></span>
+                        </div>
+                    </div>
+
+                    <!-- Important Notice -->
+                    <div class="notice-section">
+                        <div class="notice-content">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <h4>Lưu ý quan trọng:</h4>
+                                <p>
+                                    Quý khách vui lòng có mặt tại Bến xe/Văn phòng Cần Thơ
+                                    <span class="early-time">TRƯỚC <span id="ticketTime_early"></span></span>
+                                    để được trung chuyển hoặc kiểm tra thông tin trước khi lên xe.
+                                </p>
+                                <p class="warning">
+                                    ⚠️ Vé sẽ không có hiệu lực nếu quý khách đến muộn!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Footer -->
+                <div class="card-footer">
+                    <div class="footer-content">
+                        <div class="action-buttons">
+                            <button onclick="window.print()" class="btn btn-print">
+                                <i class="fas fa-print"></i>
+                                <span>In vé</span>
+                            </button>
+                            <a href="search.html" class="btn btn-new">
+                                <i class="fas fa-plus"></i>
+                                <span>Đặt vé khác</span>
+                            </a>
+                        </div>
+                        <div class="hotline">
+                            <i class="fas fa-phone mr-1"></i>
+                            Hotline hỗ trợ: <span class="phone-number">1900-xxxx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-
-</html>
 </body>
 
 </html>
