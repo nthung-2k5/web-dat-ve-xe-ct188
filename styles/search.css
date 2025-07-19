@@ -1,83 +1,64 @@
-/* Main Styles for Bus365 Search Page */
+@import 'common.css';
 
-:root {
-    --primary-color: #0d6efd;
-    --primary-dark: #0a58ca;
-    --primary-light: #cfe2ff;
-    --accent-color: #0dcaf0;
+body {
+    background-color: white;
 }
 
-.navbar {
-    background-color: var(--primary-color) !important;
+ion-icon {
+    --ionicon-stroke-width: 3rem;
 }
 
-.hero-section {
-    background: linear-gradient(rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.9)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    padding: 80px 0;
-    color: white;
+.filter-section {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+
+    >button {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+
+        &:hover {
+            background-color: #f9fafb;
+        }
+
+        >h4 {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        >ion-icon {
+            color: #6b7280;
+        }
+    }
 }
 
-.search-box {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.filter-checkbox {
     display: flex;
-}
-
-.btn-search {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.3s;
-}
-
-.btn-search:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
-.btn-book-now {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.3s;
-}
-
-.btn-book-now:hover {
-    background-color: var(--primary-dark);
-}
-
-.route-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: all 0.3s;
-    padding: 1rem;
-}
-
-.route-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
-}
-
-.bus-type-checkbox {
-    margin-right: 5px;
-}
-
-.bus-info {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-}
+    cursor: pointer;
+    gap: 0.75rem;
 
-.rating {
-    color: #ffc107;
+    >input {
+        width: 1rem;
+        height: 1rem;
+        color: #2563eb;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 0.25rem;
+    }
+
+    >span {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: #4b5563;
+    }
 }

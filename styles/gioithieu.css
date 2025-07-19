@@ -1,37 +1,232 @@
 @import 'main.css';
 
-#slider-wrapper img {
+/* Splide carousel styles */
+.splide__slide img {
     width: 100%;
-    height: 600px;
     object-fit: cover;
-    display: none;
-    transition: opacity 0.5s;
+    height: 600px;
 }
 
-/* Dots */
+/* Main layout */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Section base styles */
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    &>h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+/* About section layout */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    &>div:nth-child(odd) {
+        display: grid;
+        gap: 1.5rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 9fr 11fr;
+        }
+    }
+
+    &>div:nth-child(even) {
+        display: grid;
+        gap: 1.5rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 11fr 9fr;
+        }
+    }
+}
+
+/* About image container */
+.about-img {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin-bottom: auto;
+
+    &>img {
+        transition: transform 300ms;
+        min-height: 340px;
+        object-fit: cover;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+/* About content */
+.about-content {
+    font-size: 1.125rem;
+    line-height: 2.25rem;
+    color: #27272a;
+
+    >h2 {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Responsive order utilities */
+.about-section>div:nth-child(even) {
+    .about-content {
+        @media (max-width: 1023px) {
+            order: 2;
+        }
+    }
+
+    .about-img {
+        @media (max-width: 1023px) {
+            order: 1;
+        }
+    }
+}
+
+/* Card styles */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e0f2fe;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 150ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &>ion-icon {
+        color: var(--heading-color);
+        font-size: 1.875rem;
+        margin-bottom: 1rem;
+    }
+
+    &>h4 {
+        margin: 0.75rem 0;
+    }
+}
+
+/* Dot container for carousel */
 .dot-container {
     position: absolute;
-    width: 100%;
-    bottom: 18px;
-    left: 0;
-    text-align: center;
-    z-index: 2;
-    margin-top: 10px;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
 }
 
 .dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: #ccc;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
     border-radius: 50%;
-    margin: 0 5px;
     cursor: pointer;
-    border: 2px solid #fff;
-    transition: background 0.2s;
+    transition: background-color 150ms;
+
+    &:hover {
+        background-color: #14b8a6;
+    }
 }
 
-.dot.active {
-    background: #258aa4;
-    border-color: #258aa4;
+/* Achievement badges */
+.achievement {
+    background-color: oklch(97% 0.014 254.604);
+    padding: 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 150ms;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
+
+    &>ion-icon {
+        color: #facc15;
+    }
+}
+
+/* Grid layouts for different sections */
+section:nth-of-type(2) {
+    &>div {
+        display: grid;
+        gap: 1.5rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+section:nth-of-type(3) {
+    &>div {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Partner logos section */
+section:nth-of-type(4) {
+    &>div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+
+        & img {
+            height: 3rem;
+        }
+    }
+}
+
+/* Achievement container */
+.achievement-container {
+    color: #0ea5e9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* CTA section */
+.cta-section {
+    background-color: #7dd3fc;
+    text-align: center;
+    padding: 4rem 0;
+
+    & h1 {
+        color: #0c4a6e !important;
+    }
 }

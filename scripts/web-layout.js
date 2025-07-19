@@ -40,7 +40,7 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
         <div id="desktop-nav" class="container">
             <div class="left">
                 <a href="/">
-                    <img src="/images/logo.png" alt="Route3Go logo" height="48px">
+                    <img src="/images/logo.png" alt="Route3Go logo" id="logo">
                 </a>
                 <div class="desktop-menu">
                     <a href="/">Trang chủ</a>

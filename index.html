@@ -4,197 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Phạm Huỳnh Ngân">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <title>Trang chủ</title>
-    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">    
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Trang chủ</title>
+    <link href="/icon.png" rel="icon" type="image/vnd.microsoft.icon">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="/scripts/web-layout.js"></script>
     <script defer src="/scripts/homepage.js"></script>
-    <link rel="stylesheet" href="./styles/homepage.css">
-    
-
-    <style type="text/tailwindcss">
-        section {
-            @apply container rounded-lg shadow-lg p-10 mx-auto my-12 bg-white;
-
-            > h2 {
-                @apply mb-4 text-center;
-            }
-
-            > p {
-                @apply mb-8 text-gray-600 text-lg text-center;
-            }
-        }
-
-        .route-card {
-            @apply rounded-3xl shadow-lg transition-transform hover:scale-105 bg-white overflow-hidden;
-
-            img {
-                @apply object-cover w-full h-[200px];
-            }
-
-            div {
-                @apply p-4;
-
-                h5 {
-                    @apply font-semibold text-lg;
-                }
-
-                p {
-                    @apply text-gray-700;
-                }
-
-                b {
-                    @apply text-red-500 font-bold;
-                }
-            }
-        }
-
-        .news-card {
-            @apply rounded-3xl shadow-lg transition-transform hover:scale-105 bg-white overflow-hidden;
-
-            img {
-                @apply object-cover w-full h-[600px];
-            }
-
-            div {
-                @apply p-4;
-
-                h3 {
-                    @apply font-semibold text-xl mb-2;
-                }
-
-                p {
-                    @apply text-gray-700 mb-4;
-                }
-
-                a {
-                    @apply bg-[linear-gradient(90deg,#009ffd,#2a5298)] px-4 py-2 text-white rounded-full;
-                }
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
     <main>
-        <img src="/images/bg-home.png" class="banner-img size-full object-cover" alt="Banner Route3Go">
-        <section>
+        <img src="/images/bg-home.png" id="banner-img" alt="Banner Route3Go">
+        <section class="container">
             <h2>Route3Go – Đặt vé nhanh, săn ưu đãi chất</h2>
             <p>
                 Đặt vé xe khách tiện lợi như mua sắm online, ưu đãi ngập tràn với Route3Go.
                 Việc đặt vé xe khách chưa bao giờ đơn giản hơn thế!
             </p>
-            <div class="bg-[linear-gradient(90deg,#228d29,#0a975a)] rounded-lg">
-                <a href="/search.html" class="promo-voucher text-white flex flex-col items-start px-12 py-8 gap-y-4">
+            <div id="promo-voucher">
+                <a href="/search.html">
                     <img src="/images/voucher.png" class="me-4" alt="Voucher" />
-                    <h2 class="font-bold text-3xl">TUYỂN MỚI RA MẮT!</h2>
-                    <p class="text-lg">GIẢM 50% TẤT CẢ VÉ</p>
+                    <h2>TUYỂN MỚI RA MẮT!</h2>
+                    <p>GIẢM 50% TẤT CẢ VÉ</p>
                 </a>
             </div>
         </section>
-        <section>
+        <section class="container">
             <h2>Chạm nhẹ là đi – Route3Go đồng hành mọi tuyến đường</h2>
             <p>Dễ dàng tra cứu tuyến đường, lịch trình, điểm đón/trả, tiện nghi và giá vé chỉ với vài thao tác.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="routes-section">
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/dalat.jpg" alt="Sài Gòn - Đà Lạt" class="object-cover w-full h-[200px]">
+                        <img src="/images/dalat.jpg" alt="Sài Gòn - Đà Lạt">
                         <div>
                             <h5>🛣️ Sài Gòn - Đà Lạt</h5>
-                            <p class="text-gray-700">🌄 305km · 8 giờ · 04/07/2025</p>
-                            <b class="text-[red]">💰 290.000đ</b>
+                            <p>🌄 305km · 8 giờ · 04/07/2025</p>
+                            <b>💰 290.000đ</b>
                         </div>
                     </a>
                 </div>
-
+                
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/vinh.jpg" alt="Hà Nội - Vinh" class="object-cover w-full h-[200px]">
+                        <img src="/images/vinh.jpg" alt="Hà Nội - Vinh">
                         <div>
                             <h5>🛣️ Hà Nội - Vinh</h5>
-                            <p class="text-gray-700">🌄 291km · 6 giờ · 31/07/2025</p>
-                            <b class="text-[red]">💰 310.000đ</b>
+                            <p>🌄 291km · 6 giờ · 31/07/2025</p>
+                            <b>💰 310.000đ</b>
                         </div>
                     </a>
                 </div>
-
+                
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/sapa.jpg" alt="Hà Nội - Sapa" class="object-cover w-full h-[200px]">
+                        <img src="/images/sapa.jpg" alt="Hà Nội - Sapa">
                         <div>
                             <h5>🛣️ Hà Nội - Sapa</h5>
-                            <p class="text-gray-700">🌄 320km · 8 giờ · 20/07/2025</p>
-                            <b class="text-[red]">💰 280.000đ</b>
+                            <p>🌄 320km · 8 giờ · 20/07/2025</p>
+                            <b>💰 280.000đ</b>
                         </div>
                     </a>
                 </div>
-
+                
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/soctrang.jpg" alt="Cần Thơ - Sóc Trăng"
-                            class="object-cover w-full h-[200px]">
+                        <img src="/images/soctrang.jpg" alt="Cần Thơ - Sóc Trăng">
                         <div>
                             <h5>🛣️ Cần Thơ - Sóc Trăng</h5>
-                            <p class="text-gray-700">🌄 Khoảng 60km · 1.5 giờ · 10/07/2025</p>
-                            <b class="text-[red]">💰 60.000đ</b>
+                            <p>🌄 Khoảng 60km · 1.5 giờ · 10/07/2025</p>
+                            <b>💰 60.000đ</b>
                         </div>
                     </a>
                 </div>
-
+                
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/nhatrang.jpg" alt="Sài Gòn - Nha Trang"
-                            class="object-cover w-full h-[200px]">
+                        <img src="/images/nhatrang.jpg" alt="Sài Gòn - Nha Trang">
                         <div>
                             <h5>🛣️ Sài Gòn - Nha Trang</h5>
-                            <p class="text-gray-700">🌄 450km · 10 giờ · 05/07/2025</p>
-                            <b class="text-[red]">💰 350.000đ</b>
+                            <p>🌄 450km · 10 giờ · 05/07/2025</p>
+                            <b>💰 350.000đ</b>
                         </div>
                     </a>
                 </div>
-
+                
                 <div class="route-card">
                     <a href="/search.html">
-                        <img src="/images/danang.jpg" alt="Cần Thơ - Đà Nẵng" class="object-cover w-full h-[200px]">
+                        <img src="/images/danang.jpg" alt="Cần Thơ - Đà Nẵng">
                         <div>
                             <h5>🛣️ Cần Thơ - Đà Nẵng</h5>
-                            <p class="text-gray-700">🌄 800km · 15 giờ · 15/07/2025</p>
-                            <b class="text-[red]">💰 450.000đ</b>
+                            <p>🌄 800km · 15 giờ · 15/07/2025</p>
+                            <b>💰 450.000đ</b>
                         </div>
                     </a>
                 </div>
+            </div>
         </section>
 
-        <section>
+        <section class="container">
             <h2>Khi chất lượng dịch vụ vượt mong đợi - Route3Go</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
-                <div class="flex flex-col items-center gap-y-4">
+            <div class="review-section">
+                <div class="review-item">
                     <img width="240" height="220" src="/images/review1.png" alt="Khách hàng">
-                    <h3 class="text-2xl text-[#222] font-bold">Phục vụ hơn 4 TRIỆU LƯỢT KHÁCH mỗi năm</h3>
-                    <p class="text-[#255]">— một con số ấn tượng thể hiện sự tin tưởng và lựa chọn của
+                    <h3>Phục vụ hơn 4 TRIỆU LƯỢT KHÁCH mỗi năm</h3>
+                    <p>— một con số ấn tượng thể hiện sự tin tưởng và lựa chọn của
                         hành khách.</p>
                 </div>
-                <div class="flex flex-col items-center gap-y-4">
+                <div class="review-item">
                     <img width="240" height="220" src="/images/review2.png" alt="Khách hàng">
-                    <h3 class="text-2xl text-[#222] font-bold">Hơn 100 ĐIỂM GIAO DỊCH toàn quốc</h3>
-                    <p class="text-[#255]">— giúp khách hàng tiếp cận và sử dụng dịch vụ một cách
+                    <h3>Hơn 100 ĐIỂM GIAO DỊCH toàn quốc</h3>
+                    <p>— giúp khách hàng tiếp cận và sử dụng dịch vụ một cách
                         thuận tiện nhất.</p>
                 </div>
-                <div class="flex flex-col items-center gap-y-4">
+                <div class="review-item">
                     <img width="240" height="220" src="/images/review3.png" alt="Khách hàng">
-                    <h3 class="text-2xl text-[#222] font-bold">Trên 1000 CHUYẾN XE mỗi ngày</h3>
-                    <p class="text-[#255]">— đảm bảo kết nối mọi miền đất nước an toàn – nhanh chóng –
+                    <h3>Trên 1000 CHUYẾN XE mỗi ngày</h3>
+                    <p>— đảm bảo kết nối mọi miền đất nước an toàn – nhanh chóng –
                         đúng giờ.</p>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="container">
             <h2>Cập nhật mới nhất từ Route3Go</h2>
             <p>Tin tức, ưu đãi và thông báo mới nhất dành cho bạn</p>
-            <div class="grid grid-cols-1 lg:grid-cols-3 text-center gap-4">
+            <div class="news-section">
                 <div class="news-card">
                     <img src="/images/news1.png" alt="Tin tức 1">
                     <div>

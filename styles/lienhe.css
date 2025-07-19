@@ -1,155 +1,204 @@
-@import 'common.css';
+/* Liên hệ (Contact) Page Styles */
+@import 'normalize.css';
+@import 'main.css';
 
+/* Main container */
 main {
     margin: 3rem auto;
     padding: 2rem;
-    background-color: #fafafa;
+    background-color: white;
     border-radius: 1rem;
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-    display: grid;
-    grid-template:
-        "contact-form contact-info"
-        "contact-map contact-map" / 3fr 2fr;
-    gap: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    /* Main grid layout */
+    >div {
+        display: grid;
+        gap: 2.5rem;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: 3fr 2fr;
+        }
+    }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--heading-color);
-}
-
-#contact-form p {
+/* Typography */
+h2 {
+    line-height: calc(2 / 1.5);
     margin-bottom: 1rem;
 }
 
 #contact-form {
-    grid-area: contact-form;
+    p {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        color: #374151;
+        margin-bottom: 1rem;
+
+        /* Bold text within paragraphs */
+        b {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            color: #0284c7;
+        }
+    }
+
+    /* Special span styling */
+    span {
+        &.text-sky-500 {
+            color: #0ea5e9;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            margin-top: 0.5rem;
+
+            &.icon-header {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    }
 }
 
-#contact-info {
-    grid-area: contact-info;
-}
-
-#contact-map {
-    grid-area: contact-map;
-}
-
-.hotline {
-    font-size: 1.25rem;
-    color: var(--heading-color);
-}
-
-.info-note {
-    color: #0ea5e9;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.info-note ion-icon {
-    width: 1.25rem;
-    font-size: 1.25rem;
-}
-
-#contact-form form {
-    color: #1e293b;
+/* Contact form */
+#contactForm {
+    color: #111827;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+
+    /* Form inputs and textarea */
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e0f2fe;
+        border-radius: 0.5rem;
+
+        &:focus {
+            outline: 2px solid #0ea5e9;
+            outline-offset: 2px;
+        }
+    }
+
+    /* Submit button */
+    button[type="submit"] {
+        width: 100%;
+        background-color: #0ea5e9;
+        color: white;
+        border-radius: 0.5rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+        padding: 0.5rem 0;
+        transition: all 0.15s ease-in-out;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0284c7;
+        }
+    }
 }
 
-.input-field {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #bae6fd;
-    border-radius: 0.5rem;
-}
-
-.submit-btn {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    padding: 0.5rem 0;
-    transition: background-color 0.2s;
-}
-
-.submit-btn:hover {
-    background-color: var(--heading-color);
-}
-
+/* Social icons container */
 #connect {
     margin-top: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    >span {
+        margin-right: 0.25rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        color: #374151;
+    }
+
+    .social-icons {
+        display: inline-flex;
+        gap: 0.5rem;
+
+        ion-icon {
+            color: #0ea5e9;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                color: #0284c7;
+            }
+        }
+    }
 }
 
-#connect span {
-    font-size: 1.125rem;
-    color: var(--alternative-text-color);
+/* Right side content (contact info) */
+#contact-info {
+    display: none;
+
+    @media (min-width: 1024px) {
+        display: block;
+    }
+
+    /* Contact info grid */
+    .info-grid {
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem 1rem;
+
+        /* Info icons */
+        ion-icon {
+            background-color: oklch(95.1% 0.026 236.824);
+            color: #0ea5e9;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            width: 2.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Contact info text */
+        div {
+            p {
+                margin: 0;
+
+                a {
+                    color: #0ea5e9;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.social-icons {
-    display: inline-flex;
-    gap: 0.5rem;
-    margin: auto 0;
-    height: 100%;
-    color: var(--primary-color);
-    font-size: 1.25rem;
-}
-
-.social-icons ion-icon {
-    transition: color 0.2s;
-    cursor: pointer;
-}
-
-.social-icons ion-icon:hover {
-    color: var(--heading-color);
-}
-
-.info-grid {
-    padding-top: 1rem;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem 1rem;
-}
-
-.info-grid ion-icon {
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 2.5rem;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
+/* Map container */
 #map-container {
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-    grid-column: span 2;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    @media (min-width: 1024px) {
+        grid-column: span 2;
+    }
+
+    /* Map iframe */
+    iframe {
+        width: 100%;
+        height: 350px;
+        border: none;
+    }
 }
 
-@media (max-width: 1024px) {
-    main {
-        padding: 1rem;
-        grid-template:
-            "contact-form"
-            "contact-map";
-    }
-
-    #contact-info {
-        display: none;
-    }
+/* Icon size utility */
+ion-icon[class*="size-6"] {
+    width: 1.5rem;
+    height: 1.5rem;
 }

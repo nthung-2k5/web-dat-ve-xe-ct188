@@ -55,7 +55,7 @@ document.forms[0].addEventListener('submit', async (e) => {
         return;
     }
 
-    if (!formData.get('toc') === 'on') {
+    if (formData.get('toc') !== 'on') {
         await Swal.fire({
             icon: 'error',
             title: 'Chưa chấp nhận điều khoản',
@@ -93,7 +93,7 @@ document.forms[0].addEventListener('submit', async (e) => {
     const newAccount = { name, email, password };
     accounts.push(newAccount);
     localStorage.setItem('accounts', JSON.stringify(accounts));
-    
+
     // Tự động đăng nhập cho người dùng mới
     sessionStorage.setItem('currentUser', JSON.stringify(newAccount));
 

@@ -11,48 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+
     <script defer src="/scripts/web-layout.js"></script>
     <script type="module" src="/scripts/search/index.js"></script>
 
-    <link rel="stylesheet" href="/styles/common.css">
-
-    <style type="text/tailwindcss">
-        ion-icon {
-            --ionicon-stroke-width: 3rem;
-        }
-
-        .filter-section {
-            @apply mb-4 border border-gray-200 rounded-lg;
-
-            > button {
-                @apply w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors;
-                
-                > h4 {
-                    @apply text-sm font-medium text-gray-700;
-                }
-
-                > ion-icon {
-                    @apply text-gray-500 transition-transform;
-                }
-            }
-        }
-
-        .filter-checkbox {
-            @apply flex items-center cursor-pointer gap-3;
-
-            > input {
-                @apply size-4 text-blue-600 bg-gray-100 border-gray-300 rounded;
-            }
-
-            > span {
-                @apply text-sm text-gray-600;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/search.css">
 </head>
 
-<body class="!bg-white">
+<body>
     <section class="bg-white py-8 relative">
         <div class="absolute inset-0 bg-cover bg-center"
             style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80'); filter: brightness(0.85);">
@@ -87,8 +53,7 @@
 
                         <!-- Swap Button -->
                         <button type="button" id="swap-button"
-                            class="absolute bg-gray-200 hover:bg-gray-300 rounded-full size-8 lg:size-10 grid place-items-center left-[calc(50%-1rem)] top-[calc(25%-1rem)] lg:left-[calc(25%-1.25rem)] lg:top-[calc(50%-1.25rem)]"
-                            >
+                            class="absolute bg-gray-200 hover:bg-gray-300 rounded-full size-8 lg:size-10 grid place-items-center left-[calc(50%-1rem)] top-[calc(25%-1rem)] lg:left-[calc(25%-1.25rem)] lg:top-[calc(50%-1.25rem)]">
                             <ion-icon name="swap-horizontal-outline" class="text-lg lg:text-xl"></ion-icon>
                         </button>
 

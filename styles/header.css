@@ -23,6 +23,10 @@ nav {
     }
 }
 
+#logo {
+    height: 48px;
+}
+
 .desktop-menu {
     display: none;
     color: #333;

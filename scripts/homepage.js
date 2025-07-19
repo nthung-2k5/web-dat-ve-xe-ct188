@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const heading = document.querySelector('.promo-voucher h2');
-    const paragraph = document.querySelector('.promo-voucher p');
+    const heading = document.querySelector('#promo-voucher a h2');
+    const paragraph = document.querySelector('#promo-voucher a p');
     const originalHeadingText = heading.textContent;
     heading.textContent = ''; // Xóa văn bản cho hiệu ứng máy đánh chữ
 
