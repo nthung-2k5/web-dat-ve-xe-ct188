@@ -1,17 +1,14 @@
 @import 'normalize.css';
 @import 'main.css';
 
-body {
+main {
     background-image: url('/images/background-dangky.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
 
     @media (min-width: 768px) {
         min-height: calc(100vh - 4rem);
@@ -36,7 +33,6 @@ main {
 
         >form {
             display: grid;
-            grid-template-columns: 1fr;
             gap: 1rem;
 
             @media (min-width: 768px) {
@@ -137,11 +133,12 @@ main {
         position: relative;
 
         >ion-icon:first-child {
-            position: absolute;
-            top: 50%;
             left: 0.75rem;
-            transform: translateY(-50%);
-            color: #6b7280;
+        }
+
+        >ion-icon.password-reveal {
+            right: 0.75rem;
+            cursor: pointer;
         }
 
         >input {
@@ -154,15 +151,6 @@ main {
                 border-color: red;
             }
         }
-
-        >ion-icon:last-child {
-            position: absolute;
-            top: 50%;
-            right: 0.75rem;
-            transform: translateY(-50%);
-            color: #6b7280;
-            cursor: pointer;
-        }
     }
 
     >span {
@@ -171,4 +159,11 @@ main {
         color: #ef4444;
         margin-top: 0.25rem;
     }
+}
+
+ion-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
 }

@@ -261,15 +261,15 @@
     },
     {
         "id": 14,
-        "company": "Phú Quốc Express",
+        "company": "Phương Trang",
         "departure": {
             "city": "Rạch Giá",
-            "location": "Cảng Rạch Giá",
+            "location": "Bến xe Rạch Giá",
             "time": "2025-07-31T09:00:00.000Z"
         },
         "arrival": {
-            "city": "Phú Quốc",
-            "location": "Cảng An Thới",
+            "city": "Cao Lãnh",
+            "location": "Bến xe Cao Lãnh",
             "time": "2025-07-31T11:30:00.000Z"
         },
         "price": 300000,
@@ -283,8 +283,8 @@
         "id": 15,
         "company": "Sao Việt",
         "departure": {
-            "city": "Quy Nhon",
-            "location": "Bến xe Quy Nhon",
+            "city": "Quy Nhơn",
+            "location": "Bến xe Quy Nhơn",
             "time": "2025-07-31T19:45:00.000Z"
         },
         "arrival": {

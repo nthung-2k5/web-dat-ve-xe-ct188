@@ -10,6 +10,10 @@
     --alternative-text-color: #404040;
 }
 
+div {
+    border: 2px solid blue !important;
+}
+
 body {
     background-color: var(--background-color);
     min-height: 100vh;

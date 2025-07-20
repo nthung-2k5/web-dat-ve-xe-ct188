@@ -6,7 +6,7 @@ import renderCard from './template.js';
 
 /**
  * Render danh sách các tuyến đường
- * @param {import('./state.js').Route[]} routes Danh sách tuyến đường
+ * @param {import('../api/routes').Route[]} routes Danh sách tuyến đường
  */
 const renderBusRoutes = async (routes) => {
     // Cập nhật số tuyến đường

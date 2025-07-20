@@ -48,7 +48,7 @@ const applyFilter = (data, params, predicate) => {
 
 /**
  * Áp dụng bộ lọc cho danh sách tuyến đường
- * @param {import('./state.js').Route[]} routes Danh sách tuyến đường cần lọc
+ * @param {import('../api/routes').Route[]} routes Danh sách tuyến đường cần lọc
  * @returns 
  */
 export const applyFilters = (routes) => {
@@ -98,7 +98,7 @@ export const applyFilters = (routes) => {
 
 /**
  * Áp dụng sắp xếp cho danh sách tuyến đường
- * @param {import('./state.js').Route[]} routes 
+ * @param {import('../api/routes').Route[]} routes 
  * @returns 
  */
 export const applySorting = (routes) => {

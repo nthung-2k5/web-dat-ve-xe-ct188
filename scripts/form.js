@@ -1,3 +1,7 @@
+/**
+ * 
+ * @param {HTMLFormElement} form 
+ */
 export const resetFormErrors = (form) => {
     const errorElements = form.querySelectorAll('.error');
     errorElements.forEach(el => {
@@ -9,6 +13,12 @@ export const resetFormErrors = (form) => {
     });
 };
 
+/**
+ * 
+ * @param {HTMLFormElement} form 
+ * @param {string} field 
+ * @param {string} errorMessage 
+ */
 export const showError = async (form, field, errorMessage) => {
     const errorElement = document.getElementById(`${field}-error`);
     if (errorElement) {
@@ -24,13 +34,18 @@ export const showError = async (form, field, errorMessage) => {
     form[field].focus();
 }
 
-export const getOrShowError = async (form, formData, field, errorMessage) => {
-    const value = formData.get(field)?.toString().trim();
-
-    if (!value) {
+/**
+ * 
+ * @param {HTMLFormElement} form 
+ * @param {string} field 
+ * @param {string} errorMessage 
+ * @returns 
+ */
+export const getOrShowError = async (form, field, errorMessage) => {
+    if (!form[field].checkValidity()) {
         await showError(form, field, errorMessage);
         return null;
     }
 
-    return value;
+    return form[field].value;
 };

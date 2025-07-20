@@ -1,13 +1,12 @@
+import { findRouteById } from "./api/routes.js";
+
 await (async () => {
     const info = new URLSearchParams(window.location.search);
 
-    const routes = await fetch('/data/bus-routes.json');
-    const routesData = await routes.json();
-
-    const route = routesData.find(r => r.id === parseInt(info.get('routeId')));
+    const route = findRouteById(parseInt(info.get('routeId')));
     if (!route) {
         alert("Không tìm thấy tuyến xe. Vui lòng đặt vé lại.");
-        window.location.href = "datve.html";
+        window.location.href = "search.html";
         return;
     }
 

@@ -28,73 +28,71 @@
             </div>
 
             <!-- Search Form -->
-            <div class="container search-form-container">
-                <form id="search-form">
-                    <div class="search-grid">
-                        <!-- From -->
-                        <div class="form-field">
-                            <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"></ion-icon>
-                            <div class="field-content">
-                                <label for="departure">Nơi xuất phát</label>
-                                <select name="departure" id="departure-select" required>
-                                    <option value="">Chọn điểm xuất phát</option>
-                                </select>
-                            </div>
+            <form class="container" id="search-form">
+                <div class="search-grid">
+                    <!-- From -->
+                    <div class="form-field">
+                        <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"></ion-icon>
+                        <div class="field-content">
+                            <label for="departure">Nơi xuất phát</label>
+                            <select name="departure" id="departure-select" required>
+                                <option value="">Chọn điểm xuất phát</option>
+                            </select>
                         </div>
-
-                        <!-- Swap Button -->
-                        <button type="button" id="swap-button" class="swap-button">
-                            <ion-icon name="swap-horizontal-outline"></ion-icon>
+                    </div>
+            
+                    <!-- Swap Button -->
+                    <button type="button" id="swap-button" class="swap-button">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon>
+                    </button>
+            
+                    <!-- To -->
+                    <div class="form-field">
+                        <ion-icon name="location"></ion-icon>
+                        <div class="field-content">
+                            <label for="arrival">Nơi đến</label>
+                            <select name="arrival" id="arrival-select" required>
+                                <option value="">Chọn điểm đến</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+            
+                    <!-- Date -->
+                    <div class="form-field">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <div class="field-content">
+                            <label for="depart-date">Ngày đi</label>
+                            <input type="date" id="depart-date" name="depart-date" required>
+                        </div>
+                    </div>
+            
+                    <!-- Add Return -->
+                    <div class="form-field return-field" id="return-input">
+                        <button type="button" class="add-return-btn"
+                            onclick="document.getElementById('return-input').setAttribute('data-return-input', '')">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                            <span>Thêm ngày về</span>
                         </button>
-
-                        <!-- To -->
-                        <div class="form-field">
-                            <ion-icon name="location"></ion-icon>
-                            <div class="field-content">
-                                <label for="arrival">Nơi đến</label>
-                                <select name="arrival" id="arrival-select" required>
-                                    <option value="">Chọn điểm đến</option>
-                                    <!-- Options will be populated by JavaScript -->
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Date -->
-                        <div class="form-field">
+                        <div class="return-content">
+                            <button type="button" class="close-btn"
+                                onclick="document.getElementById('return-input').removeAttribute('data-return-input')">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
                             <ion-icon name="calendar-outline"></ion-icon>
                             <div class="field-content">
-                                <label for="depart-date">Ngày đi</label>
-                                <input type="date" id="depart-date" name="depart-date" required>
-                            </div>
-                        </div>
-
-                        <!-- Add Return -->
-                        <div class="form-field return-field" id="return-input">
-                            <button type="button" class="add-return-btn"
-                                onclick="document.getElementById('return-input').setAttribute('data-return-input', '')">
-                                <ion-icon name="add-circle-outline"></ion-icon>
-                                <span>Thêm ngày về</span>
-                            </button>
-                            <div class="return-content">
-                                <button type="button" class="close-btn"
-                                    onclick="document.getElementById('return-input').removeAttribute('data-return-input')">
-                                    <ion-icon name="close-outline"></ion-icon>
-                                </button>
-                                <ion-icon name="calendar-outline"></ion-icon>
-                                <div class="field-content">
-                                    <label>Ngày về</label>
-                                    <input type="date" id="return-date" name="return-date" required>
-                                </div>
+                                <label>Ngày về</label>
+                                <input type="date" id="return-date" name="return-date" required>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Search Button -->
-                    <button type="submit" class="search-button">
-                        Tìm kiếm
-                    </button>
-                </form>
-            </div>
+                </div>
+            
+                <!-- Search Button -->
+                <button type="submit" class="search-button">
+                    Tìm kiếm
+                </button>
+            </form>
         </div>
     </section>
 

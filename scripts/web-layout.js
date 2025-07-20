@@ -110,7 +110,7 @@ class WebFooter extends HTMLElement {
             <ul>
                 <li>
                     <h4>Điện thoại:</h4>
-                    <p>+084 123 45678</p>
+                    <p>012 345 6789</p>
                 </li>
                 <li>
                     <h4>Địa chỉ:</h4>

@@ -1,7 +1,7 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
 import { getOrShowError, resetFormErrors } from './form.js';
 
-const getAccounts = () => {
+const listAccounts = () => {
     return [{
         name: 'Test User',
         email: 'test@example.com',
@@ -11,13 +11,14 @@ const getAccounts = () => {
 
 document.forms[0].addEventListener('submit', async (e) => {
     e.preventDefault();
+    
     const form = e.target;
     resetFormErrors(form);
 
     const formData = new FormData(form);
 
-    const email = await getOrShowError(form, formData, 'email', 'Vui lòng nhập email');
-    const password = await getOrShowError(form, formData, 'password', 'Vui lòng nhập mật khẩu');
+    const email = await getOrShowError(form, 'email', 'Vui lòng nhập email');
+    const password = await getOrShowError(form, 'password', 'Vui lòng nhập mật khẩu');
 
     if (!email || !password) {
         return;
@@ -25,8 +26,7 @@ document.forms[0].addEventListener('submit', async (e) => {
 
     const rememberMe = formData.get('remember-me') === 'on';
 
-    const accounts = getAccounts();
-    const account = accounts.find(acc => acc.email === email && acc.password === password);
+    const account = listAccounts().find(acc => acc.email === email && acc.password === password);
 
     if (account) {
         await Swal.fire({
@@ -46,12 +46,14 @@ document.forms[0].addEventListener('submit', async (e) => {
         if (redirectUrl) {
             // Nếu có redirectUrl (từ trang đặt vé gửi qua), thì quay về trang đó
             window.location.href = redirectUrl;
-        } else {
+        }
+        else {
             // Nếu không, về trang chủ như mặc định
             window.location.href = '/';
         }
 
-    } else {
+    }
+    else {
         await Swal.fire({
             icon: 'error',
             title: 'Đăng nhập thất bại',

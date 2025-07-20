@@ -1,71 +1,34 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/+esm';
-import { nameRegex } from './validation.js';
 
-const tryGetValue = async (formData, key, errorMessage) => {
-    const value = formData.get(key).toString().trim();
-    if (!value) {
+/**
+ * 
+ * @param {HTMLFormElement} form 
+ * @param {string} field 
+ * @param {string} errorTitle
+ * @param {string} errorMessage 
+ * @returns 
+ */
+const tryGetValue = async (form, field, errorTitle, errorMessage) => {
+    if (!form[field].checkValidity()) {
         await Swal.fire({
             icon: 'error',
-            title: 'Thông tin không đầy đủ',
+            title: errorTitle,
             text: errorMessage
         });
         return null;
     }
 
-    return value;
+    return form[field].value;
 }
 
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
+document.forms[0].addEventListener('submit', async (e) => {
     e.preventDefault();
+    const form = e.target;
 
-    const formData = new FormData(e.target);
-
-    const name = await tryGetValue(formData, 'name', 'Vui lòng nhập tên của bạn.'); if (!name) return;
-    const phone = await tryGetValue(formData, 'phone', 'Vui lòng nhập số điện thoại của bạn.'); if (!phone) return;
-    const email = await tryGetValue(formData, 'email', 'Vui lòng nhập địa chỉ email của bạn.'); if (!email) return;
-    const topic = await tryGetValue(formData, 'topic', 'Vui lòng chọn chủ đề cần liên hệ.'); if (!topic) return;
-    
-    // const message = formData.get('message').toString().trim();
-
-    // Kiểm tra tên
-    if (!nameRegex.test(name)) {
-        await Swal.fire({
-            icon: 'error',
-            title: 'Tên không hợp lệ',
-            text: 'Tên chỉ được chứa chữ cái và khoảng trắng.'
-        });
-        return;
-    }
-
-    if (name.length < 2 || name.length > 50) {
-        await Swal.fire({
-            icon: 'error',
-            title: 'Tên không hợp lệ',
-            text: 'Tên phải có độ dài từ 2 đến 50 ký tự.'
-        });
-        return;
-    }
-
-    // Kiểm tra email
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!emailRegex.test(email)) {
-        await Swal.fire({
-            icon: 'error',
-            title: 'Email không hợp lệ',
-            text: 'Vui lòng nhập đúng định dạng email.'
-        });
-        return;
-    }
-    // Kiểm tra số điện thoại (Việt Nam)
-    const phoneRegex = /^(0|\+84)[0-9]{9,10}$/;
-    if (!phoneRegex.test(phone)) {
-        await Swal.fire({
-            icon: 'error',
-            title: 'Số điện thoại không hợp lệ',
-            text: 'Vui lòng nhập đúng định dạng số điện thoại Việt Nam (ví dụ: 0123456789 hoặc +84123456789).'
-        });
-        return;
-    }
+    const name = await tryGetValue(form, 'name', 'Tên không hợp lệ', 'Tên chỉ được chứa chữ cái và khoảng trắng.'); if (!name) return;
+    const phone = await tryGetValue(form, 'phone', 'Số điện thoại không hợp lệ', 'Vui lòng nhập đúng định dạng số điện thoại Việt Nam (ví dụ: 0123456789 hoặc +84123456789).'); if (!phone) return;
+    const email = await tryGetValue(form, 'email', 'Email không hợp lệ', 'Vui lòng nhập đúng định dạng email.'); if (!email) return;
+    const topic = await tryGetValue(form, 'topic', 'Thông tin không đầy đủ', 'Vui lòng chọn chủ đề cần liên hệ.'); if (!topic) return;
 
     // Dữ liệu hợp lệ, gửi yêu cầu
     await Swal.fire({
@@ -74,5 +37,5 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         text: 'Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi sớm nhất có thể.'
     });
 
-    e.target.reset();
+    form.reset();
 });

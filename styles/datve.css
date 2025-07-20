@@ -10,13 +10,10 @@
     >span {
         position: absolute;
         inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        place-items: center;
         font-size: 0.875rem;
-        /* text-sm */
         font-weight: 600;
-        /* font-semibold */
     }
 
     &.selected {
@@ -65,11 +62,6 @@ input.input {
     }
 }
 
-.valid-feedback,
-.invalid-feedback {
-    display: none !important;
-}
-
 .form-group {
     margin-bottom: 1rem;
 }
@@ -80,7 +72,6 @@ main {
 
 form {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 1rem;
 
     @media (min-width: 1024px) {
@@ -193,7 +184,6 @@ form {
         width: 100%;
         font-size: 1rem;
         display: grid;
-        grid-template-columns: 1fr;
         gap: 0.5rem;
 
         >div {

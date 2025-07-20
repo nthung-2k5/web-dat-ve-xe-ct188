@@ -2,7 +2,7 @@ import * as utils from './utils.js';
 
 /**
  * Render một ô cho một tuyến đường
- * @param {import('./state.js').Route} route 
+ * @param {import('../api/routes').Route} route 
  * @returns 
  */
 export default function renderCard(route) {
