@@ -56,7 +56,7 @@ a.active,
 }
 
 #mobile-button {
-    margin-right: -0.5rem;
+    margin-right: 0.5rem;
     display: flex;
 
     @media (min-width: 1024px) {
@@ -85,12 +85,18 @@ a.active,
 
 }
 
-#mobile-menu>div {
-    display: flex;
-    flex-direction: column;
-    color: #4b5563;
-    gap: 1rem;
-    padding: 0.5rem 2rem;
+#mobile-menu {
+    @media (min-width: 1024px) {
+        display: none;
+    }
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        color: #4b5563;
+        gap: 1rem;
+        padding: 0.5rem 2rem;
+    }
 }
 
 .hidden {
