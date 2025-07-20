@@ -104,8 +104,8 @@ class WebFooter extends HTMLElement {
         this.shadowRoot.innerHTML = `
 <link rel="stylesheet" href="/styles/footer.css">
 <footer>
-    <article>
-        <section>
+    <section>
+        <div>
             <h3>Chăm sóc khách hàng</h3>
             <ul>
                 <li>
@@ -121,9 +121,9 @@ class WebFooter extends HTMLElement {
                     <p>hotro@route3go.vn</p>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <div>
             <h3>Kết nối</h3>
             <ul>
                 <li>
@@ -142,9 +142,9 @@ class WebFooter extends HTMLElement {
                     </a>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <div>
             <h3>Route3Go</h3>
             <ul>
                 <li>
@@ -166,9 +166,9 @@ class WebFooter extends HTMLElement {
                     <a href="/dangky.html">Đăng ký</a>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <div>
             <h3>Hỗ trợ</h3>
             <ul>
                 <li>
@@ -184,8 +184,8 @@ class WebFooter extends HTMLElement {
                     <a href="#">Hướng dẫn đặt vé</a>
                 </li>
             </ul>
-        </section>
-    </article>
+        </div>
+    </section>
 
     <p id="copyright">
         © 2025 | Bản quyền thuộc về Công ty Route3Go – Cần Thơ | Chịu trách nhiệm quản lý nội dung: Nhóm 03.
