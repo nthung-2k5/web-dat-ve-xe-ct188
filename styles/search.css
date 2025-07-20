@@ -9,22 +9,6 @@ ion-icon {
     --ionicon-stroke-width: 3rem;
 }
 
-/* p,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    border: 3px solid green !important;
-}
-
-a,
-button {
-    border: 3px solid red !important;
-} */
-
 .hero-section {
     background-color: white;
     padding: 2rem 0;
