@@ -11,7 +11,6 @@ export default function renderCard(route) {
     tempDiv.innerHTML = `
 <article class="trip-card">
     <div class="desktop-layout">
-        <!-- Left: Bus Image (hidden on lg and below) -->
         <img src="${route.image}" class="bus-image" alt="Bus Image">
         <div class="company-info">
             <div class="header">
@@ -28,7 +27,6 @@ export default function renderCard(route) {
             <p class="availability">Còn ${route.availableSeats} chỗ trống</p>
         </div>
 
-        <!-- Departure Info -->
         <div class="departure-info">
             <div class="timeline">
                 <div class="timeline-item">
@@ -52,7 +50,6 @@ export default function renderCard(route) {
     </div>
 
     <div class="mobile-layout" id="mobile-card" onclick="window.location.href='datve.html?routeId=${route.id}'">
-        <!-- Mobile Header -->
         <div class="mobile-header">
             <h5>${route.company}</h5>
             <span class="rating">
@@ -70,7 +67,6 @@ export default function renderCard(route) {
             <span class="time arrival">${utils.formatTime(route.arrival.time)}</span>
         </div>
 
-        <!-- Mobile Route Info -->
         <div class="mobile-route-info">
             <span>${route.departure.location}</span>
             <span>${route.arrival.location}</span>
@@ -78,7 +74,6 @@ export default function renderCard(route) {
 
         <hr class="divider" />
 
-        <!-- Mobile Details -->
         <div class="mobile-details">
             <div class="details-left">
                 <span>• Xe ${route.totalSeats} chỗ</span>

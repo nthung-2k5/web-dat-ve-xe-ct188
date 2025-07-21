@@ -27,7 +27,6 @@
 
             <form class="container" id="search-form">
                 <div>
-                    <!-- From -->
                     <div class="form-field">
                         <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"></ion-icon>
                         <div class="field-content">
@@ -38,7 +37,6 @@
                         </div>
                     </div>
 
-                    <!-- To -->
                     <div class="form-field">
                         <ion-icon name="location"></ion-icon>
                         <div class="field-content">
@@ -49,7 +47,6 @@
                         </div>
                     </div>
 
-                    <!-- Date -->
                     <div class="form-field">
                         <ion-icon name="calendar-outline"></ion-icon>
                         <div class="field-content">
@@ -58,7 +55,6 @@
                         </div>
                     </div>
 
-                    <!-- Add Return -->
                     <div class="form-field return-field" id="return-input">
                         <button type="button" class="add-return-btn"
                             onclick="document.getElementById('return-input').setAttribute('data-return-input', '')">
@@ -78,20 +74,17 @@
                         </div>
                     </div>
 
-                    <!-- Swap Button -->
                     <button type="button" id="swap-button" class="swap-button">
                         <ion-icon name="swap-horizontal-outline"></ion-icon>
                     </button>
                 </div>
 
-                <!-- Search Button -->
                 <button type="submit">
                     Tìm kiếm
                 </button>
             </form>
         </section>
 
-        <!-- Search Results Section -->
         <section id="main-content" class="container">
             <section id="selected-route" data-selected-route="departure" data-depart-only class="route-selector">
                 <div class="route-option">
@@ -107,14 +100,12 @@
                 </div>
             </section>
 
-            <!-- Filters Column -->
             <aside id="filters-panel">
                 <div class="filters-header">
                     <h3 style="color: #1f2937;">Bộ lọc</h3>
                     <button class="reset-button" id="reset-button">Đặt lại</button>
                 </div>
 
-                <!-- Price Filter -->
                 <section class="filter-section">
                     <button data-toggle-filter="price-filter">
                         <h6>Khoảng giá</h6>
@@ -136,7 +127,6 @@
                     </div>
                 </section>
 
-                <!-- Bus Type Filter -->
                 <section class="filter-section">
                     <button data-toggle-filter="total-seats-filter">
                         <h6>Loại xe</h6>
@@ -158,7 +148,6 @@
                     </div>
                 </section>
 
-                <!-- Departure Time Filter -->
                 <section class="filter-section">
                     <button data-toggle-filter="time-filter">
                         <h6>Giờ khởi hành</h6>
@@ -202,7 +191,6 @@
                     </div>
                 </section>
 
-                <!-- Rating Filter -->
                 <section class="filter-section">
                     <button data-toggle-filter="rating-filter">
                         <h6>Đánh giá</h6>
@@ -245,7 +233,7 @@
                     </div>
                 </section>
             </aside>
-            <!-- Results Column -->
+            
             <div id="results-section">
                 <div class="results-header">
                     <span id="results-count">Đang tìm kiếm...</span>
@@ -260,10 +248,7 @@
                     </select>
                 </div>
 
-                <!-- Bus Results Container -->
-                <div id="routes-results">
-                    <!-- Results will be populated here -->
-                </div>
+                <div id="routes-results"></div>
             </div>
         </section>
     </main>

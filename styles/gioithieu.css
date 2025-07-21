@@ -1,31 +1,28 @@
 @import 'normalize.css';
 @import 'main.css';
 
-/* Splide carousel styles */
 .splide__slide img {
     width: 100%;
     object-fit: cover;
     height: 600px;
 }
 
-/* Main layout */
 main {
     display: grid;
     gap: 2rem;
 }
 
-/* Section base styles */
 section {
     margin: 0 auto;
     padding: 2rem;
     background-color: white;
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
 
-    >h2 {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
+section>h2 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .card {
@@ -38,60 +35,57 @@ section {
     text-align: center;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: transform 150ms;
-
-    &:hover {
-        transform: scale(1.05);
-    }
-
-    >ion-icon {
-        color: var(--heading-color);
-        font-size: 1.875rem;
-        margin-bottom: 1rem;
-    }
-
-    >h4 {
-        margin: 0.75rem 0;
-    }
 }
 
-/* About section layout */
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card>ion-icon {
+    color: var(--heading-color);
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+}
+
+.card>h4 {
+    margin: 0.75rem 0;
+}
+
 #about-section {
     display: grid;
     gap: 2rem;
+}
 
-    >div {
-        display: grid;
-        gap: 1.5rem;
+#about-section>div {
+    display: grid;
+    gap: 1.5rem;
+}
 
-        @media (min-width: 768px) {
-            &:nth-child(odd) {
-                grid-template-columns: 9fr 11fr;
-            }
+@media (min-width: 768px) {
+    #about-section>div:nth-child(odd) {
+        grid-template-columns: 9fr 11fr;
+    }
 
-            &:nth-child(even) {
-                grid-template-columns: 11fr 9fr;
-            }
-        }
+    #about-section>div:nth-child(even) {
+        grid-template-columns: 11fr 9fr;
+    }
+}
 
-        &:nth-child(even) {
-            .about-content {
-                order: unset;
-            }
+#about-section>div:nth-child(even) .about-content {
+    order: unset;
+}
 
-            .about-img {
-                order: unset;
-            }
+#about-section>div:nth-child(even) .about-img {
+    order: unset;
+}
 
-            @media (min-width: 1024px) {
-                .about-content {
-                    order: 1;
-                }
+@media (min-width: 1024px) {
+    #about-section>div:nth-child(even) .about-content {
+        order: 1;
+    }
 
-                .about-img {
-                    order: 2;
-                }
-            }
-        }
+    #about-section>div:nth-child(even) .about-img {
+        order: 2;
     }
 }
 
@@ -100,27 +94,26 @@ section {
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     margin-bottom: auto;
-
-    >img {
-        transition: transform 300ms;
-        min-height: 340px;
-        object-fit: cover;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
 }
 
-/* About content */
+.about-img>img {
+    transition: transform 300ms;
+    min-height: 340px;
+    object-fit: cover;
+}
+
+.about-img>img:hover {
+    transform: scale(1.05);
+}
+
 .about-content {
     font-size: 1.125rem;
     line-height: 2.25rem;
     color: #27272a;
+}
 
-    >h2 {
-        margin-bottom: 0.75rem;
-    }
+.about-content>h2 {
+    margin-bottom: 0.75rem;
 }
 
 .achievement-container {
@@ -141,25 +134,29 @@ section {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
 
-    &:hover {
-        transform: translateY(-0.25rem);
-    }
+.achievement:hover {
+    transform: translateY(-0.25rem);
+}
 
-    >ion-icon {
-        color: #facc15;
-    }
+.achievement>ion-icon {
+    color: #facc15;
 }
 
 #features-section>div {
     display: grid;
     gap: 1.5rem;
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+    #features-section>div {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    #features-section>div {
         grid-template-columns: repeat(4, 1fr);
     }
 }
@@ -167,8 +164,10 @@ section {
 #reviews-section>div {
     display: grid;
     gap: 1.5rem;
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    #reviews-section>div {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -178,18 +177,18 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
+}
 
-    img {
-        height: 3rem;
-    }
+#partners-section>div img {
+    height: 3rem;
 }
 
 #cta-section {
     background-color: #7dd3fc;
     text-align: center;
     padding: 4rem 0;
+}
 
-    h1 {
-        color: #0c4a6e !important;
-    }
+#cta-section h1 {
+    color: #0c4a6e !important;
 }

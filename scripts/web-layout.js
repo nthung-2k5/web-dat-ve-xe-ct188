@@ -59,14 +59,12 @@ root.querySelectorAll('a[href="' + window.location.pathname + '"]').forEach(a =>
                 `}
             </div>
             <div id="mobile-button">
-                <!-- Mobile menu button -->
                 <button type="button" onclick="document.getElementsByTagName('web-header')[0].shadowRoot.getElementById('mobile-menu').classList.toggle('hidden')">
                     <ion-icon name="menu-outline" size="large"></ion-icon>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile menu, show/hide based on menu state. -->
         <div class="hidden" id="mobile-menu">
             <div>
                 <a href="/">Trang chủ</a>

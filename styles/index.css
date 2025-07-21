@@ -8,38 +8,35 @@ body {
 #promo-voucher {
     background: linear-gradient(90deg, #228d29, #0a975a);
     border-radius: 0.5rem;
+}
 
-    a {
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1.2rem 2rem;
-        gap: 1rem;
+#promo-voucher a {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem 2rem;
+    gap: 1rem;
+}
 
-        h2 {
-            color: white;
-            font-weight: bold;
-            font-size: 1.875rem;
-            line-height: 2.25rem;
-        }
+#promo-voucher a h2 {
+    color: white;
+}
 
-        p {
-            font-size: 1.125rem;
-            line-height: 1.75rem;
-        }
+#promo-voucher a p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
 
-        img {
-            margin-right: 1rem;
-            max-height: 100%;
-            max-width: 100%;
-            width: 100%;
-            height: 270px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px;
-        }
-    }
+#promo-voucher a img {
+    margin-right: 1rem;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px;
 }
 
 .typewriter-text {
@@ -112,7 +109,6 @@ body {
 #banner-img {
     animation: bounceIn 0.8s ease-out forwards;
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
@@ -123,75 +119,77 @@ section {
     padding: 2.5rem;
     margin: 3rem auto;
     background-color: #fff;
+}
 
-    >h2 {
-        margin-bottom: 1rem;
-        text-align: center;
-        font-size: 1.875rem;
-        color: #1e40af;
-        font-weight: 600;
-    }
+section>h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1e40af;
+}
 
-    >p {
-        margin-bottom: 2rem;
-        color: oklch(44.6% 0.03 256.802);
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-        text-align: center;
-    }
+section>p {
+    margin-bottom: 2rem;
+    color: oklch(44.6% 0.03 256.802);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    text-align: center;
 }
 
 #routes-section {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1.5rem;
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+    #routes-section {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    #routes-section {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
 
-    .route-card {
-        display: grid;
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        background-color: white;
-        overflow: hidden;
-        text-align: left;
+#routes-section .route-card {
+    display: grid;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+    overflow: hidden;
+    text-align: left;
+}
 
-        &:hover {
-            transform: scale(1.05);
-        }
+#routes-section .route-card:hover {
+    transform: scale(1.05);
+}
 
-        img {
-            object-fit: cover;
-            width: 100%;
-            height: 200px;
-        }
+#routes-section .route-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
 
-        div {
-            padding: 1rem;
+#routes-section .route-card div {
+    padding: 1rem;
+}
 
-            h5 {
-                font-weight: 600;
-                font-size: 1.125rem;
-                line-height: 1.75rem;
-            }
+#routes-section .route-card div h5 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
 
-            p {
-                color: #374151;
-            }
+#routes-section .route-card div p {
+    color: #374151;
+}
 
-            b {
-                color: #ef4444;
-                font-weight: bold;
-            }
-        }
-    }
+#routes-section .route-card div b {
+    color: #ef4444;
+    font-weight: bold;
 }
 
 #news-section {
@@ -199,52 +197,51 @@ section {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     text-align: center;
     gap: 1rem;
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    #news-section {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
 
-    .news-card {
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        background-color: white;
-        overflow: hidden;
+#news-section .news-card {
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+    overflow: hidden;
+}
 
-        img {
-            object-fit: cover;
-            width: 100%;
-            height: 600px;
-        }
+#news-section .news-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 600px;
+}
 
-        &:hover {
-            transform: scale(1.05);
-        }
+#news-section .news-card:hover {
+    transform: scale(1.05);
+}
 
-        div {
-            padding: 1rem;
+#news-section .news-card div {
+    padding: 1rem;
+}
 
-            h3 {
-                font-weight: 600;
-                font-size: 1.25rem;
-                line-height: 1.75rem;
-                margin-bottom: 0.5rem;
-            }
+#news-section .news-card div h3 {
+    margin-bottom: 0.5rem;
+}
 
-            p {
-                color: #374151;
-                margin-bottom: 1rem;
-            }
+#news-section .news-card div p {
+    color: #374151;
+    margin-bottom: 1rem;
+}
 
-            a {
-                background: linear-gradient(90deg, #009ffd, #2a5298);
-                padding: 0.5rem 1rem;
-                color: white;
-                border-radius: 9999px;
-                text-decoration: none;
-            }
-        }
-    }
+#news-section .news-card div a {
+    background: linear-gradient(90deg, #009ffd, #2a5298);
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 9999px;
+    text-decoration: none;
 }
 
 #review-section {
@@ -252,26 +249,25 @@ section {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1.5rem;
     text-align: center;
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    #review-section {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
 
-    .review-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+#review-section .review-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
-        h3 {
-            font-size: 1.5rem;
-            line-height: 2rem;
-            color: #222;
-            font-weight: bold;
-        }
+#review-section .review-item h3 {
+    color: #222;
+}
 
-        p {
-            color: #255;
-        }
-    }
+#review-section .review-item p {
+    color: #255;
 }

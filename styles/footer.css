@@ -10,34 +10,38 @@ section {
     padding: 2rem 1rem;
     display: grid;
     justify-content: space-around;
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+    section {
         grid-template-columns: repeat(2, 240px);
     }
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    section {
         grid-template-columns: repeat(4, 240px);
     }
+}
 
-    > div {
-        flex: 1 1 0%;
-        display: flex;
-        flex-direction: column;
-        padding: 1.25rem;
-        box-sizing: border-box;
+section>div {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
 
-        >h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+section>div>h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
 
-        >ul {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-    }
+section>div>ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 a {
@@ -47,10 +51,10 @@ a {
     text-decoration: none;
     color: #f4f4f5;
     transition: color 0.2s;
+}
 
-    &:hover {
-        color: #0284c7;
-    }
+a:hover {
+    color: #0284c7;
 }
 
 #copyright {
