@@ -9,7 +9,7 @@ export default function renderCard(route) {
     // Thủ thuật để tạo một phần tử từ string
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = `
-<div class="card">
+<article class="trip-card">
     <div class="desktop-layout">
         <!-- Left: Bus Image (hidden on lg and below) -->
         <img src="${route.image}" class="bus-image" alt="Bus Image">
@@ -87,7 +87,7 @@ export default function renderCard(route) {
             <div class="price">${utils.formatPrice(route.price)}</div>
         </div>
     </div>
-</div>`;
+</article>`;
 
     return tempDiv.firstElementChild;
 }

@@ -17,19 +17,16 @@
     <link rel="stylesheet" href="/styles/search.css">
 </head>
 
-<body>
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-title">
-                <h1>Đặt vé xe khách online</h1>
-                <p>Đơn giản • Nhanh chóng • An toàn</p>
+<body style="background-color: white;">
+    <main>
+        <section id="hero">
+            <div id="hero-title">
+                <h1 style="color: white; margin-bottom: 0.5rem;">Đặt vé xe khách online</h1>
+                <p style="color: rgba(255, 255, 255, 0.8);">Đơn giản • Nhanh chóng • An toàn</p>
             </div>
 
-            <!-- Search Form -->
             <form class="container" id="search-form">
-                <div class="search-grid">
+                <div>
                     <!-- From -->
                     <div class="form-field">
                         <ion-icon name="ellipse-outline" style="--ionicon-stroke-width: 8rem;"></ion-icon>
@@ -40,12 +37,7 @@
                             </select>
                         </div>
                     </div>
-            
-                    <!-- Swap Button -->
-                    <button type="button" id="swap-button" class="swap-button">
-                        <ion-icon name="swap-horizontal-outline"></ion-icon>
-                    </button>
-            
+
                     <!-- To -->
                     <div class="form-field">
                         <ion-icon name="location"></ion-icon>
@@ -53,11 +45,10 @@
                             <label for="arrival">Nơi đến</label>
                             <select name="arrival" id="arrival-select" required>
                                 <option value="">Chọn điểm đến</option>
-                                <!-- Options will be populated by JavaScript -->
                             </select>
                         </div>
                     </div>
-            
+
                     <!-- Date -->
                     <div class="form-field">
                         <ion-icon name="calendar-outline"></ion-icon>
@@ -66,7 +57,7 @@
                             <input type="date" id="depart-date" name="depart-date" required>
                         </div>
                     </div>
-            
+
                     <!-- Add Return -->
                     <div class="form-field return-field" id="return-input">
                         <button type="button" class="add-return-btn"
@@ -86,44 +77,47 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Swap Button -->
+                    <button type="button" id="swap-button" class="swap-button">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon>
+                    </button>
                 </div>
-            
+
                 <!-- Search Button -->
-                <button type="submit" class="search-button">
+                <button type="submit">
                     Tìm kiếm
                 </button>
             </form>
-        </div>
-    </section>
+        </section>
 
-    <!-- Search Results Section -->
-    <section class="main-content container">
-        <div id="selected-route" data-selected-route="departure" data-depart-only class="route-selector">
-            <div class="route-option">
-                <h4>Chuyến đi</h4>
-                <h3 id="departure-route-display">Chọn tuyến đường</h3>
-                <p id="departure-date-display">Chọn ngày</p>
-            </div>
-            <div class="route-divider"></div>
-            <div class="route-option">
-                <h4>Chuyến về</h4>
-                <h3 id="return-route-display">Chọn tuyến đường</h3>
-                <p id="return-date-display">Chọn ngày</p>
-            </div>
-        </div>
+        <!-- Search Results Section -->
+        <section id="main-content" class="container">
+            <section id="selected-route" data-selected-route="departure" data-depart-only class="route-selector">
+                <div class="route-option">
+                    <h4>Chuyến đi</h4>
+                    <h3 id="departure-route-display">Chọn tuyến đường</h3>
+                    <p id="departure-date-display">Chọn ngày</p>
+                </div>
+                <div class="route-divider"></div>
+                <div class="route-option">
+                    <h4>Chuyến về</h4>
+                    <h3 id="return-route-display">Chọn tuyến đường</h3>
+                    <p id="return-date-display">Chọn ngày</p>
+                </div>
+            </section>
 
-        <div class="content-grid">
             <!-- Filters Column -->
-            <div class="filters-panel" id="filters-panel">
+            <aside id="filters-panel">
                 <div class="filters-header">
-                    <h3>Bộ lọc</h3>
+                    <h3 style="color: #1f2937;">Bộ lọc</h3>
                     <button class="reset-button" id="reset-button">Đặt lại</button>
                 </div>
 
                 <!-- Price Filter -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <button data-toggle-filter="price-filter">
-                        <h4>Khoảng giá</h4>
+                        <h6>Khoảng giá</h6>
                         <ion-icon name="chevron-down-outline" id="price-filter-icon"></ion-icon>
                     </button>
                     <div class="filter-content space-y-3" id="price-filter-content">
@@ -140,12 +134,12 @@
                             <span>Trên 1.000.000đ</span>
                         </label>
                     </div>
-                </div>
+                </section>
 
                 <!-- Bus Type Filter -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <button data-toggle-filter="total-seats-filter">
-                        <h4>Loại xe</h4>
+                        <h6>Loại xe</h6>
                         <ion-icon name="chevron-down-outline" id="total-seats-filter-icon"></ion-icon>
                     </button>
                     <div class="filter-content space-y-3" id="total-seats-filter-content">
@@ -162,12 +156,12 @@
                             <span>45 chỗ</span>
                         </label>
                     </div>
-                </div>
+                </section>
 
                 <!-- Departure Time Filter -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <button data-toggle-filter="time-filter">
-                        <h4>Giờ khởi hành</h4>
+                        <h6>Giờ khởi hành</h6>
                         <ion-icon name="chevron-down-outline" id="time-filter-icon"></ion-icon>
                     </button>
                     <div class="filter-content" id="time-filter-content">
@@ -206,15 +200,15 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Rating Filter -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <button data-toggle-filter="rating-filter">
-                        <h4>Đánh giá</h4>
+                        <h6>Đánh giá</h6>
                         <ion-icon name="chevron-down-outline" id="rating-filter-icon"></ion-icon>
                     </button>
-                    <div class="filter-content space-y-2" id="rating-filter-content">
+                    <div class="filter-content space-y-3" id="rating-filter-content">
                         <label class="filter-checkbox">
                             <input type="checkbox" name="5">
                             <div class="rating-stars">
@@ -249,33 +243,30 @@
                             <span>3+ sao</span>
                         </label>
                     </div>
-                </div>
-            </div>
+                </section>
+            </aside>
             <!-- Results Column -->
-            <div class="results-section">
+            <div id="results-section">
                 <div class="results-header">
-                    <span id="results-count" class="results-count">Đang tìm kiếm...</span>
-                    <div class="sort-controls">
-                        <!-- Sort Dropdown -->
-                        <select id="sort-select">
-                            <option value="default">Mặc định</option>
-                            <option value="price-low">Giá thấp đến cao</option>
-                            <option value="price-high">Giá cao đến thấp</option>
-                            <option value="departure-early">Khởi hành sớm nhất</option>
-                            <option value="departure-late">Khởi hành muộn nhất</option>
-                            <option value="rating">Đánh giá cao nhất</option>
-                            <option value="duration">Thời gian di chuyển</option>
-                        </select>
-                    </div>
+                    <span id="results-count">Đang tìm kiếm...</span>
+                    <select id="sort-select">
+                        <option value="default">Mặc định</option>
+                        <option value="price-low">Giá thấp đến cao</option>
+                        <option value="price-high">Giá cao đến thấp</option>
+                        <option value="departure-early">Khởi hành sớm nhất</option>
+                        <option value="departure-late">Khởi hành muộn nhất</option>
+                        <option value="rating">Đánh giá cao nhất</option>
+                        <option value="duration">Thời gian di chuyển</option>
+                    </select>
                 </div>
 
                 <!-- Bus Results Container -->
-                <div id="routes-results" class="results-grid">
+                <div id="routes-results">
                     <!-- Results will be populated here -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </body>
 
 </html>

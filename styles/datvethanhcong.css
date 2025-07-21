@@ -325,14 +325,6 @@ main {
                     gap: 0.5rem;
                     color: white;
 
-                    &.btn-print {
-                        background-color: #3b82f6;
-
-                        &:hover {
-                            background-color: #2563eb;
-                        }
-                    }
-
                     &.btn-new {
                         background-color: #22c55e;
 
@@ -354,29 +346,5 @@ main {
                 }
             }
         }
-    }
-}
-
-@media print {
-    body {
-        background: white !important;
-        font-size: 12px !important;
-    }
-
-    web-header,
-    web-footer,
-    .card-footer {
-        display: none !important;
-    }
-
-    .main-container {
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .ticket-card .card-container {
-        box-shadow: none !important;
-        border: 1px solid #ccc !important;
     }
 }
